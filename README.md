@@ -12,7 +12,7 @@ Appointment scheduling is done through a synchronized calendar that excludes alr
 
 The project includes the creation of a frontend and backend, as well as the integration of the Google Calendar API. In addition, a website will be created to display and confirm appointments.
 
-##Team Members and Roles
+## Team Members and Roles
 The project team consists of three members, each taking on individual tasks within the overall project:
 
 D. Mardaus: UI/UX, self-service technologies, digitization of small businesses, Xamarin
