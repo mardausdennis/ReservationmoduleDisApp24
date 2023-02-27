@@ -1,5 +1,9 @@
 # Reservation module of the Android app DisApp24 / Diploma Thesis HTBLuVA Wiener Neustadt
 
+## Project Plan
+Check out our detailed project plan [here](https://docs.google.com/document/d/1L6PcH95zFZOHiQwp8dvAuzCZ7MBv1anFZxgvv-mOmqw/edit?usp=sharing), where we have outlined the timeline, tasks, and responsibilities for the development of the resource reservation module for DisApp24.
+
+
 ## Background and Objectives
 The primary objective of this thesis is to develop a resource reservation module for the Android app DisApp24, which was launched by Pod2Brain as a beta version for small and medium-sized enterprises to facilitate their entry into digitization. The app already offers the possibility to display and configure custom RSS feeds. With the integration of the reservation module, efficient appointment scheduling should be enabled for both customers and providers, which is easy to use and multilingual.
 
