@@ -1,9 +1,9 @@
 # Reservation module of the Android app DisApp24 / Diploma Thesis HTBLuVA Wiener Neustadt
 
-##Background and Objectives
+## Background and Objectives
 The primary objective of this thesis is to develop a resource reservation module for the Android app DisApp24, which was launched by Pod2Brain as a beta version for small and medium-sized enterprises to facilitate their entry into digitization. The app already offers the possibility to display and configure custom RSS feeds. With the integration of the reservation module, efficient appointment scheduling should be enabled for both customers and providers, which is easy to use and multilingual.
 
-##Project Scope
+## Project Scope
 The resource reservation module is expected to achieve the following objectives:
 
 Customers should be able to select and request an appointment using the app, while providers can process requests through a website that displays all Google Calendar-synchronized appointments in a list. It is important that providers have the ability to easily confirm or reject requested appointments. A notification should be sent to the customer to inform them of the provider's decision.
@@ -20,7 +20,7 @@ K. Koller: Google API integration, authentication and security, backend technolo
 L. Ivos: data protection, app Google Play Store, customer recovery with push notifications + emails and bonuses, testing
 Clear assignment of tasks and responsibilities within the team ensures that each task is professionally and purposefully addressed.
 
-##App Functionalities and Characteristics
+## App Functionalities and Characteristics
 DisApp24 is an innovative Android app that makes it easier for small and medium-sized enterprises to enter the world of digitization. One of the most important features of the app is the ability to select and request an appointment through the app. The resource reservation module is expected to enable efficient appointment scheduling that is easy to use for both customers and providers. A synchronized calendar is expected to ensure that already reserved time slots are excluded. The module will be integrated into the existing DisApp24 and is expected to provide a user-friendly interface and multilingualism. Customers can enter their first and last name, contact information, and optional comments when requesting an appointment. Providers can receive a list of all appointments on a website that is synchronized with Google Calendar, and confirm or reject requested appointments. Customers receive a notification if the appointment is confirmed or rejected. All confirmed and open appointments are listed on the provider's website, which they can edit with a click of a button. After making a decision, customers receive a notification through the app and can view their appointments under "My Appointments".
 
 DisApp24 already offers the ability to display and configure custom RSS feeds. The resource reservation module expands the functionalities of the app and enables small and medium-sized businesses to simplify and digitize their appointment management. The app provides a simple and intuitive user interface and is capable of meeting the needs of both customers and providers.
