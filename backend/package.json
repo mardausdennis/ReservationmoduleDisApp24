@@ -1,0 +1,35 @@
+{
+  "name": "reservationmodule-backend",
+  "version": "1.0.0",
+  "description": "Backend for the DisApp24 reservation module, providing REST API endpoints for managing appointments and resources in a small and medium-sized business setting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mardausdennis/ReservationmoduleDisApp24.git"
+  },
+  "keywords": [
+    "reservation",
+    "booking",
+    "appointments",
+    "scheduling",
+    "DisApp24",
+    "Android",
+    "backend",
+    "Node.js",
+    "REST",
+    "API",
+    "small",
+    "business",
+    "medium",
+    "business"
+  ],
+  "author": "Dennis Mardaus, Kevin Koller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mardausdennis/ReservationmoduleDisApp24/issues"
+  },
+  "homepage": "https://github.com/mardausdennis/ReservationmoduleDisApp24#readme"
+}
