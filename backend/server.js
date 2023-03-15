@@ -49,6 +49,8 @@ app.get('/auth/callback', async (req, res) => {
   }
 });
 
+app.set('oauth2Client', oauth2Client);
+
 //eigenen Routen definieren
 app.use('/calendar', calendar);
 
