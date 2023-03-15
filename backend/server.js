@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const calendar = require('./routes/calendar');
 
-dotenv.config();
 const result = dotenv.config();
 if (result.error) {
   throw result.error;
@@ -18,6 +17,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const OAuth2 = google.auth.OAuth2;
+
+//TESTING (delete later)
+console.log('Client ID:', process.env.GOOGLE_CLIENT_ID);
+console.log('Client Secret:', process.env.GOOGLE_CLIENT_SECRET);
+console.log('Redirect URI:', process.env.GOOGLE_REDIRECT_URI);
 
 const oauth2Client = new OAuth2(
     process.env.GOOGLE_CLIENT_ID,
@@ -45,7 +49,11 @@ app.get('/auth/callback', async (req, res) => {
     const { tokens } = await oauth2Client.getToken(code);
     oauth2Client.setCredentials(tokens);
 
-    process.env.REFRESH_TOKEN = tokens.refresh_token;
+    //TESTING (delete later)
+    // Zeige das Refresh-Token in der Konsole an
+    console.log('Refresh-Token:', tokens.refresh_token);
+
+    process.env.GOOGLE_REFRESH_TOKEN = tokens.refresh_token;
 
     res.send('Authentifizierung erfolgreich. Sie können jetzt die API verwenden.');
   } catch (error) {
