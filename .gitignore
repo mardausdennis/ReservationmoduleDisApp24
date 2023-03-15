@@ -1,0 +1,7 @@
+# .gitignore
+
+# Ignoriere die .env-Datei, um Anmeldeinformationen zu schützen
+.env
+
+# Ignoriere den node_modules-Ordner
+node_modules/
