@@ -6,6 +6,10 @@ const cors = require('cors');
 const calendar = require('./routes/calendar');
 
 dotenv.config();
+const result = dotenv.config();
+if (result.error) {
+  throw result.error;
+}
 
 const app = express();
 
@@ -16,10 +20,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const OAuth2 = google.auth.OAuth2;
 
 const oauth2Client = new OAuth2(
-  process.env.CLIENT_ID,
-  process.env.CLIENT_SECRET,
-  process.env.REDIRECT_URI
-);
+    process.env.GOOGLE_CLIENT_ID,
+    process.env.GOOGLE_CLIENT_SECRET,
+    process.env.GOOGLE_REDIRECT_URI
+  );
 
 function getAuthUrl() {
   const authUrl = oauth2Client.generateAuthUrl({
