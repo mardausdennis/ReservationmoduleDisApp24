@@ -4,12 +4,19 @@
     <CollectionView x:Name="RssFeedView" ItemsSource="{Binding RssItems}" BackgroundColor="White">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Grid Padding="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Text="{Binding Title.Text}" TextColor="Black" FontSize="16" />
-                </Grid>
+                <Frame Padding="10" Margin="5" BackgroundColor="White" CornerRadius="5" HasShadow="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Text="{Binding Title.Text}" FontSize="16" TextColor="Black" />
+                        <Label Grid.Row="1" Text="{Binding Summary.Text}" FontSize="14" TextColor="Gray" MaxLines="3" LineBreakMode="TailTruncation" />
+                    </Grid>
+                </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
