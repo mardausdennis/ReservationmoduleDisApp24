@@ -7,10 +7,10 @@
     Shell.FlyoutBehavior="Disabled">
 
     <TabBar>
-        <Tab Title="RSS" Icon="rss_icon.png">
+        <Tab Title="RSS" Icon="AppIcon/rss_icon.png">
             <ShellContent ContentTemplate="{DataTemplate local:RssPage}" />
         </Tab>
-        <Tab Title="Kalender" Icon="calendar_icon.png">
+        <Tab Title="Kalender" Icon="AppIcon/calendar_icon.png">
             <ShellContent ContentTemplate="{DataTemplate local:CalendarPage}" />
         </Tab>
     </TabBar>
