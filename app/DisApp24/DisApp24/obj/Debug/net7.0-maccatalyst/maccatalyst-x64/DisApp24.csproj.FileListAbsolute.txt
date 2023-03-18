@@ -257,3 +257,4 @@ C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\DisApp24.pdb
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\DisApp24.genruntimeconfig.cache
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-maccatalyst\maccatalyst-x64\ref\DisApp24.dll
+C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\bin\Debug\net7.0-maccatalyst\maccatalyst-x64\System.ServiceModel.Syndication.dll

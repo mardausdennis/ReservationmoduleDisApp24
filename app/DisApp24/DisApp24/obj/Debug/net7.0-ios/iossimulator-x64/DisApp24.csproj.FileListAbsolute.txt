@@ -267,3 +267,5 @@ C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-ios\iossimulator-x64\DisApp24.pdb
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-ios\iossimulator-x64\DisApp24.genruntimeconfig.cache
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-ios\iossimulator-x64\ref\DisApp24.dll
+C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-ios\iossimulator-x64\build-signature\signature
+C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\bin\Debug\net7.0-ios\iossimulator-x64\System.ServiceModel.Syndication.dll

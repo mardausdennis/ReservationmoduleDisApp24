@@ -682,6 +682,9 @@
     <AppxPackagedFile Include="C:\Users\Dennis Mardaus\.nuget\packages\microsoft.windowsappsdk\1.2.221209.1\lib\net6.0-windows10.0.18362.0\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dennis Mardaus\.nuget\packages\system.servicemodel.syndication\5.0.0\lib\netstandard2.0\System.ServiceModel.Syndication.dll">
+      <PackagePath>System.ServiceModel.Syndication.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dennis Mardaus\.nuget\packages\microsoft.graphics.win2d\1.0.4\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
     </AppxPackagedFile>

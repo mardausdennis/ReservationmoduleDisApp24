@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "44VeQMVzDnEjqle/N9OGEHxCgWTbtDMpfRubv75vyLtmQ3Uq459fJczDt5HsPosfOeia9Exr3p7o/o6Eafp3EQ==",
+  "dgSpecHash": "YeP1pfqUWRR2plDelWnIHlU4BmDaLgF+Xs1+YTTJ+vYSLQJOonJhcGeBMt/Ei4e6s+TDmIZQl4byKBAfoHr/uw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dennis Mardaus\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\DisApp24.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.maui.graphics.win2d.winui.desktop\\7.0.59\\microsoft.maui.graphics.win2d.winui.desktop.7.0.59.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.755\\microsoft.windows.sdk.buildtools.10.0.22621.755.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.windowsappsdk\\1.2.221209.1\\microsoft.windowsappsdk.1.2.221209.1.nupkg.sha512",
+    "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\system.servicemodel.syndication\\5.0.0\\system.servicemodel.syndication.5.0.0.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xamarin.android.glide\\4.13.2.2\\xamarin.android.glide.4.13.2.2.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xamarin.android.glide.annotations\\4.13.2.2\\xamarin.android.glide.annotations.4.13.2.2.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xamarin.android.glide.disklrucache\\4.13.2.2\\xamarin.android.glide.disklrucache.4.13.2.2.nupkg.sha512",
