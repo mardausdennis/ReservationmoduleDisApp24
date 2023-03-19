@@ -55,6 +55,36 @@ namespace DisApp24
                 RssItems.Add(item);
             }
         }
+        private async void OnItemSelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection == null)
+                return;
+
+            var item = e.CurrentSelection.FirstOrDefault() as SyndicationItem;
+
+            if (item == null)
+                return;
+
+            await Navigation.PushAsync(new ContentPage
+            {
+                Title = item.Title.Text,
+                Content = new StackLayout
+                {
+                    Children = {
+                new Label { Text = item.Title.Text, FontAttributes = FontAttributes.Bold, Margin = new Thickness(0,10) },
+                new Label { Text = item.PublishDate.DateTime.ToString("dd.MM.yyyy HH:mm"), Margin = new Thickness(0,0,0,10) },
+                new WebView { Source = new HtmlWebViewSource { Html = item.Summary.Text } }
+            }
+                }
+            });
+
+            ((CollectionView)sender).SelectedItem = null;
+        }
+
+
+
+
+
 
     }
 }

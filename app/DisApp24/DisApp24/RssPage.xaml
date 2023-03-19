@@ -1,7 +1,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DisApp24.RssPage">
-    <CollectionView x:Name="RssFeedView" ItemsSource="{Binding RssItems}" BackgroundColor="White">
+    <CollectionView x:Name="MyRssFeedView" ItemsSource="{Binding RssItems}" BackgroundColor="White"
+                    SelectionMode="Single"
+                    SelectionChanged="OnItemSelected">
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Frame Padding="10" Margin="5" BackgroundColor="White" CornerRadius="5" HasShadow="True">
