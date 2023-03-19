@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml;
 using System.Text;
+using System.Net;
 
 
 namespace DisApp24
@@ -61,6 +62,7 @@ namespace DisApp24
                 RssItems.Add(item);
             }
         }
+
         private async void OnItemSelected(object sender, SelectionChangedEventArgs e)
         {
             if (e.CurrentSelection == null)
@@ -71,37 +73,41 @@ namespace DisApp24
                 return;
 
             var contentEncoded = item.ElementExtensions.ReadElementExtensions<string>("encoded", "http://purl.org/rss/1.0/modules/content/").FirstOrDefault();
-
-            // Remove HTML entity codes from contentEncoded
-            var contentDecoded = StripHtmlContent(System.Net.WebUtility.HtmlDecode(contentEncoded));
+            var contentStripped = Regex.Replace(contentEncoded, "<.*?>", string.Empty);
+            contentStripped = WebUtility.HtmlDecode(contentStripped);
 
             await Navigation.PushAsync(new ContentPage
             {
                 Title = item.Title.Text,
-                Content = new StackLayout
+                Content = new ScrollView
                 {
-                    Children =
-            {
-                new Label
+                    Content = new StackLayout
+                    {
+                        Children =
                 {
-                    Text = item.Title.Text,
-                    FontAttributes = FontAttributes.Bold,
-                    Margin = new Thickness(0,10)
-                },
-                new Label
-                {
-                    Text = item.PublishDate.DateTime.ToString("dd.MM.yyyy HH:mm"),
-                    Margin = new Thickness(0,0,0,10)
-                },
-                new Label
-                {
-                    Text = contentDecoded
+                    new Label
+                    {
+                        Text = item.Title.Text,
+                        FontAttributes = FontAttributes.Bold,
+                        Margin = new Thickness(0,10)
+                    },
+                    new Label
+                    {
+                        Text = item.PublishDate.DateTime.ToString("dd.MM.yyyy HH:mm"),
+                        Margin = new Thickness(0,0,0,10)
+                    },
+                    new Label
+                    {
+                        Text = contentStripped
+                    }
                 }
-            }
+                    }
                 }
             });
+
             ((CollectionView)sender).SelectedItem = null;
         }
+
 
 
 

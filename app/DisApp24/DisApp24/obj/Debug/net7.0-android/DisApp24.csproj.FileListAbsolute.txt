@@ -1033,3 +1033,5 @@ C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\lp\153\jl\files.cache
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\lp\155\jl\files.cache
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\System.ServiceModel.Syndication.dll
+C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\HtmlAgilityPack.dll
+C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\HtmlAgilityPack.pdb
