@@ -43,6 +43,12 @@ namespace DisApp24
             return sb.ToString();
         }
 
+        private static string StripHtmlContent(string input)
+        {
+            return Regex.Replace(input, "<.*?>", String.Empty);
+        }
+
+
         private async void LoadRssFeed()
         {
             string rssUrl = "https://techcrunch.com/feed/?guccounter=1&guce_referrer=aHR0cHM6Ly9ibG9nLmZlZWRzcG90LmNvbS8&guce_referrer_sig=AQAAAH8N3NIpb7YGXmrHrJfQCt2d-4s09Mh2JZ00FsgH6YVwy934jyPmogQmnp5Ifws_xnTN5CNnn9vN7CeVKGhLL1rdkot2VYHdTH6WVzgVurniasz7O_6ZSyBC7QtjoAIyj4FZkUd4hDSeHwwZQXD73tvpSfykbVbQ5d1b3H5fDZ63";
@@ -61,25 +67,43 @@ namespace DisApp24
                 return;
 
             var item = e.CurrentSelection.FirstOrDefault() as SyndicationItem;
-
             if (item == null)
                 return;
+
+            var contentEncoded = item.ElementExtensions.ReadElementExtensions<string>("encoded", "http://purl.org/rss/1.0/modules/content/").FirstOrDefault();
+
+            // Remove HTML entity codes from contentEncoded
+            var contentDecoded = StripHtmlContent(System.Net.WebUtility.HtmlDecode(contentEncoded));
 
             await Navigation.PushAsync(new ContentPage
             {
                 Title = item.Title.Text,
                 Content = new StackLayout
                 {
-                    Children = {
-                new Label { Text = item.Title.Text, FontAttributes = FontAttributes.Bold, Margin = new Thickness(0,10) },
-                new Label { Text = item.PublishDate.DateTime.ToString("dd.MM.yyyy HH:mm"), Margin = new Thickness(0,0,0,10) },
-                new WebView { Source = new HtmlWebViewSource { Html = item.Summary.Text } }
+                    Children =
+            {
+                new Label
+                {
+                    Text = item.Title.Text,
+                    FontAttributes = FontAttributes.Bold,
+                    Margin = new Thickness(0,10)
+                },
+                new Label
+                {
+                    Text = item.PublishDate.DateTime.ToString("dd.MM.yyyy HH:mm"),
+                    Margin = new Thickness(0,0,0,10)
+                },
+                new Label
+                {
+                    Text = contentDecoded
+                }
             }
                 }
             });
-
             ((CollectionView)sender).SelectedItem = null;
         }
+
+
 
 
 

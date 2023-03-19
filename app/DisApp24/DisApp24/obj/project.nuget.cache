@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YeP1pfqUWRR2plDelWnIHlU4BmDaLgF+Xs1+YTTJ+vYSLQJOonJhcGeBMt/Ei4e6s+TDmIZQl4byKBAfoHr/uw==",
+  "dgSpecHash": "pySk1kR0q7jAGqdBN+zrqv9Q4U+BsrbHCsA08gKu9nx9tpvDNPR4hyyj9uWwlPa2FMkShyNp4ZNmW0SMmeCnSw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dennis Mardaus\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\DisApp24.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
+    "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
