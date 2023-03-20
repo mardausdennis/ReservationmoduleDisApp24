@@ -18,7 +18,7 @@ namespace DisApp24
         public Calendar<CalendarDay> Calendar { get; set; } = new Calendar<CalendarDay>()
         {
             SelectionType = SelectionType.Single,
-            SelectionAction = SelectionAction.Add
+            SelectionAction = SelectionAction.Replace
         };
 
 
