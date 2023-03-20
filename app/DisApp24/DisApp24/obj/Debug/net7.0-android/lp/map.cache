@@ -86,6 +86,7 @@ Xamarin.Kotlin.StdLib.Jdk7.dll
 Xamarin.Kotlin.StdLib.Jdk8.dll
 Xamarin.KotlinX.Coroutines.Android.dll
 Xamarin.KotlinX.Coroutines.Core.Jvm.dll
+XCalendar.Maui.dll
 androidx.versionedparcelable.versionedparcelable.aar
 androidx.arch.core.core-runtime.aar
 androidx.lifecycle.lifecycle-runtime.aar
@@ -155,5 +156,4 @@ maui.aar
 Microsoft.Maui.aar
 Microsoft.Maui.Essentials.aar
 Xamarin.Google.Crypto.Tink.Android.aar
-XCalendar.Maui.dll
 XCalendar.Maui.aar

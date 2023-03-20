@@ -7,6 +7,7 @@ namespace DisApp24
         public CalendarPage()
         {
             InitializeComponent();
+            BindingContext = new CalendarPageViewModel();
         }
     }
 }

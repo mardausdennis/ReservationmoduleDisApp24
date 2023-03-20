@@ -1951,7 +1951,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -3927,7 +3927,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -5903,7 +5903,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -7879,7 +7879,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -9855,7 +9855,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -11831,7 +11831,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -13807,7 +13807,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -15783,7 +15783,7 @@
           "buildTransitive/net6.0-android31.0/Xamarin.KotlinX.Coroutines.Core.Jvm.targets": {}
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -16018,7 +16018,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -16249,7 +16249,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -16480,7 +16480,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -16711,7 +16711,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -16942,7 +16942,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -17173,7 +17173,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -17404,7 +17404,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -17635,7 +17635,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -17866,7 +17866,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -18097,7 +18097,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -18328,7 +18328,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -18559,7 +18559,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -18790,7 +18790,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -19021,7 +19021,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -19252,7 +19252,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -19483,7 +19483,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -19852,7 +19852,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -20193,7 +20193,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -20534,7 +20534,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -20875,7 +20875,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -21216,7 +21216,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -21557,7 +21557,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -21898,7 +21898,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -22245,7 +22245,7 @@
           }
         }
       },
-      "XCalendar.Core/4.4.0": {
+      "XCalendar.Core/4.4.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/XCalendar.Core.dll": {}
@@ -25575,16 +25575,16 @@
         "xamarin.kotlinx.coroutines.core.jvm.nuspec"
       ]
     },
-    "XCalendar.Core/4.4.0": {
-      "sha512": "dmRFOZCmBaATIG6JQmf8GyNwuT9rJEn607IrZtLOSGZVYBgl8eNa7HlX//fnkx7yODNMb9Y6cnSYEV6CukIIGw==",
+    "XCalendar.Core/4.4.2": {
+      "sha512": "4jQj8v19ejZCSctp+SSPdE4e4969IL8gGK1PBVBIETogcuFrufTqpkJmqpqMZXus9DDvOe04FFRrR14huOoDHg==",
       "type": "package",
-      "path": "xcalendar.core/4.4.0",
+      "path": "xcalendar.core/4.4.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "XCalendar.Core Nuget Icon.png",
         "lib/netstandard2.0/XCalendar.Core.dll",
-        "xcalendar.core.4.4.0.nupkg.sha512",
+        "xcalendar.core.4.4.2.nupkg.sha512",
         "xcalendar.core.nuspec"
       ]
     },
@@ -25618,6 +25618,7 @@
       "Microsoft.Extensions.Logging.Debug >= 7.0.0",
       "Microsoft.Maui.Graphics >= 7.0.59",
       "System.ServiceModel.Syndication >= 5.0.0",
+      "XCalendar.Core >= 4.4.2",
       "XCalendar.Maui >= 4.4.2",
       "Xamarin.Android.Glide >= 4.13.2.2",
       "Xamarin.AndroidX.Browser >= 1.4.0.3",
@@ -25640,6 +25641,7 @@
       "Microsoft.Extensions.Logging.Debug >= 7.0.0",
       "Microsoft.Maui.Graphics >= 7.0.59",
       "System.ServiceModel.Syndication >= 5.0.0",
+      "XCalendar.Core >= 4.4.2",
       "XCalendar.Maui >= 4.4.2"
     ],
     "net7.0-maccatalyst16.1": [
@@ -25651,6 +25653,7 @@
       "Microsoft.Extensions.Logging.Debug >= 7.0.0",
       "Microsoft.Maui.Graphics >= 7.0.59",
       "System.ServiceModel.Syndication >= 5.0.0",
+      "XCalendar.Core >= 4.4.2",
       "XCalendar.Maui >= 4.4.2"
     ],
     "net7.0-windows10.0.19041": [
@@ -25665,6 +25668,7 @@
       "Microsoft.Windows.SDK.BuildTools >= 10.0.22621.755",
       "Microsoft.WindowsAppSDK >= 1.2.221209.1",
       "System.ServiceModel.Syndication >= 5.0.0",
+      "XCalendar.Core >= 4.4.2",
       "XCalendar.Maui >= 4.4.2"
     ]
   },
@@ -25765,6 +25769,10 @@
           "System.ServiceModel.Syndication": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "XCalendar.Core": {
+            "target": "Package",
+            "version": "[4.4.2, )"
           },
           "XCalendar.Maui": {
             "target": "Package",
@@ -25896,6 +25904,10 @@
             "target": "Package",
             "version": "[5.0.0, )"
           },
+          "XCalendar.Core": {
+            "target": "Package",
+            "version": "[4.4.2, )"
+          },
           "XCalendar.Maui": {
             "target": "Package",
             "version": "[4.4.2, )"
@@ -25970,6 +25982,10 @@
           "System.ServiceModel.Syndication": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "XCalendar.Core": {
+            "target": "Package",
+            "version": "[4.4.2, )"
           },
           "XCalendar.Maui": {
             "target": "Package",
@@ -26062,6 +26078,10 @@
           "System.ServiceModel.Syndication": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "XCalendar.Core": {
+            "target": "Package",
+            "version": "[4.4.2, )"
           },
           "XCalendar.Maui": {
             "target": "Package",

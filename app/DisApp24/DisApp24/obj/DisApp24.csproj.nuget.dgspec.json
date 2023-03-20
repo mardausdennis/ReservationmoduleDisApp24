@@ -98,6 +98,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "XCalendar.Core": {
+              "target": "Package",
+              "version": "[4.4.2, )"
+            },
             "XCalendar.Maui": {
               "target": "Package",
               "version": "[4.4.2, )"
@@ -228,6 +232,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "XCalendar.Core": {
+              "target": "Package",
+              "version": "[4.4.2, )"
+            },
             "XCalendar.Maui": {
               "target": "Package",
               "version": "[4.4.2, )"
@@ -302,6 +310,10 @@
             "System.ServiceModel.Syndication": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "XCalendar.Core": {
+              "target": "Package",
+              "version": "[4.4.2, )"
             },
             "XCalendar.Maui": {
               "target": "Package",
@@ -394,6 +406,10 @@
             "System.ServiceModel.Syndication": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "XCalendar.Core": {
+              "target": "Package",
+              "version": "[4.4.2, )"
             },
             "XCalendar.Maui": {
               "target": "Package",

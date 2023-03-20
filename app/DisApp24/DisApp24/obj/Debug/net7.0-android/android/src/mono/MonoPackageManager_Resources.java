@@ -102,6 +102,8 @@ public class MonoPackageManager_Resources {
 		"Xamarin.Kotlin.StdLib.Jdk8.dll",
 		"Xamarin.KotlinX.Coroutines.Android.dll",
 		"Xamarin.KotlinX.Coroutines.Core.Jvm.dll",
+		"XCalendar.Core.dll",
+		"XCalendar.Maui.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};
