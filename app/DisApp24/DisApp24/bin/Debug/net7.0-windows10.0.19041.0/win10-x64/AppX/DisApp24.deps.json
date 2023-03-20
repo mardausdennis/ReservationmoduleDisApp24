@@ -20,6 +20,7 @@
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
           "Microsoft.WindowsAppSDK": "1.2.221209.1",
           "System.ServiceModel.Syndication": "5.0.0",
+          "XCalendar.Maui": "4.4.2",
           "runtimepack.Microsoft.NETCore.App.Runtime.win-x64": "7.0.4",
           "runtimepack.Microsoft.Maui.Core.Runtime.win": "7.0.59",
           "runtimepack.Microsoft.Maui.Controls.Runtime.win": "7.0.59",
@@ -1012,6 +1013,25 @@
             "fileVersion": "5.0.20.51904"
           }
         }
+      },
+      "XCalendar.Core/4.4.0": {
+        "runtime": {
+          "lib/netstandard2.0/XCalendar.Core.dll": {
+            "assemblyVersion": "4.4.0.0",
+            "fileVersion": "4.4.0.0"
+          }
+        }
+      },
+      "XCalendar.Maui/4.4.2": {
+        "dependencies": {
+          "XCalendar.Core": "4.4.0"
+        },
+        "runtime": {
+          "lib/net7.0-windows10.0.19041/XCalendar.Maui.dll": {
+            "assemblyVersion": "4.4.2.0",
+            "fileVersion": "4.4.2.0"
+          }
+        }
       }
     }
   },
@@ -1157,6 +1177,20 @@
       "sha512": "sha512-xjwRFydlevI/DMLlBcDRbOmofJTZNoJ0FCkEPdMw9i+85lDbl8Pw001LJKQbRSeHSVJCEuPfAvEuC1TAumxcmw==",
       "path": "system.servicemodel.syndication/5.0.0",
       "hashPath": "system.servicemodel.syndication.5.0.0.nupkg.sha512"
+    },
+    "XCalendar.Core/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dmRFOZCmBaATIG6JQmf8GyNwuT9rJEn607IrZtLOSGZVYBgl8eNa7HlX//fnkx7yODNMb9Y6cnSYEV6CukIIGw==",
+      "path": "xcalendar.core/4.4.0",
+      "hashPath": "xcalendar.core.4.4.0.nupkg.sha512"
+    },
+    "XCalendar.Maui/4.4.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mCmt84a7lEzkqO0qQ+sh8Ojtqrqqc3jl6uJyG3pdWwfw9RzHOqk/1z2jLllQsGJ5uumW0m1QoorEISs3lQQK8Q==",
+      "path": "xcalendar.maui/4.4.2",
+      "hashPath": "xcalendar.maui.4.4.2.nupkg.sha512"
     }
   },
   "runtimes": {

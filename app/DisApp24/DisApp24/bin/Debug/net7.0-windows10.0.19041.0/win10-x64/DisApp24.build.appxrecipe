@@ -688,6 +688,12 @@
     <AppxPackagedFile Include="C:\Users\Dennis Mardaus\.nuget\packages\system.servicemodel.syndication\5.0.0\lib\netstandard2.0\System.ServiceModel.Syndication.dll">
       <PackagePath>System.ServiceModel.Syndication.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dennis Mardaus\.nuget\packages\xcalendar.core\4.4.0\lib\netstandard2.0\XCalendar.Core.dll">
+      <PackagePath>XCalendar.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Dennis Mardaus\.nuget\packages\xcalendar.maui\4.4.2\lib\net7.0-windows10.0.19041\XCalendar.Maui.dll">
+      <PackagePath>XCalendar.Maui.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Dennis Mardaus\.nuget\packages\microsoft.graphics.win2d\1.0.4\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
       <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
     </AppxPackagedFile>

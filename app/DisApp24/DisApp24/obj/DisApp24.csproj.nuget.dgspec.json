@@ -98,6 +98,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "XCalendar.Maui": {
+              "target": "Package",
+              "version": "[4.4.2, )"
+            },
             "Xamarin.Android.Glide": {
               "target": "Package",
               "version": "[4.13.2.2, )",
@@ -223,6 +227,10 @@
             "System.ServiceModel.Syndication": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "XCalendar.Maui": {
+              "target": "Package",
+              "version": "[4.4.2, )"
             }
           },
           "imports": [
@@ -294,6 +302,10 @@
             "System.ServiceModel.Syndication": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "XCalendar.Maui": {
+              "target": "Package",
+              "version": "[4.4.2, )"
             }
           },
           "imports": [
@@ -382,6 +394,10 @@
             "System.ServiceModel.Syndication": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "XCalendar.Maui": {
+              "target": "Package",
+              "version": "[4.4.2, )"
             }
           },
           "imports": [

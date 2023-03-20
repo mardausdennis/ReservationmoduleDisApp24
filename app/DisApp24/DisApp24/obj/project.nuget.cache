@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pySk1kR0q7jAGqdBN+zrqv9Q4U+BsrbHCsA08gKu9nx9tpvDNPR4hyyj9uWwlPa2FMkShyNp4ZNmW0SMmeCnSw==",
+  "dgSpecHash": "LNOzfarHbUMPVJ5MFpKcpQr1aMwdHXBkg9IhL+4npZ0NlVFDmrivjvDBjGqscfHBxHdyRlsMP3RNyZv/2OO5mQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dennis Mardaus\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\DisApp24.csproj",
   "expectedPackageFiles": [
@@ -102,6 +102,8 @@
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xamarin.kotlin.stdlib.jdk8\\1.7.20.1\\xamarin.kotlin.stdlib.jdk8.1.7.20.1.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xamarin.kotlinx.coroutines.android\\1.6.4.1\\xamarin.kotlinx.coroutines.android.1.6.4.1.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xamarin.kotlinx.coroutines.core.jvm\\1.6.4.1\\xamarin.kotlinx.coroutines.core.jvm.1.6.4.1.nupkg.sha512",
+    "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xcalendar.core\\4.4.0\\xcalendar.core.4.4.0.nupkg.sha512",
+    "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xcalendar.maui\\4.4.2\\xcalendar.maui.4.4.2.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.28\\microsoft.windows.sdk.net.ref.10.0.19041.28.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.4\\microsoft.aspnetcore.app.runtime.win-x64.7.0.4.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.4\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.4.nupkg.sha512",
