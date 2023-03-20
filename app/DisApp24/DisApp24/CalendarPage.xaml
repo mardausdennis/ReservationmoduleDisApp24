@@ -3,8 +3,8 @@
              xmlns:xc="clr-namespace:XCalendar.Maui.Views;assembly=XCalendar.Maui"
              xmlns:xcInterfaces="clr-namespace:XCalendar.Core.Interfaces;assembly=XCalendar.Core"
              xmlns:xcModels="clr-namespace:XCalendar.Core.Models;assembly=XCalendar.Core"
-             xmlns:ViewModels="clr-namespace:DisApp24.CalendarPageViewModels"
              x:Class="DisApp24.CalendarPage"
+             x:Name="This"
              Style="{StaticResource DefaultPageStyle}">
     <!-- Kalender-Tab-Inhalte hier -->
 
