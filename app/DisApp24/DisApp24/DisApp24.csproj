@@ -51,6 +51,7 @@
 	<ItemGroup>
 		<PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
 		<PackageReference Include="System.ServiceModel.Syndication" Version="5.0.0" />
 		<PackageReference Include="XCalendar.Core" Version="4.4.2" />
 		<PackageReference Include="XCalendar.Maui" Version="4.4.2" />
@@ -63,6 +64,10 @@
 	  <MauiXaml Update="RssPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="NewFolder\" />
 	</ItemGroup>
 
 </Project>

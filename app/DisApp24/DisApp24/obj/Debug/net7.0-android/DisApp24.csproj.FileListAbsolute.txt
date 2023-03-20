@@ -974,3 +974,6 @@ C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\System.Runtime.Extensions.dll
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\System.Runtime.Serialization.Formatters.dll
 C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\System.Xml.dll
+C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\DisApp24.csproj.Fody.CopyLocal.cache
+C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\DisApp24.csproj.Fody.RuntimeCopyLocal.cache
+C:\Users\Dennis Mardaus\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\PropertyChanged.dll

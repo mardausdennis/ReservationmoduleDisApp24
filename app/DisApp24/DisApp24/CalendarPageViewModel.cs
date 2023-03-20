@@ -12,7 +12,7 @@ using XCalendar.Core.Enums;
 
 namespace DisApp24
 {
-    internal class CalendarPageViewModel
+    public class CalendarPageViewModel : BaseViewModel
     {
         #region Properties
         public Calendar<CalendarDay> Calendar { get; set; } = new Calendar<CalendarDay>()
@@ -34,13 +34,12 @@ namespace DisApp24
         #region Constructors
         public CalendarPageViewModel()
         {
-
+            ChangeDateSelectionCommand = new Command<DateTime>(ChangeDateSelection);
+            NavigateCalendarCommand = new Command<int>(NavigateCalendar);
+           
             Calendar.DaysUpdated += Calendar_DaysUpdated;
             Calendar.UpdateDay(OutsideCalendarDay, Calendar.NavigatedDate);
-
-            NavigateCalendarCommand = new Command<int>(NavigateCalendar);
-            ChangeDateSelectionCommand = new Command<DateTime>(ChangeDateSelection); 
-
+            
             
         }
         #endregion

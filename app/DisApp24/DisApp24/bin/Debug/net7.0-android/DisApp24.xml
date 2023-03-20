@@ -4,5 +4,10 @@
         <name>DisApp24</name>
     </assembly>
     <members>
+        <member name="T:Models.BaseObservableModel">
+            <summary>
+            A base class for Models that need to implement the INotifyPropertyChanged interface.
+            </summary>
+        </member>
     </members>
 </doc>

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "J9fUG5HAJpUzJN3dj0yQagaIoUIQrMpSlGow3ExLHM23QoSgz/iJW7jGQ80MAl/eyvsG+nTXXJCCBJxqgek3Lg==",
+  "dgSpecHash": "X2Aay1fdo63OmoJwd/yzn7zAOe3kIEp+l9cC41V6m+yk+CSja/Bv0z2wndslWfCr5RWdWPShUD6QurvAG+shRw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dennis Mardaus\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\DisApp24.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\fody\\6.6.4\\fody.6.6.4.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\googlegson\\2.9.1.1\\googlegson.2.9.1.1.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\htmlagilitypack\\1.11.46\\htmlagilitypack.1.11.46.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
@@ -20,6 +21,7 @@
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.maui.graphics.win2d.winui.desktop\\7.0.59\\microsoft.maui.graphics.win2d.winui.desktop.7.0.59.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages\\microsoft.windows.sdk.buildtools\\10.0.22621.755\\microsoft.windows.sdk.buildtools.10.0.22621.755.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\microsoft.windowsappsdk\\1.2.221209.1\\microsoft.windowsappsdk.1.2.221209.1.nupkg.sha512",
+    "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\propertychanged.fody\\4.1.0\\propertychanged.fody.4.1.0.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\system.servicemodel.syndication\\5.0.0\\system.servicemodel.syndication.5.0.0.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xamarin.android.glide\\4.13.2.2\\xamarin.android.glide.4.13.2.2.nupkg.sha512",
     "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\xamarin.android.glide.annotations\\4.13.2.2\\xamarin.android.glide.annotations.4.13.2.2.nupkg.sha512",

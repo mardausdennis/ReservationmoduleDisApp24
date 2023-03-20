@@ -94,6 +94,10 @@
               "version": "[7.0.59, )",
               "autoReferenced": true
             },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "System.ServiceModel.Syndication": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -228,6 +232,10 @@
               "version": "[7.0.59, )",
               "autoReferenced": true
             },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "System.ServiceModel.Syndication": {
               "target": "Package",
               "version": "[5.0.0, )"
@@ -306,6 +314,10 @@
               "target": "Package",
               "version": "[7.0.59, )",
               "autoReferenced": true
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             },
             "System.ServiceModel.Syndication": {
               "target": "Package",
@@ -402,6 +414,10 @@
               "target": "Package",
               "version": "[1.2.221209.1, )",
               "autoReferenced": true
+            },
+            "PropertyChanged.Fody": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             },
             "System.ServiceModel.Syndication": {
               "target": "Package",
