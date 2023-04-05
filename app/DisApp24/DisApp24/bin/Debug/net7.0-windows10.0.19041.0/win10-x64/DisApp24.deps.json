@@ -9,6 +9,7 @@
     ".NETCoreApp,Version=v7.0/win10-x64": {
       "DisApp24/1.0": {
         "dependencies": {
+          "CommunityToolkit.Mvvm": "8.1.0",
           "HtmlAgilityPack": "1.11.46",
           "Microsoft.Extensions.Configuration": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
@@ -19,6 +20,7 @@
           "Microsoft.Maui.Graphics.Win2D.WinUI.Desktop": "7.0.59",
           "Microsoft.Windows.SDK.BuildTools": "10.0.22621.755",
           "Microsoft.WindowsAppSDK": "1.2.221209.1",
+          "PropertyChanged.Fody": "4.1.0",
           "System.ServiceModel.Syndication": "5.0.0",
           "XCalendar.Core": "4.4.2",
           "XCalendar.Maui": "4.4.2",
@@ -796,6 +798,15 @@
           }
         }
       },
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "assemblyVersion": "8.1.0.0",
+            "fileVersion": "8.1.0.1"
+          }
+        }
+      },
+      "Fody/6.6.4": {},
       "HtmlAgilityPack/1.11.46": {
         "runtime": {
           "lib/netstandard2.0/HtmlAgilityPack.dll": {
@@ -1007,6 +1018,11 @@
           }
         }
       },
+      "PropertyChanged.Fody/4.1.0": {
+        "dependencies": {
+          "Fody": "6.6.4"
+        }
+      },
       "System.ServiceModel.Syndication/5.0.0": {
         "runtime": {
           "lib/netstandard2.0/System.ServiceModel.Syndication.dll": {
@@ -1066,6 +1082,20 @@
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""
+    },
+    "CommunityToolkit.Mvvm/8.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xxOt7lu9a5kB5Fs9RfcxzVlKnhuuPe+w7AXHtmCFtS3oldrsUhEMxHfNulluXSscUUoGxZ0jh55Om12ZP6abHA==",
+      "path": "communitytoolkit.mvvm/8.1.0",
+      "hashPath": "communitytoolkit.mvvm.8.1.0.nupkg.sha512"
+    },
+    "Fody/6.6.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vLZS+oa+ndUHYPlx/8n9bBTT3dHkCF0riml4paKq4D663+cZd47x1uagQo32D/gKFZ/sfmV1oqKaLmH0elxq4A==",
+      "path": "fody/6.6.4",
+      "hashPath": "fody.6.6.4.nupkg.sha512"
     },
     "HtmlAgilityPack/1.11.46": {
       "type": "package",
@@ -1171,6 +1201,13 @@
       "sha512": "sha512-1Y8KDCmUqytdduubaQhRz6aqaP7YhVSPE/fHeqLMsK3DrV+eBThrqkM6R/8N2lu0mwkNfKSTSAhixrTR72nyWA==",
       "path": "microsoft.windowsappsdk/1.2.221209.1",
       "hashPath": "microsoft.windowsappsdk.1.2.221209.1.nupkg.sha512"
+    },
+    "PropertyChanged.Fody/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6v+f9cI8YjnZH2WBHuOqWEAo8DFFNGFIdU8xD3AsL6fhV6Y8oAmVWd7XKk49t8DpeUBwhR/X+97+6Epvek0Y3A==",
+      "path": "propertychanged.fody/4.1.0",
+      "hashPath": "propertychanged.fody.4.1.0.nupkg.sha512"
     },
     "System.ServiceModel.Syndication/5.0.0": {
       "type": "package",

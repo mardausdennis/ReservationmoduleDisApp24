@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using XCalendar.Core.Extensions;
 using XCalendar.Core.Models;
 using XCalendar.Core.Enums;
-
-
 
 namespace DisApp24
 {
@@ -21,8 +16,7 @@ namespace DisApp24
             SelectionAction = SelectionAction.Replace
         };
 
-
-
+        public ObservableCollection<DateTime> SelectedDates { get; set; } = new ObservableCollection<DateTime>();
         public CalendarDay OutsideCalendarDay { get; set; } = new CalendarDay();
         #endregion
 
@@ -36,14 +30,11 @@ namespace DisApp24
         {
             ChangeDateSelectionCommand = new Command<DateTime>(ChangeDateSelection);
             NavigateCalendarCommand = new Command<int>(NavigateCalendar);
-           
+
             Calendar.DaysUpdated += Calendar_DaysUpdated;
             Calendar.UpdateDay(OutsideCalendarDay, Calendar.NavigatedDate);
-            
-            
         }
         #endregion
-
         #region Methods
         public void NavigateCalendar(int amount)
         {
@@ -58,14 +49,20 @@ namespace DisApp24
         }
         public void ChangeDateSelection(DateTime dateTime)
         {
+            if (SelectedDates.Contains(dateTime))
+            {
+                SelectedDates.Remove(dateTime);
+            }
+            else
+            {
+                SelectedDates.Add(dateTime);
+            }
             Calendar?.ChangeDateSelection(dateTime);
         }
-
         private void Calendar_DaysUpdated(object sender, EventArgs e)
         {
             Calendar.UpdateDay(OutsideCalendarDay, Calendar.NavigatedDate);
         }
         #endregion
-
     }
 }

@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net7.0-android33.0": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -2003,6 +2019,22 @@
       }
     },
     "net7.0-android33.0/android-arm": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -4004,6 +4036,22 @@
       }
     },
     "net7.0-android33.0/android-arm64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -6005,6 +6053,22 @@
       }
     },
     "net7.0-android33.0/android-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -8006,6 +8070,22 @@
       }
     },
     "net7.0-android33.0/android-x86": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -10007,6 +10087,22 @@
       }
     },
     "net7.0-android33.0/iossimulator-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -12008,6 +12104,22 @@
       }
     },
     "net7.0-android33.0/maccatalyst-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -14009,6 +14121,22 @@
       }
     },
     "net7.0-android33.0/win10-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -16010,6 +16138,22 @@
       }
     },
     "net7.0-ios16.1": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -16266,6 +16410,22 @@
       }
     },
     "net7.0-ios16.1/android-arm": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -16522,6 +16682,22 @@
       }
     },
     "net7.0-ios16.1/android-arm64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -16778,6 +16954,22 @@
       }
     },
     "net7.0-ios16.1/android-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -17034,6 +17226,22 @@
       }
     },
     "net7.0-ios16.1/android-x86": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -17290,6 +17498,22 @@
       }
     },
     "net7.0-ios16.1/iossimulator-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -17546,6 +17770,22 @@
       }
     },
     "net7.0-ios16.1/maccatalyst-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -17802,6 +18042,22 @@
       }
     },
     "net7.0-ios16.1/win10-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -18058,6 +18314,22 @@
       }
     },
     "net7.0-maccatalyst16.1": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -18314,6 +18586,22 @@
       }
     },
     "net7.0-maccatalyst16.1/android-arm": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -18570,6 +18858,22 @@
       }
     },
     "net7.0-maccatalyst16.1/android-arm64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -18826,6 +19130,22 @@
       }
     },
     "net7.0-maccatalyst16.1/android-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -19082,6 +19402,22 @@
       }
     },
     "net7.0-maccatalyst16.1/android-x86": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -19338,6 +19674,22 @@
       }
     },
     "net7.0-maccatalyst16.1/iossimulator-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -19594,6 +19946,22 @@
       }
     },
     "net7.0-maccatalyst16.1/maccatalyst-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -19850,6 +20218,22 @@
       }
     },
     "net7.0-maccatalyst16.1/win10-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -20106,6 +20490,22 @@
       }
     },
     "net7.0-windows10.0.19041": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -20500,6 +20900,22 @@
       }
     },
     "net7.0-windows10.0.19041/android-arm": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -20866,6 +21282,22 @@
       }
     },
     "net7.0-windows10.0.19041/android-arm64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -21232,6 +21664,22 @@
       }
     },
     "net7.0-windows10.0.19041/android-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -21598,6 +22046,22 @@
       }
     },
     "net7.0-windows10.0.19041/android-x86": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -21964,6 +22428,22 @@
       }
     },
     "net7.0-windows10.0.19041/iossimulator-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -22330,6 +22810,22 @@
       }
     },
     "net7.0-windows10.0.19041/maccatalyst-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -22696,6 +23192,22 @@
       }
     },
     "net7.0-windows10.0.19041/win10-x64": {
+      "CommunityToolkit.Mvvm/8.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
       "Fody/6.6.4": {
         "type": "package",
         "build": {
@@ -23069,6 +23581,35 @@
     }
   },
   "libraries": {
+    "CommunityToolkit.Mvvm/8.1.0": {
+      "sha512": "xxOt7lu9a5kB5Fs9RfcxzVlKnhuuPe+w7AXHtmCFtS3oldrsUhEMxHfNulluXSscUUoGxZ0jh55Om12ZP6abHA==",
+      "type": "package",
+      "path": "communitytoolkit.mvvm/8.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ThirdPartyNotices.txt",
+        "analyzers/dotnet/roslyn4.0/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "analyzers/dotnet/roslyn4.3/cs/CommunityToolkit.Mvvm.SourceGenerators.dll",
+        "build/netstandard2.0/CommunityToolkit.Mvvm.targets",
+        "build/netstandard2.1/CommunityToolkit.Mvvm.targets",
+        "buildTransitive/netstandard2.0/CommunityToolkit.Mvvm.targets",
+        "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets",
+        "communitytoolkit.mvvm.8.1.0.nupkg.sha512",
+        "communitytoolkit.mvvm.nuspec",
+        "lib/net6.0/CommunityToolkit.Mvvm.dll",
+        "lib/net6.0/CommunityToolkit.Mvvm.pdb",
+        "lib/net6.0/CommunityToolkit.Mvvm.xml",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.dll",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.pdb",
+        "lib/netstandard2.0/CommunityToolkit.Mvvm.xml",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.dll",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.pdb",
+        "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
+      ]
+    },
     "Fody/6.6.4": {
       "sha512": "vLZS+oa+ndUHYPlx/8n9bBTT3dHkCF0riml4paKq4D663+cZd47x1uagQo32D/gKFZ/sfmV1oqKaLmH0elxq4A==",
       "type": "package",
@@ -26464,6 +27005,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0-android33.0": [
+      "CommunityToolkit.Mvvm >= 8.1.0",
       "HtmlAgilityPack >= 1.11.46",
       "Microsoft.Extensions.Configuration >= 7.0.0",
       "Microsoft.Extensions.DependencyInjection >= 7.0.0",
@@ -26488,6 +27030,7 @@
       "Xamarin.Google.Crypto.Tink.Android >= 1.7.0.1"
     ],
     "net7.0-ios16.1": [
+      "CommunityToolkit.Mvvm >= 8.1.0",
       "HtmlAgilityPack >= 1.11.46",
       "Microsoft.Extensions.Configuration >= 7.0.0",
       "Microsoft.Extensions.DependencyInjection >= 7.0.0",
@@ -26501,6 +27044,7 @@
       "XCalendar.Maui >= 4.4.2"
     ],
     "net7.0-maccatalyst16.1": [
+      "CommunityToolkit.Mvvm >= 8.1.0",
       "HtmlAgilityPack >= 1.11.46",
       "Microsoft.Extensions.Configuration >= 7.0.0",
       "Microsoft.Extensions.DependencyInjection >= 7.0.0",
@@ -26514,6 +27058,7 @@
       "XCalendar.Maui >= 4.4.2"
     ],
     "net7.0-windows10.0.19041": [
+      "CommunityToolkit.Mvvm >= 8.1.0",
       "HtmlAgilityPack >= 1.11.46",
       "Microsoft.Extensions.Configuration >= 7.0.0",
       "Microsoft.Extensions.DependencyInjection >= 7.0.0",
@@ -26531,24 +27076,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\": {},
+    "C:\\Users\\denni\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dennis Mardaus\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\DisApp24.csproj",
+      "projectUniqueName": "C:\\Users\\denni\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\DisApp24.csproj",
       "projectName": "DisApp24",
-      "projectPath": "C:\\Users\\Dennis Mardaus\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\DisApp24.csproj",
-      "packagesPath": "C:\\Users\\Dennis Mardaus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dennis Mardaus\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\obj\\",
+      "projectPath": "C:\\Users\\denni\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\DisApp24.csproj",
+      "packagesPath": "C:\\Users\\denni\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\denni\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dennis Mardaus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\denni\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -26591,6 +27136,10 @@
       "net7.0-android33.0": {
         "targetAlias": "net7.0-android",
         "dependencies": {
+          "CommunityToolkit.Mvvm": {
+            "target": "Package",
+            "version": "[8.1.0, )"
+          },
           "HtmlAgilityPack": {
             "target": "Package",
             "version": "[1.11.46, )"
@@ -26729,6 +27278,10 @@
       "net7.0-ios16.1": {
         "targetAlias": "net7.0-ios",
         "dependencies": {
+          "CommunityToolkit.Mvvm": {
+            "target": "Package",
+            "version": "[8.1.0, )"
+          },
           "HtmlAgilityPack": {
             "target": "Package",
             "version": "[1.11.46, )"
@@ -26812,6 +27365,10 @@
       "net7.0-maccatalyst16.1": {
         "targetAlias": "net7.0-maccatalyst",
         "dependencies": {
+          "CommunityToolkit.Mvvm": {
+            "target": "Package",
+            "version": "[8.1.0, )"
+          },
           "HtmlAgilityPack": {
             "target": "Package",
             "version": "[1.11.46, )"
@@ -26896,6 +27453,10 @@
       "net7.0-windows10.0.19041": {
         "targetAlias": "net7.0-windows10.0.19041.0",
         "dependencies": {
+          "CommunityToolkit.Mvvm": {
+            "target": "Package",
+            "version": "[8.1.0, )"
+          },
           "HtmlAgilityPack": {
             "target": "Package",
             "version": "[1.11.46, )"

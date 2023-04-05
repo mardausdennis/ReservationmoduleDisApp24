@@ -10,8 +10,8 @@
         <Tab Title="RSS" Icon="AppIcon/rss_icon.png">
             <ShellContent ContentTemplate="{DataTemplate local:RssPage}" />
         </Tab>
-        <Tab Title="Kalender" Icon="AppIcon/calendar_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate local:CalendarPage}" />
+        <Tab Title="Reservation" Icon="AppIcon/calendar_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:ReservationPage}" />
         </Tab>
     </TabBar>
 </Shell>

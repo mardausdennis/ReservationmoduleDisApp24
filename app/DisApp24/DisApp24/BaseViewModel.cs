@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-
     [AddINotifyPropertyChangedInterface]
     public abstract class BaseViewModel : INotifyPropertyChanged
     {

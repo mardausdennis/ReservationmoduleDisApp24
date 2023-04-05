@@ -1,0 +1,19 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DisApp24.ReservationPage"
+             x:Name="This">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Entry x:Name="FirstNameEntry" Placeholder="Vorname" />
+            <Entry x:Name="LastNameEntry" Placeholder="Nachname" />
+            <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" />
+            <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer" />
+            <Picker x:Name="ResourcePicker" Title="Ressource auswählen" />
+            <Label x:Name="SelectedDateLabel" Text="Datum auswählen" />
+            <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
+            <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" />
+            <Editor x:Name="CommentEditor" Placeholder="Kommentar" />
+            <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
