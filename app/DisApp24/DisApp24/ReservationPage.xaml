@@ -3,7 +3,7 @@
              x:Class="DisApp24.ReservationPage"
              x:Name="This">
     <ContentPage.Content>
-        <StackLayout Margin="20">
+        <StackLayout Margin="20" Spacing="15">
             <Entry x:Name="FirstNameEntry" Placeholder="Vorname" />
             <Entry x:Name="LastNameEntry" Placeholder="Nachname" />
             <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" />
@@ -13,7 +13,7 @@
             <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
             <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" />
             <Editor x:Name="CommentEditor" Placeholder="Kommentar" />
-            <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" />
+            <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" BackgroundColor="#FF5733" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

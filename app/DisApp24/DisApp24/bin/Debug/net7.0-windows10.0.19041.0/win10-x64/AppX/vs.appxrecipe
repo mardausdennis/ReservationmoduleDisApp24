@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-05T20:58:21.522</Modified>
+      <Modified>2023-04-06T15:11:51.017</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-04-05T20:58:21.237</Modified>
+      <Modified>2023-04-06T15:11:50.408</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DisApp24.runtimeconfig.json">
       <PackagePath>DisApp24.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\DisApp24.dll">
       <PackagePath>DisApp24.dll</PackagePath>
-      <Modified>2023-04-05T20:58:20.443</Modified>
+      <Modified>2023-04-06T15:11:49.214</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>DisApp24.exe</PackagePath>
-      <Modified>2023-04-05T20:58:20.455</Modified>
+      <Modified>2023-04-06T15:11:49.257</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\denni\.nuget\packages\microsoft.netcore.app.runtime.win-x64\7.0.4\runtimes\win-x64\lib\net7.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -944,7 +944,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\DisApp24.deps.json">
       <PackagePath>DisApp24.deps.json</PackagePath>
-      <Modified>2023-04-05T20:58:21.425</Modified>
+      <Modified>2023-04-06T15:11:50.878</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\7.0.59\ref\net7.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>

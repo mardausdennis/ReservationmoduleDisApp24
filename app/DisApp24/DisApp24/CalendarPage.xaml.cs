@@ -16,11 +16,16 @@ namespace DisApp24
             // Send the selected date to ReservationPage
             WeakReferenceMessenger.Default.Send(new SelectedDateMessage { Date = date });
         }
-        private void OnDateConfirmed(object sender, EventArgs e)
+        private async void OnDateConfirmed(object sender, EventArgs e)
         {
             var selectedDates = (BindingContext as CalendarPageViewModel).SelectedDates;
-            DisplaySelectedDates(selectedDates);
+            if (selectedDates.Any())
+            {
+                OnDateSelected(selectedDates.First());
+                await Navigation.PopModalAsync();
+            }
         }
+
         private void DisplaySelectedDates(IEnumerable<DateTime> dates)
         {
             var selectedDatesLabel = new Label
@@ -29,7 +34,7 @@ namespace DisApp24
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center
             };
-            (Content as ScrollView).Content.FindByName<StackLayout>("MainStackLayout").Children.Add(selectedDatesLabel);
+            MainStackLayout.Children.Add(selectedDatesLabel);
         }
     }
     public class SelectedDateMessage
