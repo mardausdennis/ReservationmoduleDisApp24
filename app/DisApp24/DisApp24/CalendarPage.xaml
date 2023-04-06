@@ -103,7 +103,7 @@
                     TodayCommandParameter="{Binding OutsideCalendarDay.DateTime}"/>
             </Border>
             <!-- Button to confirm the selected date -->
-            <Button x:Name="ConfirmDateButton" Text="Datum bestätigen" Clicked="OnDateConfirmed" />
+            <Button x:Name="ConfirmDateButton" Text="Datum bestätigen" Clicked="OnDateConfirmed" BackgroundColor="#FF5733" TextColor="White" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
