@@ -55,14 +55,32 @@ namespace DisApp24
             }
             else
             {
+                SelectedDates.Clear();
                 SelectedDates.Add(dateTime);
             }
             Calendar?.ChangeDateSelection(dateTime);
+
+            OnPropertyChanged(nameof(SelectedDatesString));
         }
         private void Calendar_DaysUpdated(object sender, EventArgs e)
         {
             Calendar.UpdateDay(OutsideCalendarDay, Calendar.NavigatedDate);
         }
+
+        public string SelectedDatesString
+        {
+            get
+            {
+                if (SelectedDates.Any())
+                {
+                    return SelectedDates.First().ToString("dd/MM/yyyy");
+                }
+                return "Kein Datum ausgewählt";
+            }
+        }
+
+
         #endregion
+
     }
 }

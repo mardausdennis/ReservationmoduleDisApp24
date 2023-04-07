@@ -9,7 +9,7 @@
             <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" />
             <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer" />
             <Picker x:Name="ResourcePicker" Title="Ressource auswählen" />
-            <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="White" />
+            <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray" />
             <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
             <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" />
             <Editor x:Name="CommentEditor" Placeholder="Kommentar" />
