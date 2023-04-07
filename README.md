@@ -3,6 +3,9 @@
 ## Project Plan
 Check out our detailed project plan [here](https://docs.google.com/document/d/1L6PcH95zFZOHiQwp8dvAuzCZ7MBv1anFZxgvv-mOmqw/edit?usp=sharing), where we have outlined the timeline, tasks, and responsibilities for the development of the resource reservation module for DisApp24.
 
+## Trello-Board
+To track the progress of this project and view upcoming tasks, please visit our Trello board [here](https://trello.com/b/CNLGzOMq/main) (invitation required). We use Trello to manage our project tasks and keep everyone updated on our progress. You can see what we're currently working on, what's been completed, and what's planned for the future. 
+
 ## Background and Objectives
 The primary objective of this diploma thesis is to develop a resource reservation module for the Android app DisApp24. The app was launched as a beta version by Pod2Brain for small and medium-sized enterprises to facilitate their entry into digitization. The app already offers the possibility to display and configure custom RSS feeds. With the integration of the reservation module, efficient appointment scheduling should be enabled for both customers and providers, which is easy to use and multilingual.
 
