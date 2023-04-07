@@ -168,6 +168,10 @@
               "target": "Package",
               "version": "[1.7.0.1, )",
               "autoReferenced": true
+            },
+            "libphonenumber-csharp": {
+              "target": "Package",
+              "version": "[8.13.8, )"
             }
           },
           "imports": [
@@ -255,6 +259,10 @@
             "XCalendar.Maui": {
               "target": "Package",
               "version": "[4.4.2, )"
+            },
+            "libphonenumber-csharp": {
+              "target": "Package",
+              "version": "[8.13.8, )"
             }
           },
           "imports": [
@@ -342,6 +350,10 @@
             "XCalendar.Maui": {
               "target": "Package",
               "version": "[4.4.2, )"
+            },
+            "libphonenumber-csharp": {
+              "target": "Package",
+              "version": "[8.13.8, )"
             }
           },
           "imports": [
@@ -446,6 +458,10 @@
             "XCalendar.Maui": {
               "target": "Package",
               "version": "[4.4.2, )"
+            },
+            "libphonenumber-csharp": {
+              "target": "Package",
+              "version": "[8.13.8, )"
             }
           },
           "imports": [

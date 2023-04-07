@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Maui.Controls;
 using CommunityToolkit.Mvvm.Messaging;
+using PhoneNumbers;
 
 namespace DisApp24
 {
@@ -15,6 +16,7 @@ namespace DisApp24
                 SelectedDateLabel.Text = $"Ausgewähltes Datum: {message.Date.ToString("dd.MM.yyyy")}";
             });
         }
+
         private void InitializePickers()
         {
             // Populate the ResourcePicker with sample data
@@ -38,13 +40,135 @@ namespace DisApp24
                 "15:00-16:00"
             };
         }
-        private async void OnSelectDateButtonClicked(object sender, EventArgs e)
+
+        //Input-Validation 
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var mailAddress = new System.Net.Mail.MailAddress(email);
+                return mailAddress.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool IsValidPhoneNumber(string phoneNumber)
+        {
+            var phoneUtil = PhoneNumberUtil.GetInstance();
+
+            try
+            {
+                var parsedNumber = phoneUtil.Parse(phoneNumber, null);
+                return phoneUtil.IsValidNumber(parsedNumber);
+            }
+            catch (NumberParseException)
+            {
+                return false;
+            }
+        }
+
+        private bool ValidateInput()
+        {
+            bool isValid = true;
+            List<string> errorMessages = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(FirstNameEntry.Text))
+            {
+                FirstNameEntry.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
+                isValid = false;
+                errorMessages.Add("Bitte geben Sie einen Vornamen ein.");
+            }
+            else
+            {
+                FirstNameEntry.BackgroundColor = Colors.Transparent;
+            }
+
+            if (string.IsNullOrWhiteSpace(LastNameEntry.Text))
+            {
+                LastNameEntry.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
+                isValid = false;
+                errorMessages.Add("Bitte geben Sie einen Nachnamen ein.");
+            }
+            else
+            {
+                LastNameEntry.BackgroundColor = Colors.Transparent;
+            }
+
+            if (string.IsNullOrWhiteSpace(EmailEntry.Text) || !IsValidEmail(EmailEntry.Text))
+            {
+                EmailEntry.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
+                isValid = false;
+                errorMessages.Add("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+            }
+            else
+            {
+                EmailEntry.BackgroundColor = Colors.Transparent;
+            }
+
+            if (!string.IsNullOrWhiteSpace(PhoneNumberEntry.Text) && !IsValidPhoneNumber(PhoneNumberEntry.Text))
+            {
+                PhoneNumberEntry.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
+                isValid = false;
+                errorMessages.Add("Bitte geben Sie eine gültige Telefonnummer ein.");
+            }
+            else
+            {
+                PhoneNumberEntry.BackgroundColor = Colors.Transparent;
+            }
+
+            if (ResourcePicker.SelectedIndex == -1)
+            {
+                ResourcePicker.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
+                isValid = false;
+                errorMessages.Add("Bitte wählen Sie eine Ressource aus.");
+            }
+            else
+            {
+                ResourcePicker.BackgroundColor = Colors.Transparent;
+            }
+
+            if (string.IsNullOrWhiteSpace(SelectedDateLabel.Text) || SelectedDateLabel.Text == "Datum auswählen")
+            {
+                SelectedDateLabel.TextColor = Color.FromRgba(255, 0, 0, 0.5);
+                isValid = false;
+                errorMessages.Add("Bitte wählen Sie ein Datum aus.");
+            }
+            else
+            {
+                SelectedDateLabel.TextColor = Colors.Black;
+            }
+
+            if (TimePicker.SelectedIndex == -1)
+            {
+                TimePicker.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
+                isValid = false;
+                errorMessages.Add("Bitte wählen Sie eine Uhrzeit aus.");
+            }
+            else
+            {
+                TimePicker.BackgroundColor = Colors.Transparent;
+            }
+
+            ValidationLabel.Text = string.Join("\n", errorMessages);
+
+            return isValid;
+        }
+
+
+            private async void OnSelectDateButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new CalendarPage());
         }
+
         private void OnReserveButtonClicked(object sender, EventArgs e)
         {
-            // Code zur Implementierung der Reservierungsfunktionalität
+            if (ValidateInput())
+            {
+                // Code zur Implementierung der Reservierungsfunktionalität
+            }
         }
     }
 }

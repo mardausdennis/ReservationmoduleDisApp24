@@ -51,6 +51,7 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
+		<PackageReference Include="libphonenumber-csharp" Version="8.13.8" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
 		<PackageReference Include="System.ServiceModel.Syndication" Version="5.0.0" />

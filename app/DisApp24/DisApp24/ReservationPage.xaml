@@ -7,13 +7,15 @@
             <Entry x:Name="FirstNameEntry" Placeholder="Vorname" />
             <Entry x:Name="LastNameEntry" Placeholder="Nachname" />
             <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" />
-            <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer" />
+            <!-- LänderCodePicker TODO: <Picker x:Name="CountryCodePicker" Title="Ländervorwahl auswählen" SelectedIndexChanged="OnCountryCodePickerSelectedIndexChanged" /> -->
+            <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" />
             <Picker x:Name="ResourcePicker" Title="Ressource auswählen" />
             <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray" />
             <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
             <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" />
-            <Editor x:Name="CommentEditor" Placeholder="Kommentar" />
+            <Editor x:Name="CommentEditor" Placeholder="Kommentar (optional)" />
             <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" BackgroundColor="#FF5733" />
+            <Label x:Name="ValidationLabel" TextColor="Red" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

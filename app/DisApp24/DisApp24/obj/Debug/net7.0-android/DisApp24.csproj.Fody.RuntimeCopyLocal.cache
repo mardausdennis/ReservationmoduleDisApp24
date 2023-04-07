@@ -1,6 +1,7 @@
 C:\Users\denni\.nuget\packages\communitytoolkit.mvvm\8.1.0\lib\net6.0\CommunityToolkit.Mvvm.dll
 C:\Users\denni\.nuget\packages\googlegson\2.9.1.1\lib\net6.0-android31.0\GoogleGson.dll
 C:\Users\denni\.nuget\packages\htmlagilitypack\1.11.46\lib\netstandard2.0\HtmlAgilityPack.dll
+C:\Users\denni\.nuget\packages\libphonenumber-csharp\8.13.8\lib\net7.0\PhoneNumbers.dll
 C:\Users\denni\.nuget\packages\microsoft.extensions.configuration\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.dll
 C:\Users\denni\.nuget\packages\microsoft.extensions.configuration.abstractions\7.0.0\lib\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\denni\.nuget\packages\microsoft.extensions.dependencyinjection\7.0.0\lib\net7.0\Microsoft.Extensions.DependencyInjection.dll
@@ -11,6 +12,7 @@ C:\Users\denni\.nuget\packages\microsoft.extensions.logging.debug\7.0.0\lib\net7
 C:\Users\denni\.nuget\packages\microsoft.extensions.options\7.0.0\lib\net7.0\Microsoft.Extensions.Options.dll
 C:\Users\denni\.nuget\packages\microsoft.extensions.primitives\7.0.0\lib\net7.0\Microsoft.Extensions.Primitives.dll
 C:\Users\denni\.nuget\packages\microsoft.maui.graphics\7.0.59\lib\net7.0-android33.0\Microsoft.Maui.Graphics.dll
+C:\Users\denni\.nuget\packages\system.collections.immutable\7.0.0\lib\net7.0\System.Collections.Immutable.dll
 C:\Users\denni\.nuget\packages\system.servicemodel.syndication\5.0.0\lib\netstandard2.0\System.ServiceModel.Syndication.dll
 C:\Users\denni\.nuget\packages\xamarin.android.glide\4.13.2.2\lib\net6.0-android31.0\Xamarin.Android.Glide.dll
 C:\Users\denni\.nuget\packages\xamarin.android.glide.annotations\4.13.2.2\lib\net6.0-android31.0\Xamarin.Android.Glide.Annotations.dll
