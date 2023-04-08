@@ -4,16 +4,29 @@
              x:Name="This">
     <ContentPage.Content>
         <StackLayout Margin="20" Spacing="15">
-            <Entry x:Name="FirstNameEntry" Placeholder="Vorname" />
-            <Entry x:Name="LastNameEntry" Placeholder="Nachname" />
-            <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" />
-            <!-- LänderCodePicker TODO: <Picker x:Name="CountryCodePicker" Title="Ländervorwahl auswählen" SelectedIndexChanged="OnCountryCodePickerSelectedIndexChanged" /> -->
-            <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" />
-            <Picker x:Name="ResourcePicker" Title="Ressource auswählen" />
+            <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="FirstNameEntry" Placeholder="Vorname" />
+            </Frame>
+            <Frame x:Name="LastNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="LastNameEntry" Placeholder="Nachname" />
+            </Frame>
+            <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" />
+            </Frame>
+            <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" />
+            </Frame>
+            <Frame x:Name="ResourceFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Picker x:Name="ResourcePicker" Title="Ressource auswählen" />
+            </Frame>
             <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray" />
             <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
-            <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" />
-            <Editor x:Name="CommentEditor" Placeholder="Kommentar (optional)" />
+            <Frame x:Name="TimeFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" />
+            </Frame>
+            <Frame x:Name="CommentFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Editor x:Name="CommentEditor" Placeholder="Kommentar" />
+            </Frame>
             <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" BackgroundColor="#FF5733" />
             <Label x:Name="ValidationLabel" TextColor="Red" />
         </StackLayout>

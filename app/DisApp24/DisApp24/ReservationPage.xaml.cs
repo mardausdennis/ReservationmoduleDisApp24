@@ -77,64 +77,64 @@ namespace DisApp24
 
             if (string.IsNullOrWhiteSpace(FirstNameEntry.Text))
             {
-                FirstNameEntry.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
+                FirstNameFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
+                errorMessages.Add("Bitte geben Sie Ihren Vornamen ein.");
                 isValid = false;
-                errorMessages.Add("Bitte geben Sie einen Vornamen ein.");
             }
             else
             {
-                FirstNameEntry.BackgroundColor = Colors.Transparent;
+                FirstNameFrame.BorderColor = Colors.DimGray;
             }
 
             if (string.IsNullOrWhiteSpace(LastNameEntry.Text))
             {
-                LastNameEntry.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
+                LastNameFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
+                errorMessages.Add("Bitte geben Sie Ihren Nachnamen ein.");
                 isValid = false;
-                errorMessages.Add("Bitte geben Sie einen Nachnamen ein.");
             }
             else
             {
-                LastNameEntry.BackgroundColor = Colors.Transparent;
+                LastNameFrame.BorderColor = Colors.DimGray;
             }
 
             if (string.IsNullOrWhiteSpace(EmailEntry.Text) || !IsValidEmail(EmailEntry.Text))
             {
-                EmailEntry.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
-                isValid = false;
+                EmailFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
                 errorMessages.Add("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+                isValid = false;
             }
             else
             {
-                EmailEntry.BackgroundColor = Colors.Transparent;
+                EmailFrame.BorderColor = Colors.DimGray;
             }
 
             if (!string.IsNullOrWhiteSpace(PhoneNumberEntry.Text) && !IsValidPhoneNumber(PhoneNumberEntry.Text))
             {
-                PhoneNumberEntry.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
-                isValid = false;
+                PhoneNumberFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
                 errorMessages.Add("Bitte geben Sie eine gültige Telefonnummer ein.");
+                isValid = false;
             }
             else
             {
-                PhoneNumberEntry.BackgroundColor = Colors.Transparent;
+                PhoneNumberFrame.BorderColor = Colors.DimGray;
             }
 
             if (ResourcePicker.SelectedIndex == -1)
             {
-                ResourcePicker.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
-                isValid = false;
+                ResourceFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
                 errorMessages.Add("Bitte wählen Sie eine Ressource aus.");
+                isValid = false;
             }
             else
             {
-                ResourcePicker.BackgroundColor = Colors.Transparent;
+                ResourceFrame.BorderColor = Colors.DimGray;
             }
 
             if (string.IsNullOrWhiteSpace(SelectedDateLabel.Text) || SelectedDateLabel.Text == "Datum auswählen")
             {
                 SelectedDateLabel.TextColor = Color.FromRgba(255, 0, 0, 0.5);
-                isValid = false;
                 errorMessages.Add("Bitte wählen Sie ein Datum aus.");
+                isValid = false;
             }
             else
             {
@@ -143,13 +143,13 @@ namespace DisApp24
 
             if (TimePicker.SelectedIndex == -1)
             {
-                TimePicker.BackgroundColor = Color.FromRgba(255, 0, 0, 0.5);
-                isValid = false;
+                TimeFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
                 errorMessages.Add("Bitte wählen Sie eine Uhrzeit aus.");
+                isValid = false;
             }
             else
             {
-                TimePicker.BackgroundColor = Colors.Transparent;
+                TimeFrame.BorderColor = Colors.DimGray;
             }
 
             ValidationLabel.Text = string.Join("\n", errorMessages);
@@ -158,7 +158,8 @@ namespace DisApp24
         }
 
 
-            private async void OnSelectDateButtonClicked(object sender, EventArgs e)
+
+        private async void OnSelectDateButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new CalendarPage());
         }

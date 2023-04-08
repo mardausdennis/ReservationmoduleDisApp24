@@ -2008,6 +2008,7 @@ C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\PhoneNumbers.dll
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\mscorlib.dll
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\System.Collections.Concurrent.dll
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\System.Data.Common.dll
@@ -2021,4 +2022,3 @@ C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\System.Runtime.Extensions.dll
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\System.Runtime.Serialization.Formatters.dll
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\System.Xml.dll
-C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\PhoneNumbers.dll
