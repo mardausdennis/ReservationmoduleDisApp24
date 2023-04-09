@@ -41,6 +41,27 @@ namespace DisApp24
             };
         }
 
+        //Wenn Ressource ausgewählt dann Form sichtbar
+        private async void OnResourcePickerSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ResourcePicker.SelectedIndex != -1)
+            {
+                // Führe die Ausblendanimation aus, bevor die Auswahl ändern
+                await FormLayout.FadeTo(0, 250, Easing.SinInOut);
+
+                // Warte einen Moment, bevor die Einblendanimation starten
+                await Task.Delay(50);
+
+                FormLayout.IsVisible = true;
+                await FormLayout.FadeTo(1, 250, Easing.SinInOut);
+            }
+            else
+            {
+                await FormLayout.FadeTo(0, 300, Easing.SinInOut);
+                FormLayout.IsVisible = false;
+            }
+        }
+
         //Input-Validation 
         private bool IsValidEmail(string email)
         {
@@ -75,6 +96,11 @@ namespace DisApp24
             bool isValid = true;
             List<string> errorMessages = new List<string>();
 
+            if (ResourcePicker.SelectedIndex == -1)
+            {
+                errorMessages.Add("Bitte wählen Sie eine Ressource aus.");
+                isValid = false;
+            }
             if (string.IsNullOrWhiteSpace(FirstNameEntry.Text))
             {
                 FirstNameFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
@@ -118,18 +144,6 @@ namespace DisApp24
             {
                 PhoneNumberFrame.BorderColor = Colors.DimGray;
             }
-
-            if (ResourcePicker.SelectedIndex == -1)
-            {
-                ResourceFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte wählen Sie eine Ressource aus.");
-                isValid = false;
-            }
-            else
-            {
-                ResourceFrame.BorderColor = Colors.DimGray;
-            }
-
             if (string.IsNullOrWhiteSpace(SelectedDateLabel.Text) || SelectedDateLabel.Text == "Datum auswählen")
             {
                 SelectedDateLabel.TextColor = Color.FromRgba(255, 0, 0, 0.5);
@@ -158,10 +172,27 @@ namespace DisApp24
         }
 
 
+        //Event-Handler
+        private void OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is Entry entry)
+            {
+                if (entry.Parent is Frame frame)
+                {
+                    frame.BorderColor = Colors.DimGray;
+                }
+            }
+        }
+
+        private void OnTimePickerSelectedIndexChanged(object sender, EventArgs e)
+        {
+            TimeFrame.BorderColor = Colors.DimGray;
+        }
 
         private async void OnSelectDateButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new CalendarPage());
+            SelectedDateLabel.TextColor = Colors.DimGray;
         }
 
         private void OnReserveButtonClicked(object sender, EventArgs e)

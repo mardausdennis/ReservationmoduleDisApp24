@@ -4,31 +4,33 @@
              x:Name="This">
     <ContentPage.Content>
         <StackLayout Margin="20" Spacing="15">
-            <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="FirstNameEntry" Placeholder="Vorname" />
-            </Frame>
-            <Frame x:Name="LastNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="LastNameEntry" Placeholder="Nachname" />
-            </Frame>
-            <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" />
-            </Frame>
-            <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" />
-            </Frame>
-            <Frame x:Name="ResourceFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Picker x:Name="ResourcePicker" Title="Ressource auswählen" />
-            </Frame>
-            <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray" />
-            <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
-            <Frame x:Name="TimeFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" />
-            </Frame>
-            <Frame x:Name="CommentFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Editor x:Name="CommentEditor" Placeholder="Kommentar" />
-            </Frame>
-            <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" BackgroundColor="#FF5733" />
-            <Label x:Name="ValidationLabel" TextColor="Red" />
+            <Picker x:Name="ResourcePicker" Title="Ressource auswählen" SelectedIndexChanged="OnResourcePickerSelectedIndexChanged" />
+            <StackLayout x:Name="FormLayout" IsVisible="False" Opacity="0">
+                <StackLayout Spacing="15">
+                    <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                        <Entry x:Name="FirstNameEntry" Placeholder="Vorname" TextChanged="OnTextChanged" />
+                    </Frame>
+                <Frame x:Name="LastNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                        <Entry x:Name="LastNameEntry" Placeholder="Nachname" TextChanged="OnTextChanged" />
+                    </Frame>
+                <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                        <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" TextChanged="OnTextChanged" />
+                    </Frame>
+                <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                        <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" TextChanged="OnTextChanged" />
+                    </Frame>
+                <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray" />
+                    <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
+                    <Frame x:Name="TimeFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                        <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" SelectedIndexChanged="OnTimePickerSelectedIndexChanged" />
+                    </Frame>
+                <Frame x:Name="CommentFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                    <Editor x:Name="CommentEditor" Placeholder="Kommentar (optional)" />
+                </Frame>
+                <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" BackgroundColor="#FF5733" />
+                <Label x:Name="ValidationLabel" TextColor="Red" />
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
