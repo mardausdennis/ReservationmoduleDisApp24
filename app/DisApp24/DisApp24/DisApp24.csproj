@@ -63,6 +63,9 @@
 	  <MauiXaml Update="CalendarPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ReservationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

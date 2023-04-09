@@ -18,6 +18,9 @@
     <MauiXaml Update="CalendarPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="LoginPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="ReservationPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

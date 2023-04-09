@@ -7,10 +7,16 @@ namespace DisApp24
 {
     public partial class ReservationPage : ContentPage
     {
+
+        private bool _loginPageShown;
+
         public ReservationPage()
         {
             InitializeComponent();
             InitializePickers();
+
+            _loginPageShown = false;
+
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, (recipient, message) =>
             {
                 SelectedDateLabel.Text = $"Ausgewähltes Datum: {message.Date.ToString("dd.MM.yyyy")}";
@@ -202,5 +208,19 @@ namespace DisApp24
                 // Code zur Implementierung der Reservierungsfunktionalität
             }
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (!_loginPageShown)
+            {
+                _loginPageShown = true;
+                await Navigation.PushModalAsync(new LoginPage());
+            }
+        }
+
+
+
     }
 }
