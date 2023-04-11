@@ -76,3 +76,8 @@ UpgradeLog*.htm
 # Windows Image Acquisition (WIA) logs
 *.WIALog
 
+# Firebase configuration files
+*/google-services.json
+*/GoogleService-Info.plist
+
+
