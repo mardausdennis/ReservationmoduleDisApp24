@@ -21,6 +21,9 @@
     <MauiXaml Update="LoginPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="ReservationPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

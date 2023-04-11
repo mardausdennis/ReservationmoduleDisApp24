@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DisApp24.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20" Spacing="15" VerticalOptions="Center">
+            <Label Text="Registrierung" FontSize="Large" HorizontalOptions="Center" />
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="EmailEntry" Placeholder="E-Mail Adresse" />
+            </Frame>
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="PasswordEntry" Placeholder="Passwort" IsPassword="True" />
+            </Frame>
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="ConfirmPasswordEntry" Placeholder="Passwort bestätigen" IsPassword="True" />
+            </Frame>
+            <Button x:Name="RegisterButton" Text="Registrieren" Clicked="OnRegisterButtonClicked" />
+            <Label Text="Bereits registriert?" HorizontalOptions="Center" />
+            <Label Text="Zurück zur Anmeldung" HorizontalOptions="Center" TextColor="Blue">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCancelButtonClicked" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

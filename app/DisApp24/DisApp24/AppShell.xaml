@@ -11,7 +11,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:RssPage}" />
         </Tab>
         <Tab Title="Reservation" Icon="AppIcon/calendar_icon.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ReservationPage}" />
+            <ShellContent  Route="reservationpage"  ContentTemplate="{DataTemplate local:ReservationPage}" />
         </Tab>
     </TabBar>
 </Shell>

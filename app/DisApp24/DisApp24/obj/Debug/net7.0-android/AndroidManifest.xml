@@ -10,6 +10,7 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.INTERNET" />
   <application android:allowBackup="true" android:icon="@mipmap/appicon" android:roundIcon="@mipmap/appicon_round" android:supportsRtl="true" android:name="crc645fefd7556f7e8a5b.MainApplication" android:label="DisApp24" android:debuggable="true" android:extractNativeLibs="true">
+    <uses-library android:name="org.apache.http.legacy" android:required="false" />
     <activity android:configChanges="density|orientation|smallestScreenSize|screenLayout|screenSize|uiMode" android:theme="@style/Maui.SplashTheme" android:name="crc645fefd7556f7e8a5b.MainActivity" android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -27,4 +28,6 @@
     <service android:name="crc64396a3fe5f8138e3f.KeepAliveService" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999999" android:authorities="com.companyname.disapp24.mono.MonoRuntimeProvider.__mono_init__" />
   </application>
+  <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+  <meta-data android:name="com.google.android.gms.CLIENT_ID" android:value="952625355122-f88mo6erna3vc15ksnrfajsi7nm2jb85.apps.googleusercontent.com" />
 </manifest>

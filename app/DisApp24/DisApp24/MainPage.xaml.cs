@@ -1,4 +1,11 @@
-﻿namespace DisApp24;
+﻿using System;
+using Microsoft.Maui.Controls;
+using DisApp24.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui.Controls.Hosting;
+
+
+namespace DisApp24;
 
 public partial class MainPage : ContentPage
 {
@@ -7,6 +14,9 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+
+
+
 	}
 
 	private void OnCounterClicked(object sender, EventArgs e)

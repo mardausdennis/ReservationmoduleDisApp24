@@ -15,23 +15,10 @@
   ~ limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="androidx.lifecycle.process" >
+    package="androidx.lifecycle.viewmodel.savedstate" >
 
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="31" />
-
-    <application>
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="${applicationId}.androidx-startup"
-            android:exported="false"
-            tools:node="merge" >
-            <meta-data
-                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-                android:value="androidx.startup" />
-        </provider>
-    </application>
 
 </manifest>

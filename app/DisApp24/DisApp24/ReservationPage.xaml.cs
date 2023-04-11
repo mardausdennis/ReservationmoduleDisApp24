@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using Microsoft.Maui.Controls;
 using CommunityToolkit.Mvvm.Messaging;
 using PhoneNumbers;
+using DisApp24.Services;
 
 namespace DisApp24
 {
@@ -9,13 +10,14 @@ namespace DisApp24
     {
 
         private bool _loginPageShown;
-
-        public ReservationPage()
+        private readonly IFirebaseAuthService _firebaseAuthService;
+        public ReservationPage(IFirebaseAuthService firebaseAuthService)
         {
             InitializeComponent();
             InitializePickers();
 
             _loginPageShown = false;
+            _firebaseAuthService = firebaseAuthService;
 
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, (recipient, message) =>
             {
@@ -216,7 +218,7 @@ namespace DisApp24
             if (!_loginPageShown)
             {
                 _loginPageShown = true;
-                await Navigation.PushModalAsync(new LoginPage());
+                await Navigation.PushModalAsync(new LoginPage(_firebaseAuthService));
             }
         }
 
