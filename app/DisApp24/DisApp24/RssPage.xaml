@@ -1,6 +1,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DisApp24.RssPage">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Abmelden" Clicked="SignOutButton_Clicked" />
+    </ContentPage.ToolbarItems>
+    
     <CollectionView x:Name="MyRssFeedView" ItemsSource="{Binding RssItems}" BackgroundColor="White"
                     SelectionMode="Single"
                     SelectionChanged="OnItemSelected">

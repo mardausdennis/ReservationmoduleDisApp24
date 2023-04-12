@@ -9,14 +9,13 @@ namespace DisApp24
     public partial class ReservationPage : ContentPage
     {
 
-        private bool _loginPageShown;
+        
         private readonly IFirebaseAuthService _firebaseAuthService;
         public ReservationPage(IFirebaseAuthService firebaseAuthService)
         {
             InitializeComponent();
             InitializePickers();
 
-            _loginPageShown = false;
             _firebaseAuthService = firebaseAuthService;
 
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, (recipient, message) =>
@@ -215,9 +214,8 @@ namespace DisApp24
         {
             base.OnAppearing();
 
-            if (!_loginPageShown)
+            if (!_firebaseAuthService.IsSignedIn())
             {
-                _loginPageShown = true;
                 await Navigation.PushModalAsync(new LoginPage(_firebaseAuthService));
             }
         }

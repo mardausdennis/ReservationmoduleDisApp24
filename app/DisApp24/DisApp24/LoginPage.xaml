@@ -2,25 +2,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DisApp24.LoginPage">
     <ContentPage.Content>
-        <StackLayout Padding="20" Spacing="15" VerticalOptions="Center">
-            <Label Text="Bitte anmelden" FontSize="Large" HorizontalOptions="Center" />
-            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="EmailEntry" Placeholder="E-Mail Adresse" />
-            </Frame>
-            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="PasswordEntry" Placeholder="Passwort" IsPassword="True" />
-            </Frame>
-            <Button x:Name="LoginButton" Text="Anmelden" Clicked="OnLoginButtonClicked" />
-            <Button x:Name="GoogleLoginButton" Text="Mit Google anmelden" Clicked="OnGoogleLoginButtonClicked" />
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Label Text="Noch keinen Account?" />
-                <Label Text=" Hier registrieren" TextColor="Blue" FontAttributes="Bold">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnRegisterButtonClicked" />
-                    </Label.GestureRecognizers>
-                </Label>
+        <StackLayout Padding="20" >
+            <Button x:Name="BackButton" 
+                    Text="Zurück" 
+                    HorizontalOptions="Start" 
+                    VerticalOptions="Start" 
+                    Clicked="BackButton_Clicked" />
+
+            <StackLayout Padding="20" Spacing="15" VerticalOptions="CenterAndExpand">
+                <Label Text="Bitte anmelden" FontSize="Large" HorizontalOptions="Center" />
+                <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                    <Entry x:Name="EmailEntry" Placeholder="E-Mail Adresse" />
+                </Frame>
+                <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                    <Entry x:Name="PasswordEntry" Placeholder="Passwort" IsPassword="True" />
+                </Frame>
+                <Button x:Name="LoginButton" Text="Anmelden" Clicked="OnLoginButtonClicked" />
+                <Button x:Name="GoogleLoginButton" Text="Mit Google anmelden" Clicked="OnGoogleLoginButtonClicked" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Noch keinen Account?" />
+                    <Label Text=" Hier registrieren" TextColor="Blue" FontAttributes="Bold">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRegisterButtonClicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <Button x:Name="GuestContinueButton" Text="Als Gast fortfahren" Clicked="OnGuestContinueButtonClicked" BackgroundColor="Transparent" BorderColor="Gray" />
             </StackLayout>
-            <Button x:Name="GuestContinueButton" Text="Als Gast fortfahren" Clicked="OnGuestContinueButtonClicked" BackgroundColor="Transparent" BorderColor="Gray" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

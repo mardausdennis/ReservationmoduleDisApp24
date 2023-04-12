@@ -26,8 +26,11 @@ namespace DisApp24
 
             builder.Services.AddSingleton<IFirebaseAuthService, DisApp24.Services.FirebaseAuthService>();
 
-
+            builder.Services.AddSingleton<AppShell>();
+            builder.Services.AddSingleton<App>();
+            builder.Services.AddSingleton<RssPage>();
             builder.Services.AddSingleton<ReservationPage>();
+            
 
 
 #if DEBUG

@@ -92,6 +92,10 @@
               "version": "[7.0.59, )",
               "autoReferenced": true
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "PropertyChanged.Fody": {
               "target": "Package",
               "version": "[4.1.0, )"
@@ -160,6 +164,10 @@
             "Xamarin.Firebase.Auth": {
               "target": "Package",
               "version": "[120.0.0, )"
+            },
+            "Xamarin.Firebase.Core": {
+              "target": "Package",
+              "version": "[121.1.1.1, )"
             },
             "Xamarin.Firebase.iOS.Auth": {
               "target": "Package",
@@ -265,6 +273,10 @@
               "target": "Package",
               "version": "[7.0.59, )",
               "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "PropertyChanged.Fody": {
               "target": "Package",

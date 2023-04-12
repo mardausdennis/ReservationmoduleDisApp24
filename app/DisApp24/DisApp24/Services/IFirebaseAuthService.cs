@@ -10,8 +10,9 @@ namespace DisApp24.Services
     {
         Task<string> SignInWithEmailPasswordAsync(string email, string password);
         Task<string> SignUpWithEmailPasswordAsync(string email, string password);
-
-        //Task<string> SignInWithGoogleAsync();
+        Task<string> SignInWithGoogleAsync(string idToken, string accessToken);
+        void SignOutAsync();
+        bool IsSignedIn();
     }
 
 }

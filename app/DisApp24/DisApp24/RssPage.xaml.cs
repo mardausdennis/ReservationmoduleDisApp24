@@ -15,9 +15,16 @@ namespace DisApp24
     {
         public ObservableCollection<SyndicationItem> RssItems { get; set; }
 
-        public RssPage()
+        private readonly IFirebaseAuthService _firebaseAuthService;
+
+        public RssPage(IFirebaseAuthService firebaseAuthService)
         {
+            System.Diagnostics.Debug.WriteLine($"FirebaseAuthService instance: {_firebaseAuthService}");
+
             InitializeComponent();
+
+            _firebaseAuthService = firebaseAuthService;
+
             RssItems = new ObservableCollection<SyndicationItem>();
             BindingContext = this;
             LoadRssFeed();
@@ -109,11 +116,10 @@ namespace DisApp24
         }
 
 
-
-
-
-
-
+        private void SignOutButton_Clicked(object sender, EventArgs e)
+        {
+            _firebaseAuthService.SignOutAsync();
+        }
 
 
     }
