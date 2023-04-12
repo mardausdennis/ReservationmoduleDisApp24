@@ -3,6 +3,8 @@ using Microsoft.Maui.Controls;
 using CommunityToolkit.Mvvm.Messaging;
 using PhoneNumbers;
 using DisApp24.Services;
+using DisApp24.Helpers;
+
 
 namespace DisApp24
 {
@@ -70,34 +72,6 @@ namespace DisApp24
         }
 
         //Input-Validation 
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var mailAddress = new System.Net.Mail.MailAddress(email);
-                return mailAddress.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private bool IsValidPhoneNumber(string phoneNumber)
-        {
-            var phoneUtil = PhoneNumberUtil.GetInstance();
-
-            try
-            {
-                var parsedNumber = phoneUtil.Parse(phoneNumber, null);
-                return phoneUtil.IsValidNumber(parsedNumber);
-            }
-            catch (NumberParseException)
-            {
-                return false;
-            }
-        }
-
         private bool ValidateInput()
         {
             bool isValid = true;
@@ -130,7 +104,7 @@ namespace DisApp24
                 LastNameFrame.BorderColor = Colors.DimGray;
             }
 
-            if (string.IsNullOrWhiteSpace(EmailEntry.Text) || !IsValidEmail(EmailEntry.Text))
+            if (string.IsNullOrWhiteSpace(EmailEntry.Text) || !InputValidationHelper.IsValidEmail(EmailEntry.Text))
             {
                 EmailFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
                 errorMessages.Add("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
@@ -141,7 +115,7 @@ namespace DisApp24
                 EmailFrame.BorderColor = Colors.DimGray;
             }
 
-            if (!string.IsNullOrWhiteSpace(PhoneNumberEntry.Text) && !IsValidPhoneNumber(PhoneNumberEntry.Text))
+            if (!string.IsNullOrWhiteSpace(PhoneNumberEntry.Text) && !InputValidationHelper.IsValidPhoneNumber(PhoneNumberEntry.Text))
             {
                 PhoneNumberFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
                 errorMessages.Add("Bitte geben Sie eine gültige Telefonnummer ein.");
@@ -177,6 +151,8 @@ namespace DisApp24
 
             return isValid;
         }
+
+
 
 
         //Event-Handler

@@ -5,6 +5,15 @@
         <StackLayout Padding="20" Spacing="15" VerticalOptions="Center">
             <Label Text="Registrierung" FontSize="Large" HorizontalOptions="Center" />
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="FirstNameEntry" Placeholder="Vorname" />
+            </Frame>
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="LastNameEntry" Placeholder="Nachname" />
+            </Frame>
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" />
+            </Frame>
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
                 <Entry x:Name="EmailEntry" Placeholder="E-Mail Adresse" />
             </Frame>
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
@@ -20,6 +29,7 @@
                     <TapGestureRecognizer Tapped="OnCancelButtonClicked" />
                 </Label.GestureRecognizers>
             </Label>
+            <Label x:Name="ValidationLabel" TextColor="Red" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
