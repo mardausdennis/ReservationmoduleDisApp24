@@ -49,6 +49,7 @@ namespace DisApp24
             }
         }
 
+        //Validate-Input
         private bool ValidateInput()
         {
             bool isValid = true;
@@ -73,45 +74,58 @@ namespace DisApp24
             }
             else
             {
-                LastNameEntry.BorderColor = Colors.DimGray;
+                LastNameFrame.BorderColor = Colors.DimGray;
             }
-            if (InputValidationHelper.IsNullOrWhiteSpace(EmailEntry.Text) || !InputValidationHelper.IsValidEmail(EmailEntry.Text))
+
+            if (string.IsNullOrWhiteSpace(EmailEntry.Text) || !InputValidationHelper.IsValidEmail(EmailEntry.Text))
             {
-                EmailEntry.BackgroundColor = Colors.Red.WithAlpha((float)0.5);
+                EmailFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
                 errorMessages.Add("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
                 isValid = false;
             }
             else
             {
-                EmailEntry.BackgroundColor = Colors.Transparent;
+                EmailFrame.BorderColor = Colors.DimGray;
             }
 
-            if (InputValidationHelper.IsNullOrWhiteSpace(PasswordEntry.Text))
+            if (!string.IsNullOrWhiteSpace(PhoneNumberEntry.Text) && !InputValidationHelper.IsValidPhoneNumber(PhoneNumberEntry.Text))
             {
-                PasswordEntry.BackgroundColor = Colors.Red.WithAlpha((float)0.5);
+                PhoneNumberFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
+                errorMessages.Add("Bitte geben Sie eine gültige Telefonnummer ein.");
+                isValid = false;
+            }
+            else
+            {
+                PhoneNumberFrame.BorderColor = Colors.DimGray;
+            }
+
+            if (string.IsNullOrWhiteSpace(PasswordEntry.Text))
+            {
+                PasswordFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
                 errorMessages.Add("Bitte geben Sie ein Passwort ein.");
                 isValid = false;
             }
             else
             {
-                PasswordEntry.BackgroundColor = Colors.Transparent;
+                PasswordFrame.BorderColor = Colors.DimGray;
             }
 
-            if (InputValidationHelper.IsNullOrWhiteSpace(ConfirmPasswordEntry.Text) || ConfirmPasswordEntry.Text != PasswordEntry.Text)
+            if (string.IsNullOrWhiteSpace(ConfirmPasswordEntry.Text) || ConfirmPasswordEntry.Text != PasswordEntry.Text)
             {
-                ConfirmPasswordEntry.BackgroundColor = Colors.Red.WithAlpha((float)0.5);
+                ConfirmPasswordFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
                 errorMessages.Add("Die eingegebenen Passwörter stimmen nicht überein.");
                 isValid = false;
             }
             else
             {
-                ConfirmPasswordEntry.BackgroundColor = Colors.Transparent;
+                ConfirmPasswordFrame.BorderColor = Colors.DimGray;
             }
 
             ValidationLabel.Text = string.Join("\n", errorMessages);
 
             return isValid;
         }
+
 
         private void OnCancelButtonClicked(object sender, EventArgs e)
         {

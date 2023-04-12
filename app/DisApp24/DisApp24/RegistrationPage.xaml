@@ -4,22 +4,22 @@
     <ContentPage.Content>
         <StackLayout Padding="20" Spacing="15" VerticalOptions="Center">
             <Label Text="Registrierung" FontSize="Large" HorizontalOptions="Center" />
-            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+            <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                 <Entry x:Name="FirstNameEntry" Placeholder="Vorname" />
             </Frame>
-            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+            <Frame x:Name="LastNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                 <Entry x:Name="LastNameEntry" Placeholder="Nachname" />
             </Frame>
-            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+            <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                 <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" />
             </Frame>
-            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+            <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                 <Entry x:Name="EmailEntry" Placeholder="E-Mail Adresse" />
             </Frame>
-            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+            <Frame x:Name="PasswordFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                 <Entry x:Name="PasswordEntry" Placeholder="Passwort" IsPassword="True" />
             </Frame>
-            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+            <Frame x:Name="ConfirmPasswordFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                 <Entry x:Name="ConfirmPasswordEntry" Placeholder="Passwort bestätigen" IsPassword="True" />
             </Frame>
             <Button x:Name="RegisterButton" Text="Registrieren" Clicked="OnRegisterButtonClicked" />
