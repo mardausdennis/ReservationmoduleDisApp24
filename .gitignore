@@ -77,7 +77,7 @@ UpgradeLog*.htm
 *.WIALog
 
 # Firebase configuration files
-*/google-services.json
-*/GoogleService-Info.plist
+google-services.json
+GoogleService-Info.plist
 
 
