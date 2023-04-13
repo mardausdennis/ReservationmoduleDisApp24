@@ -5,6 +5,7 @@ using DisApp24.Services;
 using Firebase.Database;
 using Firebase.Database.Query;
 
+
 namespace DisApp24.Services{ 
     public class FirebaseAuthService: IFirebaseAuthService
     {
@@ -47,8 +48,51 @@ namespace DisApp24.Services{
             var authProvider = FirebaseAuth.Instance;
             var credential = GoogleAuthProvider.GetCredential(idToken, accessToken);
             var result = await authProvider.SignInWithCredentialAsync(credential);
-            return result.User.Uid;
+            var userId = result.User.Uid;
+
+            // Überprüfen, ob der Benutzer bereits in der Firebase Realtime Database vorhanden ist
+            var existingProfile = await GetUserProfileAsync(userId);
+
+            if (existingProfile == null)
+            {
+                // Benutzerinformationen in der Firebase Realtime Database speichern
+                var userProfile = new
+                {
+                    FirstName = result.AdditionalUserInfo.Profile.ContainsKey("given_name") ? result.AdditionalUserInfo.Profile["given_name"].ToString() : "",
+                    LastName = result.AdditionalUserInfo.Profile.ContainsKey("family_name") ? result.AdditionalUserInfo.Profile["family_name"].ToString() : ""
+                };
+                await _firebaseClient.Child($"users/{userId}").PutAsync(userProfile);
+            }
+
+            return userId;
         }
+
+
+
+        public async Task<IDictionary<string, object>> GetUserProfileAsync(string userId)
+        {
+            var userProfile = await _firebaseClient.Child($"users/{userId}").OnceSingleAsync<IDictionary<string, object>>();
+            return userProfile;
+        }
+
+        public Task<AppUser> GetCurrentUserAsync()
+        {
+            var firebaseUser = FirebaseAuth.Instance.CurrentUser;
+            if (firebaseUser != null)
+            {
+                return Task.FromResult(new AppUser
+                {
+                    Uid = firebaseUser.Uid,
+                    DisplayName = firebaseUser.DisplayName,
+                    Email = firebaseUser.Email
+                });
+            }
+            return Task.FromResult<AppUser>(null);
+        }
+
+
+
+
 
         public bool IsSignedIn()
         {

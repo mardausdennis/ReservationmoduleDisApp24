@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using PhoneNumbers;
 using DisApp24.Services;
 using DisApp24.Helpers;
+using Firebase.Auth;
 
 
 namespace DisApp24
@@ -194,7 +195,26 @@ namespace DisApp24
             {
                 await Navigation.PushModalAsync(new LoginPage(_firebaseAuthService));
             }
+            else
+            {
+                // Benutzerdaten abrufen
+                var currentUser = await _firebaseAuthService.GetCurrentUserAsync();
+                if (currentUser != null)
+                {
+                    var userProfile = await _firebaseAuthService.GetUserProfileAsync(currentUser.Uid);
+
+                    if (userProfile != null)
+                    {
+                        // Eingabefelder mit Benutzerdaten ausfüllen
+                        FirstNameEntry.Text = userProfile.ContainsKey("FirstName") ? userProfile["FirstName"].ToString() : "";
+                        LastNameEntry.Text = userProfile.ContainsKey("LastName") ? userProfile["LastName"].ToString() : "";
+                        EmailEntry.Text = currentUser.Email;
+                        PhoneNumberEntry.Text = userProfile.ContainsKey("PhoneNumber") ? userProfile["PhoneNumber"].ToString() : "";
+                    }
+                }
+            }
         }
+
 
 
 
