@@ -1,7 +1,7 @@
 # Reservation module of the Android app DisApp24 / Diploma Thesis HTBLuVA Wiener Neustadt
 
 ## Project Plan
-Check out our detailed project plan [here](https://docs.google.com/document/d/1L6PcH95zFZOHiQwp8dvAuzCZ7MBv1anFZxgvv-mOmqw/edit?usp=sharing), where we have outlined the timeline, tasks, and responsibilities for the development of the resource reservation module for DisApp24.
+Check out our detailed project plan (in german) [here](https://docs.google.com/document/d/1L6PcH95zFZOHiQwp8dvAuzCZ7MBv1anFZxgvv-mOmqw/edit?usp=sharing), where we have outlined the timeline, tasks, and responsibilities for the development of the resource reservation module for DisApp24.
 
 ## Trello-Board
 To track the progress of this project and view upcoming tasks, please visit our Trello board [here](https://trello.com/b/CNLGzOMq/main) (invitation required). We use Trello to manage our project tasks and keep everyone updated on our progress. You can see what we're currently working on, what's been completed, and what's planned for the future. 
