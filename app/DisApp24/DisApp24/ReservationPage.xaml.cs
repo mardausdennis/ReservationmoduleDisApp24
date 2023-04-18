@@ -5,6 +5,9 @@ using PhoneNumbers;
 using DisApp24.Services;
 using DisApp24.Helpers;
 using Firebase.Auth;
+using Firebase.Database;
+using Newtonsoft.Json;
+
 
 
 namespace DisApp24
@@ -14,6 +17,8 @@ namespace DisApp24
 
         
         private readonly IFirebaseAuthService _firebaseAuthService;
+        private readonly FirebaseClient _firebaseClient = new FirebaseClient("https://disapp24-reservation-module-default-rtdb.europe-west1.firebasedatabase.app");
+
         public ReservationPage(IFirebaseAuthService firebaseAuthService)
         {
             InitializeComponent();
@@ -179,13 +184,39 @@ namespace DisApp24
             SelectedDateLabel.TextColor = Colors.DimGray;
         }
 
-        private void OnReserveButtonClicked(object sender, EventArgs e)
+        private async void OnReserveButtonClicked(object sender, EventArgs e)
         {
             if (ValidateInput())
             {
-                // Code zur Implementierung der Reservierungsfunktionalität
+
+                int dateStartIndex = SelectedDateLabel.Text.IndexOf(':') + 2;
+                string selectedDate = SelectedDateLabel.Text.Substring(dateStartIndex);
+
+                var reservationData = new
+                {
+                    resource = ResourcePicker.SelectedItem.ToString(),
+                    firstName = FirstNameEntry.Text,
+                    lastName = LastNameEntry.Text,
+                    email = EmailEntry.Text,
+                    phoneNumber = PhoneNumberEntry.Text,
+                    date = selectedDate,
+                    timeSlot = TimePicker.SelectedItem.ToString()
+                };
+
+                var json = JsonConvert.SerializeObject(reservationData);
+
+                try
+                {
+                    await _firebaseClient.Child("reservations").PostAsync(json);
+                    await DisplayAlert("Erfolg", "Ihre Reservierungsanfrage wurde erfolgreich gesendet. Sie erhalten eine Bestätigung per E-Mail, sobald Ihre Reservierung bestätigt wurde.", "OK");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Fehler", "Es gab einen Fehler beim Senden Ihrer Reservierungsanfrage. Bitte versuchen Sie es später erneut.", "OK");
+                }
             }
         }
+
 
         protected override async void OnAppearing()
         {
