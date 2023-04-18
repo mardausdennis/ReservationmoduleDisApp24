@@ -79,5 +79,13 @@ UpgradeLog*.htm
 # Firebase configuration files
 google-services.json
 GoogleService-Info.plist
+firebaseConfig.js
+
+# Express backend
+web/.env
+web/node_modules/
+web/package-lock.json
+web/dist/
+web/.DS_Store
 
 
