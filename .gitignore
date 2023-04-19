@@ -81,11 +81,43 @@ google-services.json
 GoogleService-Info.plist
 firebaseConfig.js
 
-# Express backend
-web/.env
-web/node_modules/
-web/package-lock.json
-web/dist/
-web/.DS_Store
+# ASP.NET appsettings.json
+**/appsettings.*.json
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Visual Studio Code
+.vscode/
+
+# Rider IDE
+.idea/
+
+# macOS
+.DS_Store
+
+# ASP.NET temporary files
+*.tmp
+*.swp
+*.swpx
+*.pidb
+*.bak
+*.bak.*
+*.cache
+*.ado
+*.bak2
+*.aps
+*.ncb
+*.pch
+*.scc
+*.sdf
+*.sln.docstates
+
+# ASP.NET configuration files
+appsettings.json
+
 
 
