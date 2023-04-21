@@ -18,6 +18,8 @@ namespace DisApp24
         
         private readonly IFirebaseAuthService _firebaseAuthService;
         private readonly FirebaseClient _firebaseClient = new FirebaseClient("https://disapp24-reservation-module-default-rtdb.europe-west1.firebasedatabase.app");
+        private bool isFirstTimeAppearing = true;
+
 
         public ReservationPage(IFirebaseAuthService firebaseAuthService)
         {
@@ -236,7 +238,7 @@ namespace DisApp24
                 {
                     var userProfile = await _firebaseAuthService.GetUserProfileAsync(currentUser.Uid);
 
-                    if (userProfile != null)
+                    if (userProfile != null && isFirstTimeAppearing)
                     {
                         // Eingabefelder mit Benutzerdaten ausfüllen
                         FirstNameEntry.Text = userProfile.ContainsKey("FirstName") ? userProfile["FirstName"].ToString() : "";
@@ -246,7 +248,10 @@ namespace DisApp24
                     }
                 }
             }
+
+            isFirstTimeAppearing = false;
         }
+
 
 
 
