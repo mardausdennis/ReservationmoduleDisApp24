@@ -1,0 +1,29 @@
+﻿@page
+@model PendingReservationsModel
+@{
+    ViewData["Title"] = "Ausstehende Reservierungen";
+}
+
+<h1>Ausstehende Reservierungen</h1>
+
+@foreach (var reservation in Model.PendingReservations)
+{
+        <div>
+            <h3>@reservation.Name - @reservation.Date - @reservation.TimeSlot</h3>
+            <table>
+                <tr>
+                    <td>@reservation.Name</td>
+                    <td>@reservation.Email</td>
+                    <td>@reservation.PhoneNumber</td>
+                    <td>@reservation.Resource</td>
+                    <td>@reservation.Date</td>
+                    <td>@reservation.TimeSlot</td>
+                </tr>
+            </table>
+            <form method="post" class="reservation-form">
+                <input type="hidden" name="id" value="@reservation.Id" />
+                <button type="submit" asp-page-handler="Confirm" name="handler" value="Confirm">Bestätigen</button>
+                <button type="submit" asp-page-handler="Reject" name="handler" value="Reject">Ablehnen</button>
+            </form>
+        </div>
+}

@@ -1,0 +1,100 @@
+﻿@page
+@model AllReservationsModel
+@{
+    ViewData["Title"] = "All Reservations";
+}
+
+<div>
+    <h1>Ausstehende Reservierungen</h1>
+    @foreach (var reservation in Model.UpcomingReservations)
+    {
+        <div>
+            <h3>@reservation.Name - @reservation.Date - @reservation.Time</h3>
+            <form method="post" class="reservation-form">
+                <input type="hidden" name="id" value="@reservation.Id" />
+                <table>
+                    <tr>
+                        <td>@reservation.Name</td>
+                        <td>@reservation.Email</td>
+                        <td>@reservation.PhoneNumber</td>
+                        <td>@reservation.Resource</td>
+                        <td>@reservation.Date</td>
+                        <td>@reservation.Time</td>
+                    </tr>
+                </table>
+                @if (reservation.Status == "Pending")
+                {
+                    <button type="submit" asp-page-handler="Confirm" name="handler" value="Confirm">Bestätigen</button>
+                    <button type="submit" asp-page-handler="Reject" name="handler" value="Reject">Ablehnen</button>
+                }
+            </form>
+        </div>
+    }
+</div>
+
+<div>
+    <h1>Nicht Bestätigte Vergangene Reservierungen</h1>
+    @foreach (var reservation in Model.UnconfirmedPastReservations)
+    {
+        <div>
+            <h3>@reservation.Name - @reservation.Date - @reservation.Time</h3>
+            <form method="post" class="reservation-form">
+                <input type="hidden" name="id" value="@reservation.Id" />
+                <table>
+                    <tr>
+                        <td>@reservation.Name</td>
+                        <td>@reservation.Email</td>
+                        <td>@reservation.PhoneNumber</td>
+                        <td>@reservation.Resource</td>
+                        <td>@reservation.Date</td>
+                        <td>@reservation.Time</td>
+                    </tr>
+                </table>
+                @if (reservation.Status == "Pending")
+                {
+                    <button type="submit" asp-page-handler="Confirm" name="handler" value="Confirm">Bestätigen</button>
+                    <button type="submit" asp-page-handler="Reject" name="handler" value="Reject">Ablehnen</button>
+                }
+            </form>
+        </div>
+    }
+</div>
+
+<div>
+    <h1>Vergangene Reservierungen</h1>
+    @foreach (var reservation in Model.PastReservations)
+    {
+        <div>
+            <h3>@reservation.Name - @reservation.Date - @reservation.Time</h3>
+            <table>
+                <tr>
+                    <td>@reservation.Name</td>
+                    <td>@reservation.Email</td>
+                    <td>@reservation.PhoneNumber</td>
+                    <td>@reservation.Resource</td>
+                    <td>@reservation.Date</td>
+                    <td>@reservation.Time</td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function attachFormListeners() {
+            var forms = document.querySelectorAll(".reservation-form");
+            forms.forEach(function (form) {
+                form.addEventListener("submit", function (event) {
+                    console.log("Submitting form...");
+                });
+            });
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", attachFormListeners);
+        } else {
+            attachFormListeners();
+        }
+    </script>
+}

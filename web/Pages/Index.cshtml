@@ -4,28 +4,11 @@
     ViewData["Title"] = "Home page";
 }
 
-<div>
-    <h1>Ausstehende Reservierungen</h1>
-    <ul>
-        @foreach (var reservation in Model.Reservations)
-        {
-            <li>
-                @reservation.Name - @reservation.Date - @reservation.TimeSlot
-                <form method="post">
-                    <input type="hidden" name="id" value="@reservation.Id" />
-                    <table>
-                        <tr>
-                            <td>@reservation.Name</td>
-                            <td>@reservation.Email</td>
-                            <td>@reservation.PhoneNumber</td>
-                            <td>@reservation.Resource</td>
-                            <td>@reservation.Date</td>
-                            <td>@reservation.TimeSlot</td>
-                        </tr>
-                    </table>
-                    <button type="submit" asp-page-handler="Confirm">Bestätigen</button>
-                </form>
-            </li>
-        }
-    </ul>
+<div style="display: flex; align-items: center; justify-content: center; height: 100vh; flex-direction: column;">
+    <a href="./PendingReservations">
+        <button style="font-size: 20px; padding: 10px 20px; margin: 5px; cursor: pointer;">Ausstehende Reservierungen</button>
+    </a>
+    <a href="./AllReservations">
+        <button style="font-size: 20px; padding: 10px 20px; margin: 5px; cursor: pointer;">Alle Reservierungen</button>
+    </a>
 </div>

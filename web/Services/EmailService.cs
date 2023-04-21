@@ -1,5 +1,6 @@
 ﻿using SendGrid.Helpers.Mail;
 using SendGrid;
+using static Google.Apis.Requests.BatchRequest;
 
 namespace web.Services
 {
@@ -15,11 +16,15 @@ namespace web.Services
         public async Task SendConfirmationEmailAsync(string to, string subject, string htmlContent)
         {
             var client = new SendGridClient(_sendGridApiKey);
-            var from = new EmailAddress("DisApp24-noreply@love4quality.com", "DisApp24");
+            var from = new EmailAddress("dennis.mardaus@gmail.com", "DisApp24");
             var toEmail = new EmailAddress(to);
             var msg = MailHelper.CreateSingleEmail(from, toEmail, subject, null, htmlContent);
 
-            await client.SendEmailAsync(msg);
+            var response = await client.SendEmailAsync(msg);
+
+            // Log the status code and response body for debugging purposes
+            System.Diagnostics.Debug.WriteLine($"SendGrid response status code: {response.StatusCode}");
+            System.Diagnostics.Debug.WriteLine($"SendGrid response body: {await response.Body.ReadAsStringAsync()}");
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using Google.Apis.Calendar.v3;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Calendar.v3;
 using Google.Apis.Calendar.v3.Data;
 using Google.Apis.Services;
+using Google.Apis.Util.Store;
 using System.Globalization;
 using web.Models;
 
@@ -9,19 +11,28 @@ namespace web.Services
     public class GoogleCalendarService
     {
         private readonly CalendarService _calendarService;
-        private readonly string _calendarId = "primary"; // Use "primary" for the user's primary calendar
 
-        public GoogleCalendarService(string apiKey)
+        private readonly string _calendarId = @"a65fa70b8a066ff7aff016026e3e4c41a5896c6f95c2ca469ee8621720b5109a@group.calendar.google.com"; // Use "primary" for the user's primary calendar
+
+        public GoogleCalendarService(string serviceAccountKeyPath)
         {
+            GoogleCredential credential;
+            using (var stream = new FileStream(serviceAccountKeyPath, FileMode.Open, FileAccess.Read))
+            {
+                credential = GoogleCredential.FromStream(stream).CreateScoped(CalendarService.Scope.Calendar);
+            }
+
             _calendarService = new CalendarService(new BaseClientService.Initializer()
             {
-                ApiKey = apiKey,
+                HttpClientInitializer = credential,
                 ApplicationName = "web",
             });
         }
 
+
         public async Task CreateEventAsync(Reservation reservation)
         {
+            Console.WriteLine("Creating event...");
             // Parse date and time
             DateTime startDate = DateTime.ParseExact(reservation.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture);
             string[] timeRange = reservation.TimeSlot.Split('-');
@@ -37,19 +48,21 @@ namespace web.Services
                 Start = new EventDateTime
                 {
                     DateTime = startDate.Add(startTime.TimeOfDay),
-                    TimeZone = "UTC",
+                    TimeZone = "Europe/Zurich",
                 },
                 End = new EventDateTime
                 {
                     DateTime = startDate.Add(endTime.TimeOfDay),
-                    TimeZone = "UTC",
+                    TimeZone = "Europe/Zurich",
                 },
             };
 
             // Insert the event into the user's calendar
-            var request = _calendarService.Events.Insert(calendarEvent, _calendarId);
-            await request.ExecuteAsync();
+            var request = _calendarService.Events.Insert(calendarEvent, _calendarId).Execute();
+            //var createdEvent = await request.ExecuteAsync();
+            System.Diagnostics.Debug.WriteLine($"Event created: {request.HtmlLink}"); 
         }
+
 
     }
 }

@@ -1,4 +1,7 @@
 ﻿using Firebase.Database;
+using Firebase.Database.Query;
+using Newtonsoft.Json;
+using System.Globalization;
 using web.Models;
 
 namespace web.Services
@@ -32,16 +35,30 @@ namespace web.Services
                     PhoneNumber = item.Object.PhoneNumber,
                     Date = item.Object.Date,
                     TimeSlot = item.Object.TimeSlot,
-                    Resource = item.Object.Resource
+                    Resource = item.Object.Resource,
+                    Status = item.Object.Status
                 });
             }
 
             return reservations;
         }
+
+
+
+
+
+        public async Task UpdateReservationStatusAsync(string reservationId, string status)
+        {
+            await _client.Child("reservations").Child(reservationId).Child("status").PutAsync($"\"{status}\"");
+        }
+
+
+
         public async Task DeleteReservationAsync(string reservationId)
         {
-            // Your existing code to remove a reservation from Firebase
+            await _client.Child("reservations").Child(reservationId).DeleteAsync();
         }
+
 
     }
 }

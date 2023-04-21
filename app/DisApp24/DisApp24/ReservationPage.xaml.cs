@@ -200,7 +200,9 @@ namespace DisApp24
                     email = EmailEntry.Text,
                     phoneNumber = PhoneNumberEntry.Text,
                     date = selectedDate,
-                    timeSlot = TimePicker.SelectedItem.ToString()
+                    timeSlot = TimePicker.SelectedItem.ToString(),
+                    comment = CommentEditor.Text,
+                    status = "Pending"
                 };
 
                 var json = JsonConvert.SerializeObject(reservationData);
