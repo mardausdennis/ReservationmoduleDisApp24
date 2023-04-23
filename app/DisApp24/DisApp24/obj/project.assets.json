@@ -756,6 +756,37 @@
           "build/PropertyChanged.Fody.props": {}
         }
       },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
       "System.Collections.Immutable/7.0.0": {
         "type": "package",
         "compile": {
@@ -4118,6 +4149,37 @@
           "build/PropertyChanged.Fody.props": {}
         }
       },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
       "System.Collections.Immutable/7.0.0": {
         "type": "package",
         "compile": {
@@ -7446,6 +7508,37 @@
         },
         "build": {
           "build/PropertyChanged.Fody.props": {}
+        }
+      },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
         }
       },
       "System.Collections.Immutable/7.0.0": {
@@ -10778,6 +10871,37 @@
           "build/PropertyChanged.Fody.props": {}
         }
       },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
       "System.Collections.Immutable/7.0.0": {
         "type": "package",
         "compile": {
@@ -14108,6 +14232,37 @@
           "build/PropertyChanged.Fody.props": {}
         }
       },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
       "System.Collections.Immutable/7.0.0": {
         "type": "package",
         "compile": {
@@ -17436,6 +17591,37 @@
         },
         "build": {
           "build/PropertyChanged.Fody.props": {}
+        }
+      },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll": {
+            "related": ".aar;.xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll": {
+            "related": ".aar;.xml"
+          }
         }
       },
       "System.Collections.Immutable/7.0.0": {
@@ -20799,6 +20985,37 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -22332,6 +22549,37 @@
           "runtimes/unix/lib/netstandard1.5/System.Runtime.Extensions.dll": {}
         }
       },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -23859,6 +24107,37 @@
         },
         "runtime": {
           "runtimes/unix/lib/netstandard1.5/System.Runtime.Extensions.dll": {}
+        }
+      },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Buffers/4.3.0": {
@@ -25390,6 +25669,37 @@
           "runtimes/unix/lib/netstandard1.5/System.Runtime.Extensions.dll": {}
         }
       },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -26919,6 +27229,37 @@
           "runtimes/unix/lib/netstandard1.5/System.Runtime.Extensions.dll": {}
         }
       },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Buffers/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -28446,6 +28787,37 @@
         },
         "runtime": {
           "runtimes/unix/lib/netstandard1.5/System.Runtime.Extensions.dll": {}
+        }
+      },
+      "Syncfusion.Maui.Core/21.1.41": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Licensing.dll": {},
+          "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Syncfusion.Maui.TabView/21.1.41": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Maui.Core": "21.1.41"
+        },
+        "compile": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll": {
+            "related": ".xml"
+          }
         }
       },
       "System.Buffers/4.3.0": {
@@ -30724,6 +31096,94 @@
         "runtime.unix.system.runtime.extensions.4.3.0.nupkg.sha512",
         "runtime.unix.system.runtime.extensions.nuspec",
         "runtimes/unix/lib/netstandard1.5/System.Runtime.Extensions.dll"
+      ]
+    },
+    "Syncfusion.Maui.Core/21.1.41": {
+      "sha512": "riZ8gH0GfT/HSyN0+vbrnqOllcknDuYkW15tLOsp821oDP2GcJWpZ2FToBg5rAdXkOiM5HAtYP/h3LzUhIFZYA==",
+      "type": "package",
+      "path": "syncfusion.maui.core/21.1.41",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/net6.0-android30.0/Syncfusion.Licensing.dll",
+        "lib/net6.0-android30.0/Syncfusion.Maui.Core.dll",
+        "lib/net6.0-android30.0/Syncfusion.Maui.Core.xml",
+        "lib/net6.0-ios13.6/Syncfusion.Licensing.dll",
+        "lib/net6.0-ios13.6/Syncfusion.Maui.Core.dll",
+        "lib/net6.0-ios13.6/Syncfusion.Maui.Core.xml",
+        "lib/net6.0-maccatalyst13.5/Syncfusion.Licensing.dll",
+        "lib/net6.0-maccatalyst13.5/Syncfusion.Maui.Core.dll",
+        "lib/net6.0-maccatalyst13.5/Syncfusion.Maui.Core.xml",
+        "lib/net6.0-windows10.0.19041.0/Syncfusion.Licensing.dll",
+        "lib/net6.0-windows10.0.19041.0/Syncfusion.Maui.Core.deps.json",
+        "lib/net6.0-windows10.0.19041.0/Syncfusion.Maui.Core.dll",
+        "lib/net6.0-windows10.0.19041.0/Syncfusion.Maui.Core.xml",
+        "lib/net6.0/Syncfusion.Licensing.dll",
+        "lib/net6.0/Syncfusion.Maui.Core.deps.json",
+        "lib/net6.0/Syncfusion.Maui.Core.dll",
+        "lib/net6.0/Syncfusion.Maui.Core.xml",
+        "lib/net7.0-android30.0/Syncfusion.Licensing.dll",
+        "lib/net7.0-android30.0/Syncfusion.Maui.Core.aar",
+        "lib/net7.0-android30.0/Syncfusion.Maui.Core.dll",
+        "lib/net7.0-android30.0/Syncfusion.Maui.Core.xml",
+        "lib/net7.0-ios13.6/Syncfusion.Licensing.dll",
+        "lib/net7.0-ios13.6/Syncfusion.Maui.Core.dll",
+        "lib/net7.0-ios13.6/Syncfusion.Maui.Core.xml",
+        "lib/net7.0-maccatalyst13.5/Syncfusion.Licensing.dll",
+        "lib/net7.0-maccatalyst13.5/Syncfusion.Maui.Core.dll",
+        "lib/net7.0-maccatalyst13.5/Syncfusion.Maui.Core.xml",
+        "lib/net7.0-windows10.0.19041.0/Syncfusion.Licensing.dll",
+        "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.Core.deps.json",
+        "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.Core.dll",
+        "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.Core.xml",
+        "lib/net7.0/Syncfusion.Licensing.dll",
+        "lib/net7.0/Syncfusion.Maui.Core.deps.json",
+        "lib/net7.0/Syncfusion.Maui.Core.dll",
+        "lib/net7.0/Syncfusion.Maui.Core.xml",
+        "syncfusion.maui.core.21.1.41.nupkg.sha512",
+        "syncfusion.maui.core.nuspec",
+        "syncfusion_logo.png"
+      ]
+    },
+    "Syncfusion.Maui.TabView/21.1.41": {
+      "sha512": "xuoZWuG7BHiFHFim8tr2bGndJX4w5dyWrpjoqvtnbXvLJIsc25dv7k8OKjZ+eQ8gMbavT123su8iAlFLI4Ur/g==",
+      "type": "package",
+      "path": "syncfusion.maui.tabview/21.1.41",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "README.md",
+        "lib/net6.0-android30.0/Syncfusion.Maui.TabView.dll",
+        "lib/net6.0-android30.0/Syncfusion.Maui.TabView.xml",
+        "lib/net6.0-ios13.6/Syncfusion.Maui.TabView.dll",
+        "lib/net6.0-ios13.6/Syncfusion.Maui.TabView.xml",
+        "lib/net6.0-maccatalyst13.5/Syncfusion.Maui.TabView.dll",
+        "lib/net6.0-maccatalyst13.5/Syncfusion.Maui.TabView.xml",
+        "lib/net6.0-windows10.0.19041.0/Syncfusion.Maui.TabView.deps.json",
+        "lib/net6.0-windows10.0.19041.0/Syncfusion.Maui.TabView.dll",
+        "lib/net6.0-windows10.0.19041.0/Syncfusion.Maui.TabView.xml",
+        "lib/net6.0/Syncfusion.Maui.TabView.deps.json",
+        "lib/net6.0/Syncfusion.Maui.TabView.dll",
+        "lib/net6.0/Syncfusion.Maui.TabView.xml",
+        "lib/net7.0-android30.0/Syncfusion.Maui.TabView.aar",
+        "lib/net7.0-android30.0/Syncfusion.Maui.TabView.dll",
+        "lib/net7.0-android30.0/Syncfusion.Maui.TabView.xml",
+        "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.dll",
+        "lib/net7.0-ios13.6/Syncfusion.Maui.TabView.xml",
+        "lib/net7.0-maccatalyst13.5/Syncfusion.Maui.TabView.dll",
+        "lib/net7.0-maccatalyst13.5/Syncfusion.Maui.TabView.xml",
+        "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.TabView.deps.json",
+        "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.TabView.dll",
+        "lib/net7.0-windows10.0.19041.0/Syncfusion.Maui.TabView.xml",
+        "lib/net7.0/Syncfusion.Maui.TabView.deps.json",
+        "lib/net7.0/Syncfusion.Maui.TabView.dll",
+        "lib/net7.0/Syncfusion.Maui.TabView.xml",
+        "syncfusion.maui.tabview.21.1.41.nupkg.sha512",
+        "syncfusion.maui.tabview.nuspec",
+        "syncfusion_logo.png"
       ]
     },
     "System.Buffers/4.3.0": {
@@ -36453,6 +36913,8 @@
       "Microsoft.Maui.Graphics >= 7.0.81",
       "Newtonsoft.Json >= 13.0.3",
       "PropertyChanged.Fody >= 4.1.0",
+      "Syncfusion.Maui.Core >= 21.1.41",
+      "Syncfusion.Maui.TabView >= 21.1.41",
       "System.IdentityModel.Tokens.Jwt >= 6.28.1",
       "System.ServiceModel.Syndication >= 5.0.0",
       "XCalendar.Core >= 4.4.2",
@@ -36490,6 +36952,8 @@
       "Microsoft.Maui.Graphics >= 7.0.81",
       "Newtonsoft.Json >= 13.0.3",
       "PropertyChanged.Fody >= 4.1.0",
+      "Syncfusion.Maui.Core >= 21.1.41",
+      "Syncfusion.Maui.TabView >= 21.1.41",
       "System.IdentityModel.Tokens.Jwt >= 6.28.1",
       "System.ServiceModel.Syndication >= 5.0.0",
       "XCalendar.Core >= 4.4.2",
@@ -36604,6 +37068,14 @@
           "PropertyChanged.Fody": {
             "target": "Package",
             "version": "[4.1.0, )"
+          },
+          "Syncfusion.Maui.Core": {
+            "target": "Package",
+            "version": "[21.1.41, )"
+          },
+          "Syncfusion.Maui.TabView": {
+            "target": "Package",
+            "version": "[21.1.41, )"
           },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
@@ -36794,6 +37266,14 @@
           "PropertyChanged.Fody": {
             "target": "Package",
             "version": "[4.1.0, )"
+          },
+          "Syncfusion.Maui.Core": {
+            "target": "Package",
+            "version": "[21.1.41, )"
+          },
+          "Syncfusion.Maui.TabView": {
+            "target": "Package",
+            "version": "[21.1.41, )"
           },
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",

@@ -76,24 +76,31 @@ namespace DisApp24.Services
         }
 
 
-        public Task<AppUser> GetCurrentUserAsync()
+        public async Task<AppUser> GetCurrentUserAsync()
         {
             var authProvider = Auth.DefaultInstance;
             var user = authProvider.CurrentUser;
             if (user != null)
             {
-                return Task.FromResult(new AppUser
+                // Benutzerprofil aus der Firebase Realtime Database abrufen
+                var userProfile = await GetUserProfileAsync(user.Uid);
+
+                // Verwende TryGetValue, um Werte aus dem Benutzerprofil abzurufen
+                userProfile.TryGetValue("FirstName", out object firstName);
+                userProfile.TryGetValue("LastName", out object lastName);
+                
+
+                // Erstelle ein AppUser-Objekt mit den Informationen aus dem Benutzerprofil
+                return new AppUser
                 {
                     Uid = user.Uid,
-                    DisplayName = user.DisplayName,
+                    FirstName = firstName as string,
+                    LastName = lastName as string,
                     Email = user.Email
-                });
+                };
             }
-            return Task.FromResult<AppUser>(null);
+            return null;
         }
-
-
-
 
         public async Task<IDictionary<string, object>> GetUserProfileAsync(string userId)
         {
@@ -101,6 +108,7 @@ namespace DisApp24.Services
             return userProfile;
         }
 
+     
 
         public bool IsSignedIn()
         {

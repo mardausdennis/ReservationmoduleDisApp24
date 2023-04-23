@@ -5,6 +5,8 @@ Microsoft.Maui.Controls.Xaml.dll
 Microsoft.Maui.dll
 Microsoft.Maui.Essentials.dll
 Microsoft.Maui.Graphics.dll
+Syncfusion.Maui.Core.dll
+Syncfusion.Maui.TabView.dll
 Xamarin.Android.Glide.Annotations.dll
 Xamarin.Android.Glide.DiskLruCache.dll
 Xamarin.Android.Glide.dll
@@ -182,6 +184,8 @@ Microsoft.Maui.Controls.Compatibility.aar
 maui.aar
 Microsoft.Maui.aar
 Microsoft.Maui.Essentials.aar
+Syncfusion.Maui.Core.aar
+Syncfusion.Maui.TabView.aar
 firebase-analytics.aar
 Xamarin.Firebase.Annotations.aar
 firebase-common.aar

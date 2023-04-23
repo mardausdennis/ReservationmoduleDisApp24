@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GPu7E3pYtY7ItpgMyRdSxu2Kij8Hbp/lKNksSjEO+8NvudakEdKzu6HiQOErrn9X3HB+fmyaIOjpPIA/D78kCw==",
+  "dgSpecHash": "6ZepjtmLtZem8EX5rbvziiKunNvKw879Bbh85chcnVIvkSS1C+SiOgyLjem+v3iH+CyTnZ9e55E3VteOiXJeMg==",
   "success": true,
   "projectFilePath": "C:\\Users\\denni\\Documents\\GitHub\\ReservationmoduleDisApp24\\app\\DisApp24\\DisApp24\\DisApp24.csproj",
   "expectedPackageFiles": [
@@ -74,6 +74,8 @@
     "C:\\Users\\denni\\.nuget\\packages\\runtime.unix.system.diagnostics.debug\\4.3.0\\runtime.unix.system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\denni\\.nuget\\packages\\runtime.unix.system.private.uri\\4.3.0\\runtime.unix.system.private.uri.4.3.0.nupkg.sha512",
     "C:\\Users\\denni\\.nuget\\packages\\runtime.unix.system.runtime.extensions\\4.3.0\\runtime.unix.system.runtime.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\denni\\.nuget\\packages\\syncfusion.maui.core\\21.1.41\\syncfusion.maui.core.21.1.41.nupkg.sha512",
+    "C:\\Users\\denni\\.nuget\\packages\\syncfusion.maui.tabview\\21.1.41\\syncfusion.maui.tabview.21.1.41.nupkg.sha512",
     "C:\\Users\\denni\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\denni\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\denni\\.nuget\\packages\\system.collections.immutable\\7.0.0\\system.collections.immutable.7.0.0.nupkg.sha512",

@@ -82,6 +82,8 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+		<PackageReference Include="Syncfusion.Maui.Core" Version="21.1.41" />
+		<PackageReference Include="Syncfusion.Maui.TabView" Version="21.1.41" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.28.1" />
 		<PackageReference Include="System.ServiceModel.Syndication" Version="5.0.0" />
 		<PackageReference Include="Xamarin.Build.Download" Version="0.11.4" />

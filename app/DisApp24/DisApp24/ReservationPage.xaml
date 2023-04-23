@@ -1,36 +1,87 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:local="clr-namespace:DisApp24.Helpers"
              x:Class="DisApp24.ReservationPage"
              x:Name="This">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StatusToColorConverter x:Key="StatusToColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Margin="20" Spacing="15">
-            <Picker x:Name="ResourcePicker" Title="Ressource auswählen" SelectedIndexChanged="OnResourcePickerSelectedIndexChanged" />
-            <StackLayout x:Name="FormLayout" IsVisible="False" Opacity="0">
-                <StackLayout Spacing="15">
-                    <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                        <Entry x:Name="FirstNameEntry" Placeholder="Vorname" TextChanged="OnTextChanged" />
-                    </Frame>
-                <Frame x:Name="LastNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                        <Entry x:Name="LastNameEntry" Placeholder="Nachname" TextChanged="OnTextChanged" />
-                    </Frame>
-                <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                        <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" TextChanged="OnTextChanged" />
-                    </Frame>
-                <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                        <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" TextChanged="OnTextChanged" />
-                    </Frame>
-                <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray" />
-                    <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
-                    <Frame x:Name="TimeFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                        <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" SelectedIndexChanged="OnTimePickerSelectedIndexChanged" />
-                    </Frame>
-                <Frame x:Name="CommentFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                    <Editor x:Name="CommentEditor" Placeholder="Kommentar (optional)" />
-                </Frame>
-                <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" BackgroundColor="#FF5733" />
-                <Label x:Name="ValidationLabel" TextColor="Red" />
-                </StackLayout>
-            </StackLayout>
-        </StackLayout>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Text="Terminverwaltung" FontSize="24" HorizontalOptions="Center" />
+            <tabView:SfTabView Grid.Row="1">
+                <tabView:SfTabView.Items>
+                    <tabView:SfTabItem Header="Reservieren">
+                        <tabView:SfTabItem.Content>
+                            <StackLayout Margin="20" Spacing="15">
+                                <Picker x:Name="ResourcePicker" Title="Ressource auswählen" SelectedIndexChanged="OnResourcePickerSelectedIndexChanged" />
+                                <StackLayout x:Name="FormLayout" IsVisible="False" Opacity="0">
+                                    <StackLayout Spacing="15">
+                                        <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                                            <Entry x:Name="FirstNameEntry" Placeholder="Vorname" TextChanged="OnTextChanged" />
+                                        </Frame>
+                                        <Frame x:Name="LastNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                                            <Entry x:Name="LastNameEntry" Placeholder="Nachname" TextChanged="OnTextChanged" />
+                                        </Frame>
+                                        <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                                            <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" TextChanged="OnTextChanged" />
+                                        </Frame>
+                                        <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                                            <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" TextChanged="OnTextChanged" />
+                                        </Frame>
+                                        <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray" />
+                                        <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
+                                        <Frame x:Name="TimeFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                                            <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" SelectedIndexChanged="OnTimePickerSelectedIndexChanged" />
+                                        </Frame>
+                                        <Frame x:Name="CommentFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
+                                            <Editor x:Name="CommentEditor" Placeholder="Kommentar (optional)" />
+                                        </Frame>
+                                        <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" BackgroundColor="#FF5733" />
+                                        <Label x:Name="ValidationLabel" TextColor="Red"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                    <tabView:SfTabItem Header="Meine Termine">
+                        <tabView:SfTabItem.Content>
+                            <CollectionView x:Name="AppointmentsCollection" Margin="0,10,0,0">
+                            <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Padding="10" ColumnSpacing="10">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <BoxView BackgroundColor="{Binding Status, Converter={StaticResource StatusToColorConverter}}" WidthRequest="10" VerticalOptions="FillAndExpand" />
+                                            <StackLayout Grid.Column="1" Spacing="5">
+                                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Date}" FontAttributes="Bold" />
+                                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding TimeSlot}" />
+                                                <Label Grid.Row="2" Grid.Column="1" Text="{Binding Resource}" />
+                                                <Label Grid.Row="3" Grid.Column="1" Text="{Binding Status}" FontAttributes="Italic" TextColor="{Binding Status, Converter={StaticResource StatusToColorConverter}}" />
+                                            </StackLayout>
+                                        </Grid>
+                                    </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                        </tabView:SfTabItem.Content>
+                    </tabView:SfTabItem>
+                </tabView:SfTabView.Items>
+            </tabView:SfTabView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

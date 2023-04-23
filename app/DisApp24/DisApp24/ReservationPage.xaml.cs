@@ -1,14 +1,13 @@
-using System;
-using Microsoft.Maui.Controls;
+
 using CommunityToolkit.Mvvm.Messaging;
-using PhoneNumbers;
 using DisApp24.Services;
 using DisApp24.Helpers;
-using Firebase.Auth;
 using Firebase.Database;
 using Newtonsoft.Json;
-
-
+using System.Collections.ObjectModel;
+using Firebase.Database.Query;
+using Firebase.Auth;
+using System.Diagnostics;
 
 namespace DisApp24
 {
@@ -19,6 +18,10 @@ namespace DisApp24
         private readonly IFirebaseAuthService _firebaseAuthService;
         private readonly FirebaseClient _firebaseClient = new FirebaseClient("https://disapp24-reservation-module-default-rtdb.europe-west1.firebasedatabase.app");
         private bool isFirstTimeAppearing = true;
+        private AppUser currentUser;
+
+
+        private ObservableCollection<Appointment> _appointments;
 
 
         public ReservationPage(IFirebaseAuthService firebaseAuthService)
@@ -28,10 +31,17 @@ namespace DisApp24
 
             _firebaseAuthService = firebaseAuthService;
 
+            // Initialize the appointments collection
+            _appointments = new ObservableCollection<Appointment>();
+            
+
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, (recipient, message) =>
             {
                 SelectedDateLabel.Text = $"Ausgewähltes Datum: {message.Date.ToString("dd.MM.yyyy")}";
             });
+
+          
+
         }
 
         private void InitializePickers()
@@ -204,7 +214,8 @@ namespace DisApp24
                     date = selectedDate,
                     timeSlot = TimePicker.SelectedItem.ToString(),
                     comment = CommentEditor.Text,
-                    status = "Pending"
+                    status = "Pending",
+                    userId = currentUser.Uid
                 };
 
                 var json = JsonConvert.SerializeObject(reservationData);
@@ -221,6 +232,27 @@ namespace DisApp24
             }
         }
 
+        private async Task<List<Appointment>> GetUserAppointmentsAsync(string userId)
+        {
+            var appointments = new List<Appointment>();
+            var firebaseAppointments = await _firebaseClient
+                .Child("reservations")
+                .OnceAsync<Appointment>();
+
+            foreach (var item in firebaseAppointments)
+            {
+                var appointment = item.Object;
+                if (appointment.UserId == userId) // Filtern der Termine anhand der userId.
+                {
+                    appointment.Key = item.Key;
+                    appointments.Add(appointment);
+                }
+            }
+
+            return appointments;
+        }
+
+
 
         protected override async void OnAppearing()
         {
@@ -233,7 +265,7 @@ namespace DisApp24
             else
             {
                 // Benutzerdaten abrufen
-                var currentUser = await _firebaseAuthService.GetCurrentUserAsync();
+                currentUser = await _firebaseAuthService.GetCurrentUserAsync();
                 if (currentUser != null)
                 {
                     var userProfile = await _firebaseAuthService.GetUserProfileAsync(currentUser.Uid);
@@ -248,6 +280,18 @@ namespace DisApp24
                     }
                 }
             }
+
+
+            // Fetch user's appointments from Firebase and add them to the appointments collection
+            var userAppointments = await GetUserAppointmentsAsync(currentUser.Uid);
+            _appointments.Clear();
+            foreach (var appointment in userAppointments)
+            {
+                _appointments.Add(appointment);
+            }
+
+
+            AppointmentsCollection.ItemsSource = _appointments;
 
             isFirstTimeAppearing = false;
         }

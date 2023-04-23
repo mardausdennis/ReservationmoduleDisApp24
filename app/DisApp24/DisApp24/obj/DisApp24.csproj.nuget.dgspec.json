@@ -104,6 +104,14 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
+            "Syncfusion.Maui.Core": {
+              "target": "Package",
+              "version": "[21.1.41, )"
+            },
+            "Syncfusion.Maui.TabView": {
+              "target": "Package",
+              "version": "[21.1.41, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.28.1, )"
@@ -293,6 +301,14 @@
             "PropertyChanged.Fody": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "Syncfusion.Maui.Core": {
+              "target": "Package",
+              "version": "[21.1.41, )"
+            },
+            "Syncfusion.Maui.TabView": {
+              "target": "Package",
+              "version": "[21.1.41, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

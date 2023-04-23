@@ -5,6 +5,7 @@ using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Controls;
 using Microsoft.Extensions.Logging;
 using DisApp24.Services;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace DisApp24
 {
@@ -15,6 +16,7 @@ namespace DisApp24
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
