@@ -73,7 +73,8 @@ namespace DisApp24
                         var userId = await _firebaseAuthService.SignInWithGoogleAsync(tokens.IdToken, tokens.AccessToken);
 
                         // Erfolgreiche Anmeldung, Navigation zur Hauptseite oder einer anderen Seite
-                        await Navigation.PopModalAsync(); 
+                        await Navigation.PopAsync(); // Hier schließen wir die LoginPage
+
                     }
                     else
                     {

@@ -16,6 +16,8 @@ namespace DisApp24
         public ObservableCollection<SyndicationItem> RssItems { get; set; }
 
         private readonly IFirebaseAuthService _firebaseAuthService;
+        private ToolbarItem _signInButton;
+        private ToolbarItem _signOutButton;
 
         public RssPage(IFirebaseAuthService firebaseAuthService)
         {
@@ -28,7 +30,48 @@ namespace DisApp24
             RssItems = new ObservableCollection<SyndicationItem>();
             BindingContext = this;
             LoadRssFeed();
+
+            CreateToolbarItems();
+            UpdateSignInOutButtons();
         }
+
+        private void CreateToolbarItems()
+        {
+            _signInButton = new ToolbarItem
+            {
+                Text = "Anmelden",
+                Command = new Command(async () => await Navigation.PushAsync(new LoginPage(_firebaseAuthService)))
+            };
+
+            _signOutButton = new ToolbarItem
+            {
+                Text = "Abmelden",
+                Command = new Command(() =>
+                {
+                    _firebaseAuthService.SignOutAsync();
+                    UpdateSignInOutButtons();
+                })
+            };
+
+        }
+
+
+
+        private void UpdateSignInOutButtons()
+        {
+            ToolbarItems.Clear();
+
+            if (_firebaseAuthService.IsSignedIn())
+            {
+                ToolbarItems.Add(_signOutButton);
+            }
+            else
+            {
+                ToolbarItems.Add(_signInButton);
+            }
+        }
+
+
 
         private string StripHtmlTags(string input)
         {
@@ -115,11 +158,13 @@ namespace DisApp24
             ((CollectionView)sender).SelectedItem = null;
         }
 
-
-        private void SignOutButton_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            _firebaseAuthService.SignOutAsync();
+            base.OnAppearing();
+            UpdateSignInOutButtons();
         }
+
+
 
 
     }
