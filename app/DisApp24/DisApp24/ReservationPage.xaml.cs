@@ -341,10 +341,11 @@ namespace DisApp24
             // Fetch user's appointments from Firebase and add them to the appointments collection
             var userAppointments = await GetUserAppointmentsAsync(currentUser.Uid);
             _appointments.Clear();
-            foreach (var appointment in userAppointments)
+            foreach (var appointment in userAppointments.OrderBy(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture)))
             {
                 _appointments.Add(appointment);
             }
+
 
 
             AppointmentsCollection.ItemsSource = _appointments;

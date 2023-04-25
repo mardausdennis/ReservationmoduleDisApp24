@@ -15,26 +15,20 @@ namespace DisApp24
 {
     public class CalendarPageViewModel : BaseViewModel
     {
-        #region Properties
+      
 
         private readonly IFirebaseAuthService _firebaseAuthService;
-
         public ObservableCollection<DateTime> SelectedDates { get; set; } = new ObservableCollection<DateTime>();
         public CalendarDay OutsideCalendarDay { get; set; } = new CalendarDay();
-        #endregion
-
-        #region Commands
         public ICommand NavigateCalendarCommand { get; set; }
         public ICommand ChangeDateSelectionCommand { get; set; }
         public ObservableCollection<DateTime> FullyBookedDates { get; set; } = new ObservableCollection<DateTime>();
-
-
         public Calendar<CalendarDay> Calendar { get; set; } = new Calendar<CalendarDay>()
         {
             SelectionType = SelectionType.Single,
             SelectionAction = SelectionAction.Replace
         };
-        #endregion
+        
 
         #region Constructors
         public CalendarPageViewModel(IFirebaseAuthService firebaseAuthService)
