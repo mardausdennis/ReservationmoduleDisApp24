@@ -54,7 +54,7 @@
             <Setter Property="CurrentMonthTextColor" Value="{StaticResource CalendarBackgroundTextColor}"/>
             <Setter Property="TodayTextColor" Value="{StaticResource CalendarPrimaryColor}"/>
             <Setter Property="InvalidTextColor" Value="{StaticResource CalendarTertiaryColor}"/>
-            <Setter Property="SelectedBackgroundColor" Value="{StaticResource CalendarPrimaryColor}"/>
+            <Setter Property="SelectedBackgroundColor" Value="Green"/>
             <Setter Property="SelectedTextColor" Value="{StaticResource CalendarPrimaryTextColor}"/>
         </Style>
 

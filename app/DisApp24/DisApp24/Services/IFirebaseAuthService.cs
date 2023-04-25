@@ -14,6 +14,8 @@ namespace DisApp24.Services
         Task<string> SignInWithGoogleAsync(string idToken, string accessToken);
         Task<IDictionary<string, object>> GetUserProfileAsync(string userId);
         Task<AppUser> GetCurrentUserAsync();
+        Task<List<Appointment>> GetReservationsAsync();
+
         void SignOutAsync();
         bool IsSignedIn();
     }

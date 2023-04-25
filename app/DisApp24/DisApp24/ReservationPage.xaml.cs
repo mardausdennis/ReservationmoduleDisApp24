@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using Firebase.Database.Query;
 using Firebase.Auth;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace DisApp24
 {
@@ -192,7 +193,7 @@ namespace DisApp24
 
         private async void OnSelectDateButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new CalendarPage());
+            await Navigation.PushModalAsync(new CalendarPage(_firebaseAuthService));
             SelectedDateLabel.TextColor = Colors.DimGray;
         }
 
@@ -253,6 +254,61 @@ namespace DisApp24
         }
 
 
+        public bool AreAllTimeSlotsBooked(DateTime date, List<Appointment> appointments)
+        {
+            var availableTimeSlots = new List<string>
+    {
+        "08:00-09:00", "09:00-10:00", "10:00-11:00", "11:00-12:00",
+        "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00"
+    };
+
+            var bookedTimeSlots = appointments.Where(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture) == date).Select(a => a.TimeSlot);
+
+            return bookedTimeSlots.Count() == availableTimeSlots.Count;
+        }
+
+        public List<string> GetAvailableTimeSlots(DateTime date, List<Appointment> appointments)
+        {
+            var allTimeSlots = new List<string>
+    {
+        "08:00-09:00", "09:00-10:00", "10:00-11:00", "11:00-12:00",
+        "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00"
+    };
+
+            var bookedTimeSlots = appointments.Where(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture) == date).Select(a => a.TimeSlot);
+
+            var availableTimeSlots = allTimeSlots.Except(bookedTimeSlots).ToList();
+
+            return availableTimeSlots;
+        }
+
+
+        public async Task PrintAvailableTimeSlotsPerMonth()
+        {
+            var reservations = await _firebaseAuthService.GetReservationsAsync();
+            var distinctDates = reservations.Select(r => DateTime.ParseExact(r.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture)).Distinct().OrderBy(r => r);
+            var groupedDatesByMonth = distinctDates.GroupBy(d => new { d.Year, d.Month });
+
+            foreach (var monthGroup in groupedDatesByMonth)
+            {
+                System.Diagnostics.Debug.WriteLine($"{monthGroup.First().ToString("MMMM")}:");
+
+                foreach (var date in monthGroup)
+                {
+                    if (!AreAllTimeSlotsBooked(date, reservations))
+                    {
+                        var availableTimeSlots = GetAvailableTimeSlots(date, reservations);
+                        System.Diagnostics.Debug.WriteLine($"  {date.ToString("dd.MM.yyyy")}: TimeSlots frei: {string.Join(", ", availableTimeSlots)}");
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine($"  {date.ToString("dd.MM.yyyy")}: Keine TimeSlots frei!");
+                    }
+                }
+            }
+        }
+
+
 
         protected override async void OnAppearing()
         {
@@ -293,7 +349,11 @@ namespace DisApp24
 
             AppointmentsCollection.ItemsSource = _appointments;
 
+            await PrintAvailableTimeSlotsPerMonth();
+
             isFirstTimeAppearing = false;
+
+
         }
 
 

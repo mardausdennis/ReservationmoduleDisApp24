@@ -108,7 +108,27 @@ namespace DisApp24.Services
             return userProfile;
         }
 
-     
+        public async Task<List<Appointment>> GetReservationsAsync()
+        {
+            var firebaseAppointments = await _firebaseClient
+        .Child("reservations")
+        .OnceAsync<Appointment>();
+
+            var appointments = new List<Appointment>();
+            foreach (var item in firebaseAppointments)
+            {
+                var appointment = item.Object;
+                appointment.Key = item.Key;
+                appointments.Add(appointment);
+            }
+
+            return appointments;
+
+
+        }
+
+
+
 
         public bool IsSignedIn()
         {
