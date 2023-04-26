@@ -15,6 +15,7 @@ namespace DisApp24.Services
         Task<IDictionary<string, object>> GetUserProfileAsync(string userId);
         Task<AppUser> GetCurrentUserAsync();
         Task<List<Appointment>> GetReservationsAsync();
+        Task<bool> IsUserAccountValid(string userId);
 
         void SignOutAsync();
         bool IsSignedIn();

@@ -202,6 +202,16 @@ namespace DisApp24
             if (ValidateInput())
             {
 
+                bool isUserAccountValid = await _firebaseAuthService.IsUserAccountValid(currentUser.Uid);
+                if (!isUserAccountValid)
+                {
+                    // Zeige eine Fehlermeldung an und kehre zur Anmeldeseite zurück
+                    await DisplayAlert("Fehler", "Ihr Benutzerkonto ist nicht mehr gültig. Bitte melden Sie sich erneut an.", "OK");
+                    await Navigation.PushModalAsync(new LoginPage(_firebaseAuthService, isModal: true));
+                    return;
+                }
+
+
                 int dateStartIndex = SelectedDateLabel.Text.IndexOf(':') + 2;
                 string selectedDate = SelectedDateLabel.Text.Substring(dateStartIndex);
 
@@ -316,7 +326,7 @@ namespace DisApp24
 
             if (!_firebaseAuthService.IsSignedIn())
             {
-                await Navigation.PushModalAsync(new LoginPage(_firebaseAuthService));
+                await Navigation.PushModalAsync(new LoginPage(_firebaseAuthService, isModal: true));
             }
             else
             {

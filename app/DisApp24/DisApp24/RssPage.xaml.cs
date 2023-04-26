@@ -40,7 +40,7 @@ namespace DisApp24
             _signInButton = new ToolbarItem
             {
                 Text = "Anmelden",
-                Command = new Command(async () => await Navigation.PushAsync(new LoginPage(_firebaseAuthService)))
+                Command = new Command(async () => await Navigation.PushAsync(new LoginPage(_firebaseAuthService, isModal: false)))
             };
 
             _signOutButton = new ToolbarItem

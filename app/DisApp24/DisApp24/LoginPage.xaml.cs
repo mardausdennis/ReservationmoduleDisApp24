@@ -3,7 +3,6 @@ using System;
 using DisApp24.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System.Security.Cryptography;
-
 using System;
 using System.IO;
 using System.Net.Http;
@@ -21,15 +20,17 @@ namespace DisApp24
     {
 
         private readonly IFirebaseAuthService _firebaseAuthService;
+        public bool IsModal { get; set; }
 
 
 
-        public LoginPage(IFirebaseAuthService firebaseAuthService)
+        public LoginPage(IFirebaseAuthService firebaseAuthService, bool isModal = false)
         {
 
             InitializeComponent();
             _firebaseAuthService = firebaseAuthService;
-            
+            IsModal = isModal;
+
         }
 
         private async void OnLoginButtonClicked(object sender, EventArgs e)
@@ -73,7 +74,14 @@ namespace DisApp24
                         var userId = await _firebaseAuthService.SignInWithGoogleAsync(tokens.IdToken, tokens.AccessToken);
 
                         // Erfolgreiche Anmeldung, Navigation zur Hauptseite oder einer anderen Seite
-                        await Navigation.PopAsync(); // Hier schließen wir die LoginPage
+                        if (IsModal)
+                        {
+                            await Navigation.PopModalAsync();
+                        }
+                        else
+                        {
+                            await Navigation.PopAsync();
+                        }
 
                     }
                     else

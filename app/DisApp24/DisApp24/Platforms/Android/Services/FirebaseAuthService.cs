@@ -121,6 +121,15 @@ namespace DisApp24.Services{
 
         }
 
+        public async Task<bool> IsUserAccountValid(string userId)
+        {
+            var userExists = await _firebaseClient
+                .Child("users")
+                .Child(userId)
+                .OnceSingleAsync<AppUser>();
+
+            return userExists != null;
+        }
 
 
 
