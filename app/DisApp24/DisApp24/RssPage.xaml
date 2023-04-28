@@ -2,13 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DisApp24.RssPage">
 
-    <ContentPage.ToolbarItems>
-        
-    </ContentPage.ToolbarItems>
-
     <CollectionView x:Name="MyRssFeedView" ItemsSource="{Binding RssItems}" BackgroundColor="White"
                     SelectionMode="Single"
-                    SelectionChanged="OnItemSelected">
+                    SelectionChangedCommand="{Binding ItemSelectedCommand}"
+                    SelectionChangedCommandParameter="{Binding Source={x:Reference MyRssFeedView}, Path=SelectedItem}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <Frame Padding="10" Margin="5" BackgroundColor="White" CornerRadius="5" HasShadow="True">
@@ -20,8 +17,8 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Text="{Binding Title.Text}" FontSize="16" TextColor="Black" />
-                        <Label Grid.Row="1" Text="{Binding Summary.Text}" FontSize="14" TextColor="Gray" MaxLines="3" LineBreakMode="TailTruncation" />
+                        <Label Grid.Row="0" Text="{Binding Title}" FontSize="16" TextColor="Black" />
+                        <Label Grid.Row="1" Text="{Binding Summary}" FontSize="14" TextColor="Gray" MaxLines="3" LineBreakMode="TailTruncation" />
                     </Grid>
                 </Frame>
             </DataTemplate>
