@@ -11,7 +11,7 @@ namespace DisApp24.Services
         public async Task<List<RssItem>> GetRssFeedAsync(string rssUrl)
         {
             using var reader = XmlReader.Create(rssUrl);
-            var feed = await Task.Run(() => SyndicationFeed.Load(reader)).ConfigureAwait(false);
+            var feed = await Task.Run(() => SyndicationFeed.Load(reader));
             return feed.Items.Select(item => new RssItem
             {
                 Title = item.Title.Text,
@@ -20,16 +20,9 @@ namespace DisApp24.Services
             }).ToList();
         }
 
-
-
-        public string StripHtmlTags(string source)
+        private string StripHtmlTags(string source)
         {
             return Regex.Replace(source, "<.*?>", string.Empty);
-        }
-
-        public string StripHtmlContent(string source)
-        {
-            return Regex.Replace(source, @"<[^>]+>|&nbsp;|&zwnj;|&raquo;|&laquo;|&gt;", "").Trim();
         }
 
 

@@ -5,6 +5,8 @@
              xmlns:xc="clr-namespace:XCalendar.Maui.Views;assembly=XCalendar.Maui"
              x:Class="DisApp24.App">
     <Application.Resources>
+        
+
         <!--<ResourceDictionary Source="Resources/Styles.xaml" />-->
 
         <Color x:Key="PrimaryColor">#2060FF</Color>

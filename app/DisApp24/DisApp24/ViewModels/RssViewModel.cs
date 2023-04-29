@@ -8,6 +8,7 @@ using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using DisApp24.Models;
+using Microsoft.Maui.Controls;
 
 namespace DisApp24.ViewModels
 {
@@ -67,38 +68,8 @@ namespace DisApp24.ViewModels
 
             var contentStripped = WebUtility.HtmlDecode(item.Summary);
 
-            await _navigation.PushAsync(new ContentPage
-            {
-                Title = item.Title,
-                Content = new ScrollView
-                {
-                    Content = new StackLayout
-                    {
-                        Children =
-                {
-                    new Label
-                    {
-                        Text = item.Title,
-                        FontAttributes = FontAttributes.Bold,
-                        Margin = new Thickness(0,10)
-                    },
-                    new Label
-                    {
-                        Text = item.PublishDate.ToString("dd.MM.yyyy HH:mm"),
-                        Margin = new Thickness(0,0,0,10)
-                    },
-                    new Label
-                    {
-                        Text = contentStripped
-                    }
-                }
-                    }
-                }
-            });
+            await _navigation.PushAsync(new RssItemDetailsPage(item)); 
         }
-
-
-        public bool IsSignedIn => _firebaseAuthService.IsSignedIn();
 
         private async Task LoadRssFeed()
         {
@@ -110,7 +81,7 @@ namespace DisApp24.ViewModels
                 RssItems.Add(new RssItem
                 {
                     Title = item.Title,
-                    Summary = _rssService.StripHtmlTags(item.Summary),
+                    Summary = item.Summary,
                     PublishDate = item.PublishDate
                 });
             }
