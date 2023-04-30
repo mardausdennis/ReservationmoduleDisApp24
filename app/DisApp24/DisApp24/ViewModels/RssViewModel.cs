@@ -34,7 +34,7 @@ namespace DisApp24.ViewModels
         }
 
 
-        public RssViewModel(IFirebaseAuthService firebaseAuthService, IRssService rssService, INavigation navigation, AppConfig config)
+        public RssViewModel(IFirebaseAuthService firebaseAuthService, IRssService rssService, INavigation navigation, AppConfig config) 
         {
             _firebaseAuthService = firebaseAuthService;
             _rssService = rssService;

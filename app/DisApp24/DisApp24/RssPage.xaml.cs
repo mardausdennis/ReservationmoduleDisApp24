@@ -26,7 +26,6 @@ namespace DisApp24
             _signInButton = new ToolbarItem { Text = "Anmelden", Command = viewModel.SignInCommand };
             _signOutButton = new ToolbarItem { Text = "Abmelden", Command = viewModel.SignOutCommand };
 
-            viewModel.SignInStateChanged += UpdateSignInOutButtons;
             UpdateSignInOutButtons();
         }
 
@@ -51,9 +50,23 @@ namespace DisApp24
         {
             base.OnAppearing();
             await (BindingContext as RssViewModel).Initialize();
+
+            if (BindingContext is RssViewModel viewModel)
+            {
+                viewModel.SignInStateChanged += UpdateSignInOutButtons;
+            }
             UpdateSignInOutButtons();
         }
 
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            if (BindingContext is RssViewModel viewModel)
+            {
+                viewModel.SignInStateChanged -= UpdateSignInOutButtons;
+            }
+        }
 
     }
 }

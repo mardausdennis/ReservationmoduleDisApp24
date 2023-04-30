@@ -11,7 +11,7 @@ namespace DisApp24.Services
         public async Task<List<RssItem>> GetRssFeedAsync(string rssUrl)
         {
             using var reader = XmlReader.Create(rssUrl);
-            var feed = await Task.Run(() => SyndicationFeed.Load(reader));
+            var feed = await Task.FromResult(SyndicationFeed.Load(reader));
             return feed.Items.Select(item => new RssItem
             {
                 Title = item.Title.Text,
