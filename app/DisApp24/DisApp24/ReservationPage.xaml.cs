@@ -1,4 +1,4 @@
-
+﻿
 using CommunityToolkit.Mvvm.Messaging;
 using DisApp24.Services;
 using DisApp24.Helpers;
@@ -207,7 +207,7 @@ namespace DisApp24
                 {
                     // Zeige eine Fehlermeldung an und kehre zur Anmeldeseite zurück
                     await DisplayAlert("Fehler", "Ihr Benutzerkonto ist nicht mehr gültig. Bitte melden Sie sich erneut an.", "OK");
-                    await Navigation.PushModalAsync(new LoginPage(_firebaseAuthService, isModal: true));
+                    await Navigation.PushAsync(new LoginPage(_firebaseAuthService));
                     return;
                 }
 
@@ -318,51 +318,58 @@ namespace DisApp24
             }
         }
 
+        private async Task InitializeCurrentUserAsync()
+        {
+            currentUser = await _firebaseAuthService.GetCurrentUserAsync();
+        }
 
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
+      
+
             if (!_firebaseAuthService.IsSignedIn())
             {
-                await Navigation.PushModalAsync(new LoginPage(_firebaseAuthService, isModal: true));
+                await Navigation.PushAsync(new LoginPage(_firebaseAuthService));
+
             }
-            else
+            // currentUser wird initialisiert, wenn der Benutzer angemeldet ist
+            if (currentUser == null && _firebaseAuthService.IsSignedIn())
             {
-                // Benutzerdaten abrufen
                 currentUser = await _firebaseAuthService.GetCurrentUserAsync();
-                if (currentUser != null)
-                {
-                    var userProfile = await _firebaseAuthService.GetUserProfileAsync(currentUser.Uid);
-
-                    if (userProfile != null && isFirstTimeAppearing)
-                    {
-                        // Eingabefelder mit Benutzerdaten ausfüllen
-                        FirstNameEntry.Text = userProfile.ContainsKey("FirstName") ? userProfile["FirstName"].ToString() : "";
-                        LastNameEntry.Text = userProfile.ContainsKey("LastName") ? userProfile["LastName"].ToString() : "";
-                        EmailEntry.Text = currentUser.Email;
-                        PhoneNumberEntry.Text = userProfile.ContainsKey("PhoneNumber") ? userProfile["PhoneNumber"].ToString() : "";
-                    }
-                }
             }
 
-
-            // Fetch user's appointments from Firebase and add them to the appointments collection
-            var userAppointments = await GetUserAppointmentsAsync(currentUser.Uid);
-            _appointments.Clear();
-            foreach (var appointment in userAppointments.OrderBy(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture)))
+            if (currentUser != null)
             {
-                _appointments.Add(appointment);
+                var userProfile = await _firebaseAuthService.GetUserProfileAsync(currentUser.Uid);
+
+                if (userProfile != null && isFirstTimeAppearing)
+                {
+                    // Eingabefelder mit Benutzerdaten ausfüllen
+                    FirstNameEntry.Text = userProfile.ContainsKey("FirstName") ? userProfile["FirstName"].ToString() : "";
+                    LastNameEntry.Text = userProfile.ContainsKey("LastName") ? userProfile["LastName"].ToString() : "";
+                    EmailEntry.Text = currentUser.Email;
+                    PhoneNumberEntry.Text = userProfile.ContainsKey("PhoneNumber") ? userProfile["PhoneNumber"].ToString() : "";
+                }
+
+                // Fetch user's appointments from Firebase and add them to the appointments collection
+                var userAppointments = await GetUserAppointmentsAsync(currentUser.Uid);
+                _appointments.Clear();
+                foreach (var appointment in userAppointments.OrderBy(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture)))
+                {
+                    _appointments.Add(appointment);
+                }
+
+                AppointmentsCollection.ItemsSource = _appointments;
+
+                await PrintAvailableTimeSlotsPerMonth();
+
+                isFirstTimeAppearing = false;
+
+
             }
-
-
-
-            AppointmentsCollection.ItemsSource = _appointments;
-
-            await PrintAvailableTimeSlotsPerMonth();
-
-            isFirstTimeAppearing = false;
 
 
         }

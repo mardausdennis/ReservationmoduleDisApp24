@@ -51,7 +51,7 @@ namespace DisApp24.ViewModels
 
         private async Task ExecuteSignInCommand()
         {
-            await _navigation.PushAsync(new LoginPage(_firebaseAuthService, isModal: false));
+            await _navigation.PushAsync(new LoginPage(_firebaseAuthService));
             SignInStateChanged?.Invoke();
         }
 

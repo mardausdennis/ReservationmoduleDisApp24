@@ -21,9 +21,6 @@ namespace DisApp24
             Items.Add(CreateReservationTab());
         }
 
-
-
-
         private Tab CreateRssTab()
         {
             var rssPage = new RssPage(_firebaseAuthService, _rssService, _config);
