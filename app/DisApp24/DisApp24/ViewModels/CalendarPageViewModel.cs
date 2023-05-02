@@ -11,16 +11,17 @@ using DisApp24.Services;
 
 
 
-namespace DisApp24
+namespace DisApp24.ViewModels
 {
     public class CalendarPageViewModel : BaseViewModel
     {
-      
 
         private readonly IFirebaseAuthService _firebaseAuthService;
+
         public ObservableCollection<DateTime> SelectedDates { get; set; } = new ObservableCollection<DateTime>();
         public CalendarDay OutsideCalendarDay { get; set; } = new CalendarDay();
         public ICommand NavigateCalendarCommand { get; set; }
+
         public ICommand ChangeDateSelectionCommand { get; set; }
         public ObservableCollection<DateTime> FullyBookedDates { get; set; } = new ObservableCollection<DateTime>();
         public Calendar<CalendarDay> Calendar { get; set; } = new Calendar<CalendarDay>()
@@ -31,9 +32,9 @@ namespace DisApp24
         
 
         #region Constructors
-        public CalendarPageViewModel(IFirebaseAuthService firebaseAuthService)
+        public CalendarPageViewModel()
         {
-            _firebaseAuthService = firebaseAuthService;
+            _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
             ChangeDateSelectionCommand = new Command<DateTime>(ChangeDateSelection);
             NavigateCalendarCommand = new Command<int>(NavigateCalendar);
 

@@ -15,7 +15,9 @@ namespace DisApp24.ViewModels
     public class LoginPageViewModel : BaseViewModel
     {
         private readonly IFirebaseAuthService _firebaseAuthService;
+        private readonly HttpClient _httpClient;
         private INavigation _navigation;
+
 
         public string Email { get; set; }
         public string Password { get; set; }
@@ -28,9 +30,10 @@ namespace DisApp24.ViewModels
         public Command BackButtonCommand { get; }
 
 
-        public LoginPageViewModel(IFirebaseAuthService firebaseAuthService)
+        public LoginPageViewModel()
         {
-            _firebaseAuthService = firebaseAuthService;
+            _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
+            _httpClient = ServiceHelper.GetService<HttpClient>();
 
             LoginCommand = new Command(async () => await OnLoginAsync());
             GoogleLoginCommand = new Command(async () => await OnGoogleLoginAsync());
@@ -134,8 +137,8 @@ namespace DisApp24.ViewModels
                 {"code_verifier", codeVerifier}
             };
 
-            using var httpClient = new HttpClient();
-            var response = await httpClient.PostAsync(tokenEndpoint, new FormUrlEncodedContent(requestBody));
+            
+            var response = await _httpClient.PostAsync(tokenEndpoint, new FormUrlEncodedContent(requestBody));
             System.Diagnostics.Debug.WriteLine($"Response status code: {response.StatusCode}");
             System.Diagnostics.Debug.WriteLine($"Response content: {await response.Content.ReadAsStringAsync()}");
 
@@ -183,7 +186,7 @@ namespace DisApp24.ViewModels
         private async Task OnRegisterAsync()
         {
             // Navigate to the RegistrationPage
-            await _navigation.PushModalAsync(new RegistrationPage(_firebaseAuthService));
+            await AppShell.Current.GoToAsync(nameof(RegistrationPage)); 
         }
 
 

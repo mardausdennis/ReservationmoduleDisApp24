@@ -2,15 +2,16 @@
 using Microsoft.Maui.Controls;
 using CommunityToolkit.Mvvm.Messaging;
 using DisApp24.Services;
+using DisApp24.ViewModels;
 
 namespace DisApp24
 {
     public partial class CalendarPage : ContentPage
     {
-        public CalendarPage(IFirebaseAuthService firebaseAuthService)
+        public CalendarPage()
         {
             InitializeComponent();
-            BindingContext = new CalendarPageViewModel(firebaseAuthService);
+            BindingContext = ServiceHelper.GetService<CalendarPageViewModel>();
         }
 
         private void OnDateSelected(DateTime date)

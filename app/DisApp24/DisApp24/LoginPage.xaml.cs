@@ -17,11 +17,11 @@ namespace DisApp24
     public partial class LoginPage : ContentPage
     {
 
-        public LoginPage(IFirebaseAuthService firebaseAuthService)
+        public LoginPage()
         {
             InitializeComponent();
 
-            var viewModel = new LoginPageViewModel(firebaseAuthService);
+            var viewModel = ServiceHelper.GetService<LoginPageViewModel>();
             BindingContext = viewModel;
             viewModel.Initialize(Navigation);
         }

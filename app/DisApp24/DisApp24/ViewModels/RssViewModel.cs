@@ -23,7 +23,7 @@ namespace DisApp24.ViewModels
         public ICommand SignOutCommand { get; set; }
         public ICommand ItemSelectedCommand { get; set; }
 
-        private INavigation _navigation;
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
         public Action SignInStateChanged { get; set; }
@@ -34,11 +34,11 @@ namespace DisApp24.ViewModels
         }
 
 
-        public RssViewModel(IFirebaseAuthService firebaseAuthService, IRssService rssService, INavigation navigation, AppConfig config) 
+        public RssViewModel(AppConfig config) 
         {
-            _firebaseAuthService = firebaseAuthService;
-            _rssService = rssService;
-            _navigation = navigation;
+            _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
+            _rssService = ServiceHelper.GetService<IRssService>();
+            
             _config = config;
 
             RssItems = new ObservableCollection<RssItem>();
@@ -51,7 +51,7 @@ namespace DisApp24.ViewModels
 
         private async Task ExecuteSignInCommand()
         {
-            await _navigation.PushAsync(new LoginPage(_firebaseAuthService));
+            await AppShell.Current.GoToAsync(nameof(LoginPage));
             SignInStateChanged?.Invoke();
         }
 
@@ -68,7 +68,7 @@ namespace DisApp24.ViewModels
 
             var contentStripped = WebUtility.HtmlDecode(item.Summary);
 
-            await _navigation.PushAsync(new RssItemDetailsPage(item)); 
+            await AppShell.Current.GoToAsync(nameof(RssItemDetailsPage)); 
         }
 
         private async Task LoadRssFeed()

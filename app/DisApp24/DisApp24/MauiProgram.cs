@@ -9,24 +9,62 @@ using Syncfusion.Maui.Core.Hosting;
 using DisApp24.Helpers;
 using Newtonsoft.Json.Linq;
 using DisApp24.Models;
+using DisApp24.ViewModels;
+
+
 
 namespace DisApp24
 {
     public static class MauiProgram
     {
+
+        public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
+        {
+            mauiAppBuilder.Services.AddSingleton<HttpClient>();
+
+            mauiAppBuilder.Services.AddSingleton<IFirebaseAuthService, DisApp24.Services.FirebaseAuthService>();
+            mauiAppBuilder.Services.AddSingleton<IRssService, DisApp24.Services.RssService>();
+
+            return mauiAppBuilder;
+        }
+
+        public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
+        {
+
+            mauiAppBuilder.Services.AddSingleton<AppShell>();
+            mauiAppBuilder.Services.AddSingleton<App>();
+            mauiAppBuilder.Services.AddSingleton<RssPage>();
+            mauiAppBuilder.Services.AddSingleton<ReservationPage>();
+            mauiAppBuilder.Services.AddSingleton<RegistrationPage>();
+
+            mauiAppBuilder.Services.AddSingleton<ViewModels.RssViewModel>();
+            mauiAppBuilder.Services.AddSingleton<ViewModels.LoginPageViewModel>();
+
+            mauiAppBuilder.Services.AddTransient<ViewModels.CalendarPageViewModel>();
+            mauiAppBuilder.Services.AddTransient<RssItemDetailsPage>();
+
+
+            return mauiAppBuilder;
+        }
+
         public static MauiApp CreateMauiApp()
         {
+
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
                 .ConfigureSyncfusionCore()
+                .RegisterServices()
+                .RegisterViewModels()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                ;
 
-            
+           
             var appSettingsJson = EmbeddedResourceHelper.GetResourceText(typeof(MauiProgram).Assembly, "DisApp24.appsettings.json");
             var appSettings = JObject.Parse(appSettingsJson);
 
@@ -36,27 +74,19 @@ namespace DisApp24
                 // Weitere Parameter können hier zugewiesen werden
             };
 
-            // Register the config as a singleton
-            builder.Services.AddSingleton(config);
 
 
-            // Register platform-specific services
-            builder.Services.AddSingleton<IFirebaseAuthService, DisApp24.Services.FirebaseAuthService>();
-            builder.Services.AddSingleton<IRssService, DisApp24.Services.RssService>();
-
-            builder.Services.AddSingleton<AppShell>();
-            builder.Services.AddSingleton<App>();
-            builder.Services.AddSingleton<RssPage>();
-            builder.Services.AddSingleton<ReservationPage>();
-
-
+        // Register the config as a singleton
+            builder.Services.AddSingleton<AppConfig>(config);
 
 
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
+            var app = builder.Build();
+
+            return app;
         }
     }
 }

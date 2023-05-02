@@ -25,12 +25,12 @@ namespace DisApp24
         private ObservableCollection<Appointment> _appointments;
 
 
-        public ReservationPage(IFirebaseAuthService firebaseAuthService)
+        public ReservationPage()
         {
             InitializeComponent();
             InitializePickers();
 
-            _firebaseAuthService = firebaseAuthService;
+            _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
 
             // Initialize the appointments collection
             _appointments = new ObservableCollection<Appointment>();
@@ -193,7 +193,7 @@ namespace DisApp24
 
         private async void OnSelectDateButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new CalendarPage(_firebaseAuthService));
+            await AppShell.Current.GoToAsync(nameof(CalendarPage));
             SelectedDateLabel.TextColor = Colors.DimGray;
         }
 
@@ -207,7 +207,7 @@ namespace DisApp24
                 {
                     // Zeige eine Fehlermeldung an und kehre zur Anmeldeseite zurück
                     await DisplayAlert("Fehler", "Ihr Benutzerkonto ist nicht mehr gültig. Bitte melden Sie sich erneut an.", "OK");
-                    await Navigation.PushAsync(new LoginPage(_firebaseAuthService));
+                    await AppShell.Current.GoToAsync(nameof(LoginPage));
                     return;
                 }
 
@@ -332,7 +332,7 @@ namespace DisApp24
 
             if (!_firebaseAuthService.IsSignedIn())
             {
-                await Navigation.PushAsync(new LoginPage(_firebaseAuthService));
+                await AppShell.Current.GoToAsync(nameof(LoginPage));
 
             }
             // currentUser wird initialisiert, wenn der Benutzer angemeldet ist

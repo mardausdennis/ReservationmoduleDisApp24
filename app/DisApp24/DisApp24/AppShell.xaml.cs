@@ -5,17 +5,17 @@ namespace DisApp24
 {
     public partial class AppShell : Shell
     {
-        private readonly IFirebaseAuthService _firebaseAuthService;
-        private readonly IRssService _rssService;
-        private readonly AppConfig _config;
+        
 
-        public AppShell(IFirebaseAuthService firebaseAuthService, IRssService rssService, AppConfig config)
+        public AppShell()
         {
             InitializeComponent();
 
-            _firebaseAuthService = firebaseAuthService;
-            _rssService = rssService;
-            _config = config;
+            
+
+            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
+            Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage));
+            Routing.RegisterRoute(nameof(CalendarPage), typeof(CalendarPage));
 
             Items.Add(CreateRssTab());
             Items.Add(CreateReservationTab());
@@ -23,7 +23,7 @@ namespace DisApp24
 
         private Tab CreateRssTab()
         {
-            var rssPage = new RssPage(_firebaseAuthService, _rssService, _config);
+            var rssPage = new RssPage();
 
             var shellContent = new ShellContent
             {
@@ -41,7 +41,7 @@ namespace DisApp24
 
         private Tab CreateReservationTab()
         {
-            var reservationPage = new ReservationPage(_firebaseAuthService);
+            var reservationPage = new ReservationPage();
 
             var shellContent = new ShellContent
             {

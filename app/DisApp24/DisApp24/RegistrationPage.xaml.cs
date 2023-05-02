@@ -10,10 +10,10 @@ namespace DisApp24
     {
         private readonly IFirebaseAuthService _firebaseAuthService;
 
-        public RegistrationPage(IFirebaseAuthService firebaseAuthService)
+        public RegistrationPage()
         {
             InitializeComponent();
-            _firebaseAuthService = firebaseAuthService;
+            _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
         }
 
         private async void OnRegisterButtonClicked(object sender, EventArgs e)
@@ -130,7 +130,7 @@ namespace DisApp24
         private void OnCancelButtonClicked(object sender, EventArgs e)
         {
             // Zurück zur Anmeldeseite
-            Navigation.PopModalAsync();
+            Navigation.PopAsync();
         }
     }
 }
