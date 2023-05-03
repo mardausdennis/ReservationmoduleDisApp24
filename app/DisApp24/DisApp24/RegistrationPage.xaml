@@ -19,7 +19,7 @@
                 <Entry Placeholder="Telefonnummer (optional)" Text="{Binding PhoneNumber}" />
             </Frame>
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry Placeholder="E-Mail Adresse" Text="{Binding Email}" />
+                <Entry Placeholder="E-Mail Adresse" Text="{Binding Email}" Keyboard="Email" />
             </Frame>
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
                 <Entry Placeholder="Passwort" IsPassword="True" Text="{Binding Password}" />

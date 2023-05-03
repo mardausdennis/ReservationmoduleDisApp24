@@ -31,7 +31,7 @@
                                             <Entry x:Name="LastNameEntry" Placeholder="Nachname" TextChanged="OnTextChanged" />
                                         </Frame>
                                         <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                                            <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" TextChanged="OnTextChanged" />
+                                            <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" TextChanged="OnTextChanged" Keyboard="Email"/>
                                         </Frame>
                                         <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                                             <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" TextChanged="OnTextChanged" />

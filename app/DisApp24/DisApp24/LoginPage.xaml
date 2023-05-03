@@ -7,7 +7,7 @@
             <StackLayout Padding="20" Spacing="15" VerticalOptions="CenterAndExpand">
                 <Label Text="Bitte anmelden" FontSize="Large" HorizontalOptions="Center" />
                 <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                    <Entry x:Name="EmailEntry" Placeholder="E-Mail Adresse" Text="{Binding Email}" />
+                    <Entry x:Name="EmailEntry" Placeholder="E-Mail Adresse" Text="{Binding Email}" Keyboard="Email" />
                 </Frame>
                 <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
                     <Entry x:Name="PasswordEntry" Placeholder="Passwort" IsPassword="True" Text="{Binding Password}" />
