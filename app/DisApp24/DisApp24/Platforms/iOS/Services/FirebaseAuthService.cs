@@ -6,6 +6,7 @@ using Foundation;
 using Firebase.Database;
 using Firebase.Database.Query;
 using System.IdentityModel.Tokens.Jwt;
+using DisApp24.Models;
 
 namespace DisApp24.Services
 { 
@@ -26,7 +27,7 @@ namespace DisApp24.Services
             return result.User.Uid;
         }
 
-        public async Task<string> SignUpWithEmailPasswordAsync(string email, string password, string firstName, string lastName, string phoneNumber)
+        public async Task<AuthResult> SignUpWithEmailPasswordAsync(string email, string password, string firstName, string lastName, string phoneNumber)
         {
             var authProvider = Auth.DefaultInstance;
             var result = await authProvider.CreateUserAsync(email, password);
@@ -42,7 +43,15 @@ namespace DisApp24.Services
             };
             await _firebaseClient.Child($"users/{userId}").PutAsync(userProfile);
 
-            return userId;
+            var appUser = new AppUser
+            {
+                Uid = userId,
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email
+            };
+
+            return new AuthResult { User = appUser };
         }
 
         public async Task<string> SignInWithGoogleAsync(string idToken, string accessToken)

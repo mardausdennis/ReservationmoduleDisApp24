@@ -4,7 +4,7 @@ using DisApp24;
 using DisApp24.Services;
 using Firebase.Database;
 using Firebase.Database.Query;
-
+using DisApp24.Models;
 
 namespace DisApp24.Services{ 
     public class FirebaseAuthService: IFirebaseAuthService
@@ -24,14 +24,14 @@ namespace DisApp24.Services{
             return result.User.Uid;
         }
 
-        public async Task<string> SignUpWithEmailPasswordAsync(string email, string password, string firstName, string lastName, string phoneNumber)
+        public async Task<AuthResult> SignUpWithEmailPasswordAsync(string email, string password, string firstName, string lastName, string phoneNumber)
         {
             var authProvider = FirebaseAuth.Instance;
             var result = await authProvider.CreateUserWithEmailAndPasswordAsync(email, password);
 
             var userId = result.User.Uid;
 
-            // Speichern der Benutzerinformationen in der Firebase Realtime Database
+            // Save the user information in the Firebase Realtime Database
             var userProfile = new
             {
                 FirstName = firstName,
@@ -40,7 +40,15 @@ namespace DisApp24.Services{
             };
             await _firebaseClient.Child($"users/{userId}").PutAsync(userProfile);
 
-            return userId;
+            var appUser = new AppUser
+            {
+                Uid = userId,
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email
+            };
+
+            return new AuthResult { User = appUser };
         }
 
         public async Task<string> SignInWithGoogleAsync(string idToken, string accessToken)

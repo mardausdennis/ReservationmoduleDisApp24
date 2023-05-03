@@ -35,13 +35,17 @@ namespace DisApp24
             mauiAppBuilder.Services.AddSingleton<App>();
             mauiAppBuilder.Services.AddSingleton<RssPage>();
             mauiAppBuilder.Services.AddSingleton<ReservationPage>();
-            mauiAppBuilder.Services.AddSingleton<RegistrationPage>();
+            mauiAppBuilder.Services.AddTransient<LoginPage>();
+            mauiAppBuilder.Services.AddTransient<RegistrationPage>();
+            mauiAppBuilder.Services.AddTransient<CalendarPage>();
 
             mauiAppBuilder.Services.AddSingleton<ViewModels.RssViewModel>();
             mauiAppBuilder.Services.AddSingleton<ViewModels.LoginPageViewModel>();
+            mauiAppBuilder.Services.AddSingleton<ViewModels.RegistrationViewModel>();
 
-            mauiAppBuilder.Services.AddTransient<ViewModels.CalendarPageViewModel>();
+            
             mauiAppBuilder.Services.AddTransient<RssItemDetailsPage>();
+            mauiAppBuilder.Services.AddTransient<ViewModels.CalendarPageViewModel>();
 
 
             return mauiAppBuilder;

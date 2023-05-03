@@ -23,7 +23,7 @@ namespace DisApp24
 
         private Tab CreateRssTab()
         {
-            var rssPage = new RssPage();
+            var rssPage = ServiceHelper.GetService<RssPage>();
 
             var shellContent = new ShellContent
             {
@@ -41,7 +41,7 @@ namespace DisApp24
 
         private Tab CreateReservationTab()
         {
-            var reservationPage = new ReservationPage();
+            var reservationPage = ServiceHelper.GetService<ReservationPage>();
 
             var shellContent = new ShellContent
             {

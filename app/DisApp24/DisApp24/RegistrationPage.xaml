@@ -1,35 +1,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:DisApp24.ViewModels"
              x:Class="DisApp24.RegistrationPage">
+    <ContentPage.BindingContext>
+        <viewModels:RegistrationViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <StackLayout Padding="20" Spacing="15" VerticalOptions="Center">
             <Label Text="Registrierung" FontSize="Large" HorizontalOptions="Center" />
-            <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="FirstNameEntry" Placeholder="Vorname" />
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry Placeholder="Vorname" Text="{Binding FirstName}" />
             </Frame>
-            <Frame x:Name="LastNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="LastNameEntry" Placeholder="Nachname" />
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry Placeholder="Nachname" Text="{Binding LastName}" />
             </Frame>
-            <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" />
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry Placeholder="Telefonnummer (optional)" Text="{Binding PhoneNumber}" />
             </Frame>
-            <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="EmailEntry" Placeholder="E-Mail Adresse" />
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry Placeholder="E-Mail Adresse" Text="{Binding Email}" />
             </Frame>
-            <Frame x:Name="PasswordFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="PasswordEntry" Placeholder="Passwort" IsPassword="True" />
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry Placeholder="Passwort" IsPassword="True" Text="{Binding Password}" />
             </Frame>
-            <Frame x:Name="ConfirmPasswordFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry x:Name="ConfirmPasswordEntry" Placeholder="Passwort bestätigen" IsPassword="True" />
+            <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
+                <Entry Placeholder="Passwort bestätigen" IsPassword="True" Text="{Binding ConfirmPassword}" />
             </Frame>
-            <Button x:Name="RegisterButton" Text="Registrieren" Clicked="OnRegisterButtonClicked" />
+            <Button Text="Registrieren" Command="{Binding RegisterCommand}" />
             <Label Text="Bereits registriert?" HorizontalOptions="Center" />
             <Label Text="Zurück zur Anmeldung" HorizontalOptions="Center" TextColor="Blue">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnCancelButtonClicked" />
+                    <TapGestureRecognizer Command="{Binding NavigateToLoginCommand}" />
                 </Label.GestureRecognizers>
             </Label>
-            <Label x:Name="ValidationLabel" TextColor="Red" />
+            <Label Text="{Binding ValidationMessage}" TextColor="Red" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

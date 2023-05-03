@@ -14,10 +14,10 @@ namespace DisApp24
         private ToolbarItem _signInButton;
         private ToolbarItem _signOutButton;
 
-        public RssPage()
+        public RssPage(RssViewModel vm)
         {
             InitializeComponent();
-            var viewModel = ServiceHelper.GetService<RssViewModel>();
+            var viewModel = vm;
             BindingContext = viewModel;
 
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();

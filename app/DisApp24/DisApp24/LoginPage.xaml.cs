@@ -17,11 +17,11 @@ namespace DisApp24
     public partial class LoginPage : ContentPage
     {
 
-        public LoginPage()
+        public LoginPage(LoginPageViewModel vm)
         {
             InitializeComponent();
 
-            var viewModel = ServiceHelper.GetService<LoginPageViewModel>();
+            var viewModel = vm;
             BindingContext = viewModel;
             viewModel.Initialize(Navigation);
         }

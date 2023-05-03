@@ -1,136 +1,42 @@
 ﻿using Microsoft.Maui.Controls;
-using System;
 using DisApp24.Services;
 using DisApp24.Helpers;
-
+using DisApp24.ViewModels;
+using CommunityToolkit.Mvvm.Messaging;
+using DisApp24.Models;
 
 namespace DisApp24
 {
-    public partial class RegistrationPage : ContentPage
+    public partial class RegistrationPage : ContentPage, IRecipient<RegistrationMessage>
     {
-        private readonly IFirebaseAuthService _firebaseAuthService;
+
+        private readonly RegistrationViewModel _viewModel;
 
         public RegistrationPage()
         {
             InitializeComponent();
-            _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
+            _viewModel = ServiceHelper.GetService<RegistrationViewModel>();
+            BindingContext = _viewModel;
+
+            // Subscribe to the messages
+            WeakReferenceMessenger.Default.Register(this);
         }
 
-        private async void OnRegisterButtonClicked(object sender, EventArgs e)
+        protected override void OnDisappearing()
         {
-            var email = EmailEntry.Text;
-            var password = PasswordEntry.Text;
-            var confirmPassword = ConfirmPasswordEntry.Text;
-            var firstName = FirstNameEntry.Text;
-            var lastName = LastNameEntry.Text;
-            var phoneNumber = PhoneNumberEntry.Text;
-
-            if (!ValidateInput())
-            {
-                return;
-            }
-
-            if (password != confirmPassword)
-            {
-                await DisplayAlert("Fehler", "Die eingegebenen Passwörter stimmen nicht überein.", "OK");
-                return;
-            }
-
-            try
-            {
-                var result = await _firebaseAuthService.SignUpWithEmailPasswordAsync(email, password, firstName, lastName, phoneNumber);
-                // Erfolgreiche Registrierung, Navigation zur Hauptseite oder einer anderen Seite
-                await Navigation.PopModalAsync(); // Hier schließen wir die RegistrationPage
-            }
-            catch (Exception ex)
-            {
-                // Fehler bei der Registrierung, eine Fehlermeldung anzeigen
-                await DisplayAlert("Fehler", ex.Message, "OK");
-            }
+            base.OnDisappearing();
+            // Unsubscribe from the messages when the page is not visible
+            WeakReferenceMessenger.Default.Unregister<RegistrationMessage>(this);
         }
 
-        //Validate-Input
-        private bool ValidateInput()
+        public void Receive(RegistrationMessage message)
         {
-            bool isValid = true;
-            List<string> errorMessages = new List<string>();
-
-            if (string.IsNullOrWhiteSpace(FirstNameEntry.Text))
+            if (message.IsSuccessful)
             {
-                FirstNameFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte geben Sie Ihren Vornamen ein.");
-                isValid = false;
+                // Handle successful registration
+                Navigation.PopAsync(); 
+                Navigation.PopAsync();
             }
-            else
-            {
-                FirstNameFrame.BorderColor = Colors.DimGray;
-            }
-
-            if (string.IsNullOrWhiteSpace(LastNameEntry.Text))
-            {
-                LastNameFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte geben Sie Ihren Nachnamen ein.");
-                isValid = false;
-            }
-            else
-            {
-                LastNameFrame.BorderColor = Colors.DimGray;
-            }
-
-            if (string.IsNullOrWhiteSpace(EmailEntry.Text) || !InputValidationHelper.IsValidEmail(EmailEntry.Text))
-            {
-                EmailFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
-                isValid = false;
-            }
-            else
-            {
-                EmailFrame.BorderColor = Colors.DimGray;
-            }
-
-            if (!string.IsNullOrWhiteSpace(PhoneNumberEntry.Text) && !InputValidationHelper.IsValidPhoneNumber(PhoneNumberEntry.Text))
-            {
-                PhoneNumberFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte geben Sie eine gültige Telefonnummer ein.");
-                isValid = false;
-            }
-            else
-            {
-                PhoneNumberFrame.BorderColor = Colors.DimGray;
-            }
-
-            if (string.IsNullOrWhiteSpace(PasswordEntry.Text))
-            {
-                PasswordFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte geben Sie ein Passwort ein.");
-                isValid = false;
-            }
-            else
-            {
-                PasswordFrame.BorderColor = Colors.DimGray;
-            }
-
-            if (string.IsNullOrWhiteSpace(ConfirmPasswordEntry.Text) || ConfirmPasswordEntry.Text != PasswordEntry.Text)
-            {
-                ConfirmPasswordFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Die eingegebenen Passwörter stimmen nicht überein.");
-                isValid = false;
-            }
-            else
-            {
-                ConfirmPasswordFrame.BorderColor = Colors.DimGray;
-            }
-
-            ValidationLabel.Text = string.Join("\n", errorMessages);
-
-            return isValid;
-        }
-
-
-        private void OnCancelButtonClicked(object sender, EventArgs e)
-        {
-            // Zurück zur Anmeldeseite
-            Navigation.PopAsync();
         }
     }
 }
