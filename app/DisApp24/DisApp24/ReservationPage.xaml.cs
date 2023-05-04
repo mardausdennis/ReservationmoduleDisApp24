@@ -1,7 +1,7 @@
 ﻿
 using CommunityToolkit.Mvvm.Messaging;
 using DisApp24.Services;
-using DisApp24.Helpers;
+using DisApp24.Models;
 using Firebase.Database;
 using Newtonsoft.Json;
 using System.Collections.ObjectModel;
@@ -9,6 +9,7 @@ using Firebase.Database.Query;
 using Firebase.Auth;
 using System.Diagnostics;
 using System.Globalization;
+using DisApp24.ViewModels;
 
 namespace DisApp24
 {
@@ -17,12 +18,11 @@ namespace DisApp24
 
         
         private readonly IFirebaseAuthService _firebaseAuthService;
-        private readonly FirebaseClient _firebaseClient = new FirebaseClient("https://disapp24-reservation-module-default-rtdb.europe-west1.firebasedatabase.app");
         private bool isFirstTimeAppearing = true;
         private AppUser currentUser;
-
-
         private ObservableCollection<Appointment> _appointments;
+
+        private readonly ReservationViewModel _viewModel;
 
 
         public ReservationPage()
@@ -30,18 +30,20 @@ namespace DisApp24
             InitializeComponent();
             InitializePickers();
 
+            _viewModel = ServiceHelper.GetService<ReservationViewModel>();
+            BindingContext = _viewModel;
+
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
 
             // Initialize the appointments collection
             _appointments = new ObservableCollection<Appointment>();
-            
 
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, (recipient, message) =>
             {
                 SelectedDateLabel.Text = $"Ausgewähltes Datum: {message.Date.ToString("dd.MM.yyyy")}";
             });
 
-          
+            WeakReferenceMessenger.Default.Register<UserChangedMessage>(this, OnUserChanged);
 
         }
 
@@ -69,7 +71,13 @@ namespace DisApp24
             };
         }
 
-        //Wenn Ressource ausgewählt dann Form sichtbar
+        //Event-Handler
+        private void OnUserChanged(object recipient, UserChangedMessage message)
+        {
+            currentUser = message.Value;
+            isFirstTimeAppearing = true;
+        }
+
         private async void OnResourcePickerSelectedIndexChanged(object sender, EventArgs e)
         {
             if (ResourcePicker.SelectedIndex != -1)
@@ -90,91 +98,6 @@ namespace DisApp24
             }
         }
 
-        //Input-Validation 
-        private bool ValidateInput()
-        {
-            bool isValid = true;
-            List<string> errorMessages = new List<string>();
-
-            if (ResourcePicker.SelectedIndex == -1)
-            {
-                errorMessages.Add("Bitte wählen Sie eine Ressource aus.");
-                isValid = false;
-            }
-            if (string.IsNullOrWhiteSpace(FirstNameEntry.Text))
-            {
-                FirstNameFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte geben Sie Ihren Vornamen ein.");
-                isValid = false;
-            }
-            else
-            {
-                FirstNameFrame.BorderColor = Colors.DimGray;
-            }
-
-            if (string.IsNullOrWhiteSpace(LastNameEntry.Text))
-            {
-                LastNameFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte geben Sie Ihren Nachnamen ein.");
-                isValid = false;
-            }
-            else
-            {
-                LastNameFrame.BorderColor = Colors.DimGray;
-            }
-
-            if (string.IsNullOrWhiteSpace(EmailEntry.Text) || !InputValidationHelper.IsValidEmail(EmailEntry.Text))
-            {
-                EmailFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
-                isValid = false;
-            }
-            else
-            {
-                EmailFrame.BorderColor = Colors.DimGray;
-            }
-
-            if (!string.IsNullOrWhiteSpace(PhoneNumberEntry.Text) && !InputValidationHelper.IsValidPhoneNumber(PhoneNumberEntry.Text))
-            {
-                PhoneNumberFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte geben Sie eine gültige Telefonnummer ein.");
-                isValid = false;
-            }
-            else
-            {
-                PhoneNumberFrame.BorderColor = Colors.DimGray;
-            }
-            if (string.IsNullOrWhiteSpace(SelectedDateLabel.Text) || SelectedDateLabel.Text == "Datum auswählen")
-            {
-                SelectedDateLabel.TextColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte wählen Sie ein Datum aus.");
-                isValid = false;
-            }
-            else
-            {
-                SelectedDateLabel.TextColor = Colors.Black;
-            }
-
-            if (TimePicker.SelectedIndex == -1)
-            {
-                TimeFrame.BorderColor = Color.FromRgba(255, 0, 0, 0.5);
-                errorMessages.Add("Bitte wählen Sie eine Uhrzeit aus.");
-                isValid = false;
-            }
-            else
-            {
-                TimeFrame.BorderColor = Colors.DimGray;
-            }
-
-            ValidationLabel.Text = string.Join("\n", errorMessages);
-
-            return isValid;
-        }
-
-
-
-
-        //Event-Handler
         private void OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is Entry entry)
@@ -197,166 +120,39 @@ namespace DisApp24
             SelectedDateLabel.TextColor = Colors.DimGray;
         }
 
-        private async void OnReserveButtonClicked(object sender, EventArgs e)
-        {
-            if (ValidateInput())
-            {
-
-                bool isUserAccountValid = await _firebaseAuthService.IsUserAccountValid(currentUser.Uid);
-                if (!isUserAccountValid)
-                {
-                    // Zeige eine Fehlermeldung an und kehre zur Anmeldeseite zurück
-                    await DisplayAlert("Fehler", "Ihr Benutzerkonto ist nicht mehr gültig. Bitte melden Sie sich erneut an.", "OK");
-                    await AppShell.Current.GoToAsync(nameof(LoginPage));
-                    return;
-                }
-
-
-                int dateStartIndex = SelectedDateLabel.Text.IndexOf(':') + 2;
-                string selectedDate = SelectedDateLabel.Text.Substring(dateStartIndex);
-
-                var reservationData = new
-                {
-                    resource = ResourcePicker.SelectedItem.ToString(),
-                    firstName = FirstNameEntry.Text,
-                    lastName = LastNameEntry.Text,
-                    email = EmailEntry.Text,
-                    phoneNumber = PhoneNumberEntry.Text,
-                    date = selectedDate,
-                    timeSlot = TimePicker.SelectedItem.ToString(),
-                    comment = CommentEditor.Text,
-                    status = "Pending",
-                    userId = currentUser.Uid
-                };
-
-                var json = JsonConvert.SerializeObject(reservationData);
-
-                try
-                {
-                    await _firebaseClient.Child("reservations").PostAsync(json);
-                    await DisplayAlert("Erfolg", "Ihre Reservierungsanfrage wurde erfolgreich gesendet. Sie erhalten eine Bestätigung per E-Mail, sobald Ihre Reservierung bestätigt wurde.", "OK");
-                }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("Fehler", "Es gab einen Fehler beim Senden Ihrer Reservierungsanfrage. Bitte versuchen Sie es später erneut.", "OK");
-                }
-            }
-        }
-
-        private async Task<List<Appointment>> GetUserAppointmentsAsync(string userId)
-        {
-            var appointments = new List<Appointment>();
-            var firebaseAppointments = await _firebaseClient
-                .Child("reservations")
-                .OnceAsync<Appointment>();
-
-            foreach (var item in firebaseAppointments)
-            {
-                var appointment = item.Object;
-                if (appointment.UserId == userId) // Filtern der Termine anhand der userId.
-                {
-                    appointment.Key = item.Key;
-                    appointments.Add(appointment);
-                }
-            }
-
-            return appointments;
-        }
-
-
-        public bool AreAllTimeSlotsBooked(DateTime date, List<Appointment> appointments)
-        {
-            var availableTimeSlots = new List<string>
-    {
-        "08:00-09:00", "09:00-10:00", "10:00-11:00", "11:00-12:00",
-        "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00"
-    };
-
-            var bookedTimeSlots = appointments.Where(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture) == date).Select(a => a.TimeSlot);
-
-            return bookedTimeSlots.Count() == availableTimeSlots.Count;
-        }
-
-        public List<string> GetAvailableTimeSlots(DateTime date, List<Appointment> appointments)
-        {
-            var allTimeSlots = new List<string>
-    {
-        "08:00-09:00", "09:00-10:00", "10:00-11:00", "11:00-12:00",
-        "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00"
-    };
-
-            var bookedTimeSlots = appointments.Where(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture) == date).Select(a => a.TimeSlot);
-
-            var availableTimeSlots = allTimeSlots.Except(bookedTimeSlots).ToList();
-
-            return availableTimeSlots;
-        }
-
-
-        public async Task PrintAvailableTimeSlotsPerMonth()
-        {
-            var reservations = await _firebaseAuthService.GetReservationsAsync();
-            var distinctDates = reservations.Select(r => DateTime.ParseExact(r.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture)).Distinct().OrderBy(r => r);
-            var groupedDatesByMonth = distinctDates.GroupBy(d => new { d.Year, d.Month });
-
-            foreach (var monthGroup in groupedDatesByMonth)
-            {
-                System.Diagnostics.Debug.WriteLine($"{monthGroup.First().ToString("MMMM")}:");
-
-                foreach (var date in monthGroup)
-                {
-                    if (!AreAllTimeSlotsBooked(date, reservations))
-                    {
-                        var availableTimeSlots = GetAvailableTimeSlots(date, reservations);
-                        System.Diagnostics.Debug.WriteLine($"  {date.ToString("dd.MM.yyyy")}: TimeSlots frei: {string.Join(", ", availableTimeSlots)}");
-                    }
-                    else
-                    {
-                        System.Diagnostics.Debug.WriteLine($"  {date.ToString("dd.MM.yyyy")}: Keine TimeSlots frei!");
-                    }
-                }
-            }
-        }
-
-        private async Task InitializeCurrentUserAsync()
-        {
-            currentUser = await _firebaseAuthService.GetCurrentUserAsync();
-        }
-
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-      
-
             if (!_firebaseAuthService.IsSignedIn())
             {
                 await AppShell.Current.GoToAsync(nameof(LoginPage));
-
             }
-            // currentUser wird initialisiert, wenn der Benutzer angemeldet ist
+
             if (currentUser == null && _firebaseAuthService.IsSignedIn())
             {
                 currentUser = await _firebaseAuthService.GetCurrentUserAsync();
+                isFirstTimeAppearing = true;
             }
+
 
             if (currentUser != null)
             {
-                var userProfile = await _firebaseAuthService.GetUserProfileAsync(currentUser.Uid);
 
-                if (userProfile != null && isFirstTimeAppearing)
+                if (currentUser != null && isFirstTimeAppearing)
                 {
                     // Eingabefelder mit Benutzerdaten ausfüllen
-                    FirstNameEntry.Text = userProfile.ContainsKey("FirstName") ? userProfile["FirstName"].ToString() : "";
-                    LastNameEntry.Text = userProfile.ContainsKey("LastName") ? userProfile["LastName"].ToString() : "";
+                    FirstNameEntry.Text = currentUser.FirstName;
+                    LastNameEntry.Text = currentUser.LastName;
                     EmailEntry.Text = currentUser.Email;
-                    PhoneNumberEntry.Text = userProfile.ContainsKey("PhoneNumber") ? userProfile["PhoneNumber"].ToString() : "";
+                    PhoneNumberEntry.Text = currentUser.PhoneNumber;
                 }
 
                 // Fetch user's appointments from Firebase and add them to the appointments collection
-                var userAppointments = await GetUserAppointmentsAsync(currentUser.Uid);
+                var userAppointments = await _viewModel.GetUserAppointmentsAsync(currentUser.Uid);
+
                 _appointments.Clear();
+
                 foreach (var appointment in userAppointments.OrderBy(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture)))
                 {
                     _appointments.Add(appointment);
@@ -364,15 +160,14 @@ namespace DisApp24
 
                 AppointmentsCollection.ItemsSource = _appointments;
 
-                await PrintAvailableTimeSlotsPerMonth();
+                await _viewModel.PrintAvailableTimeSlotsPerMonth();
 
                 isFirstTimeAppearing = false;
 
-
             }
 
-
         }
+
 
 
 

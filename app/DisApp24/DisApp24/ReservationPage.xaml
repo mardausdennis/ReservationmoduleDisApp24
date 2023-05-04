@@ -2,8 +2,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              xmlns:local="clr-namespace:DisApp24.Helpers"
+             xmlns:viewModels="clr-namespace:DisApp24.ViewModels"
              x:Class="DisApp24.ReservationPage"
              x:Name="This">
+    <ContentPage.BindingContext>
+        <viewModels:ReservationViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:StatusToColorConverter x:Key="StatusToColorConverter" />
@@ -21,31 +25,72 @@
                     <tabView:SfTabItem Header="Reservieren">
                         <tabView:SfTabItem.Content>
                             <StackLayout Margin="20" Spacing="15">
-                                <Picker x:Name="ResourcePicker" Title="Ressource auswählen" SelectedIndexChanged="OnResourcePickerSelectedIndexChanged" />
+                                <Picker x:Name="ResourcePicker" Title="Ressource auswählen" SelectedIndexChanged="OnResourcePickerSelectedIndexChanged" SelectedItem="{Binding Resource}"/>
                                 <StackLayout x:Name="FormLayout" IsVisible="False" Opacity="0">
                                     <StackLayout Spacing="15">
                                         <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                                            <Entry x:Name="FirstNameEntry" Placeholder="Vorname" TextChanged="OnTextChanged" />
+                                            <Frame.Triggers>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding IsFirstNameFrameInvalid}" Value="True">
+                                                    <Setter Property="BorderColor" Value="Red" />
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+                                            <Entry x:Name="FirstNameEntry" Placeholder="Vorname" Text="{Binding FirstName}" TextChanged="OnTextChanged"/>
                                         </Frame>
+
                                         <Frame x:Name="LastNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                                            <Entry x:Name="LastNameEntry" Placeholder="Nachname" TextChanged="OnTextChanged" />
+                                            <Frame.Triggers>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding IsLastNameFrameInvalid}" Value="True">
+                                                    <Setter Property="BorderColor" Value="Red" />
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+                                            <Entry x:Name="LastNameEntry" Placeholder="Nachname" Text="{Binding LastName}" TextChanged="OnTextChanged" />
                                         </Frame>
+
                                         <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                                            <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" TextChanged="OnTextChanged" Keyboard="Email"/>
+                                            <Frame.Triggers>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding IsEmailFrameInvalid}" Value="True">
+                                                    <Setter Property="BorderColor" Value="Red" />
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+                                            <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" Text="{Binding Email}" Keyboard="Email" TextChanged="OnTextChanged"/>
                                         </Frame>
+
                                         <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                                            <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" TextChanged="OnTextChanged" />
+                                            <Frame.Triggers>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding IsPhoneNumberFrameInvalid}" Value="True">
+                                                    <Setter Property="BorderColor" Value="Red" />
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+                                            <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" Text="{Binding PhoneNumber}" TextChanged="OnTextChanged"/>
                                         </Frame>
-                                        <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray" />
+
+                                        <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding IsDateInvalid}" Value="True">
+                                                    <Setter Property="TextColor" Value="Red" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+
                                         <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
                                         <Frame x:Name="TimeFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                                            <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" SelectedIndexChanged="OnTimePickerSelectedIndexChanged" />
+                                            <Frame.Triggers>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding IsTimeFrameInvalid}" Value="True">
+                                                    <Setter Property="BorderColor" Value="Red" />
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+                                            <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" SelectedIndexChanged="OnTimePickerSelectedIndexChanged" SelectedItem="{Binding TimeSlot}" />
                                         </Frame>
                                         <Frame x:Name="CommentFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
-                                            <Editor x:Name="CommentEditor" Placeholder="Kommentar (optional)" />
+                                            <Frame.Triggers>
+                                                <DataTrigger TargetType="Frame" Binding="{Binding IsValidComment}" Value="False">
+                                                    <Setter Property="BorderColor" Value="Red" />
+                                                </DataTrigger>
+                                            </Frame.Triggers>
+                                            <Editor x:Name="CommentEditor" Placeholder="Kommentar (optional)" Text="{Binding Comment}" TextChanged="OnTextChanged" />
                                         </Frame>
-                                        <Button x:Name="ReserveButton" Text="Reservieren" Clicked="OnReserveButtonClicked" BackgroundColor="#FF5733" />
-                                        <Label x:Name="ValidationLabel" TextColor="Red"/>
+                                        <Button x:Name="ReserveButton" Text="Reservieren" Command="{Binding ReserveCommand}" BackgroundColor="#FF5733" />
+                                        <Label x:Name="ValidationLabel" Text="{Binding ValidationMessage}" TextColor="Red"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>
@@ -53,7 +98,7 @@
                     </tabView:SfTabItem>
                     <tabView:SfTabItem Header="Meine Termine">
                         <tabView:SfTabItem.Content>
-                            <CollectionView x:Name="AppointmentsCollection" Margin="0,10,0,0">
+                            <CollectionView x:Name="AppointmentsCollection" Margin="0,10,0,0" ItemsSource="{Binding Appointments}">
                             <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Padding="10" ColumnSpacing="10">

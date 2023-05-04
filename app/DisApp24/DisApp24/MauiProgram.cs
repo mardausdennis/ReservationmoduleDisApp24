@@ -25,6 +25,7 @@ namespace DisApp24
             mauiAppBuilder.Services.AddSingleton<IFirebaseAuthService, DisApp24.Services.FirebaseAuthService>();
             mauiAppBuilder.Services.AddSingleton<IRssService, DisApp24.Services.RssService>();
 
+
             return mauiAppBuilder;
         }
 
@@ -42,6 +43,7 @@ namespace DisApp24
             mauiAppBuilder.Services.AddSingleton<ViewModels.RssViewModel>();
             mauiAppBuilder.Services.AddSingleton<ViewModels.LoginPageViewModel>();
             mauiAppBuilder.Services.AddSingleton<ViewModels.RegistrationViewModel>();
+            mauiAppBuilder.Services.AddSingleton<ViewModels.ReservationViewModel>();
 
             
             mauiAppBuilder.Services.AddTransient<RssItemDetailsPage>();

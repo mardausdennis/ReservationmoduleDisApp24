@@ -16,16 +16,21 @@ namespace DisApp24
 
         private void OnDateSelected(DateTime date)
         {
-            // Send the selected date to ReservationPage
             WeakReferenceMessenger.Default.Send(new SelectedDateMessage { Date = date });
         }
+
         private async void OnDateConfirmed(object sender, EventArgs e)
         {
             var selectedDates = (BindingContext as CalendarPageViewModel).SelectedDates;
-            if (selectedDates.Any())
+
+            if (selectedDates != null && selectedDates.Any())
             {
                 OnDateSelected(selectedDates.First());
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                await DisplayAlert("Error", "Please select a date before confirming.", "OK");
             }
         }
 

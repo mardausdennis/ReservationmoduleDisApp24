@@ -5,6 +5,9 @@ using DisApp24.Services;
 using Firebase.Database;
 using Firebase.Database.Query;
 using DisApp24.Models;
+using CommunityToolkit.Mvvm.Messaging;
+
+
 
 namespace DisApp24.Services{ 
     public class FirebaseAuthService: IFirebaseAuthService
@@ -21,6 +24,10 @@ namespace DisApp24.Services{
         {
             var authProvider = FirebaseAuth.Instance;
             var result = await authProvider.SignInWithEmailAndPasswordAsync(email, password);
+
+            var appUser = await GetCurrentUserAsync();
+            WeakReferenceMessenger.Default.Send(new UserChangedMessage(appUser));
+
             return result.User.Uid;
         }
 
@@ -48,6 +55,8 @@ namespace DisApp24.Services{
                 Email = email
             };
 
+            WeakReferenceMessenger.Default.Send(new UserChangedMessage(appUser));
+
             return new AuthResult { User = appUser };
         }
 
@@ -57,6 +66,9 @@ namespace DisApp24.Services{
             var credential = GoogleAuthProvider.GetCredential(idToken, accessToken);
             var result = await authProvider.SignInWithCredentialAsync(credential);
             var userId = result.User.Uid;
+
+            var appUser = await GetCurrentUserAsync();
+            WeakReferenceMessenger.Default.Send(new UserChangedMessage(appUser));
 
             // Überprüfen, ob der Benutzer bereits in der Firebase Realtime Database vorhanden ist
             var existingProfile = await GetUserProfileAsync(userId);
@@ -95,15 +107,15 @@ namespace DisApp24.Services{
                 // Verwende TryGetValue, um Werte aus dem Benutzerprofil abzurufen
                 userProfile.TryGetValue("FirstName", out object firstName);
                 userProfile.TryGetValue("LastName", out object lastName);
-                userProfile.TryGetValue("Email", out object email);
 
                 // Erstelle ein AppUser-Objekt mit den Informationen aus dem Benutzerprofil
                 return new AppUser
                 {
-                    Uid = user.Uid, 
+                    Uid = user.Uid,
                     FirstName = firstName as string,
                     LastName = lastName as string,
-                    Email = user.Email
+                    Email = user.Email,
+                    PhoneNumber = user.PhoneNumber
                 };
             }
             return null;
@@ -150,6 +162,8 @@ namespace DisApp24.Services{
         public void SignOutAsync()
         {
             FirebaseAuth.Instance.SignOut();
+
+            WeakReferenceMessenger.Default.Send(new UserChangedMessage(null));
         }
 
     }

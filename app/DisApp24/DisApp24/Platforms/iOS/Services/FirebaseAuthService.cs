@@ -7,6 +7,9 @@ using Firebase.Database;
 using Firebase.Database.Query;
 using System.IdentityModel.Tokens.Jwt;
 using DisApp24.Models;
+using PhoneNumbers;
+using Contacts;
+using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace DisApp24.Services
 { 
@@ -97,7 +100,7 @@ namespace DisApp24.Services
                 // Verwende TryGetValue, um Werte aus dem Benutzerprofil abzurufen
                 userProfile.TryGetValue("FirstName", out object firstName);
                 userProfile.TryGetValue("LastName", out object lastName);
-                
+
 
                 // Erstelle ein AppUser-Objekt mit den Informationen aus dem Benutzerprofil
                 return new AppUser
@@ -105,7 +108,8 @@ namespace DisApp24.Services
                     Uid = user.Uid,
                     FirstName = firstName as string,
                     LastName = lastName as string,
-                    Email = user.Email
+                    Email = user.Email,
+                    PhoneNumber = user.PhoneNumber
                 };
             }
             return null;
