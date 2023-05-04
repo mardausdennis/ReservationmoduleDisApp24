@@ -26,6 +26,12 @@ namespace DisApp24.ViewModels
         public ICommand ReserveCommand => new AsyncRelayCommand(ReserveAsync);
         public IAsyncRelayCommand InitializeCommand { get; }
 
+        private ObservableCollection<Appointment> _appointments;
+        public ObservableCollection<Appointment> Appointments
+        {
+            get => _appointments;
+            set => SetProperty(ref _appointments, value);
+        }
 
         public string Resource { get; set; }
         public string FirstName { get; set; }
@@ -47,6 +53,9 @@ namespace DisApp24.ViewModels
         {
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, OnSelectedDateMessageReceived);
+
+            // Initialize the appointments collection
+            _appointments = new ObservableCollection<Appointment>();
 
         }
 
@@ -97,6 +106,48 @@ namespace DisApp24.ViewModels
                 }
             }
         }
+
+        //Initialize
+
+        public async Task InitializeDataAsync(AppUser user)
+        {
+            currentUser = user;
+
+            // Fetch user's appointments from Firebase and add them to the appointments collection
+            var userAppointments = await GetUserAppointmentsAsync(currentUser.Uid);
+
+            Appointments.Clear();
+
+            foreach (var appointment in userAppointments.OrderBy(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture)))
+            {
+                Appointments.Add(appointment);
+            }
+
+            await PrintAvailableTimeSlotsPerMonth();
+        }
+
+
+
+
+        public ObservableCollection<string> Resources { get; } = new ObservableCollection<string>
+{
+    "Ressource 1",
+    "Ressource 2",
+    "Ressource 3"
+};
+
+        public ObservableCollection<string> TimeSlots { get; } = new ObservableCollection<string>
+{
+    "08:00-09:00",
+    "09:00-10:00",
+    "10:00-11:00",
+    "11:00-12:00",
+    "12:00-13:00",
+    "13:00-14:00",
+    "14:00-15:00",
+    "15:00-16:00"
+};
+
 
 
         //Validate Input

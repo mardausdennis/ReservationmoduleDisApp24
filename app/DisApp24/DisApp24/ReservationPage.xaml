@@ -25,7 +25,7 @@
                     <tabView:SfTabItem Header="Reservieren">
                         <tabView:SfTabItem.Content>
                             <StackLayout Margin="20" Spacing="15">
-                                <Picker x:Name="ResourcePicker" Title="Ressource auswählen" SelectedIndexChanged="OnResourcePickerSelectedIndexChanged" SelectedItem="{Binding Resource}"/>
+                                <Picker x:Name="ResourcePicker" Title="Ressource auswählen" SelectedIndexChanged="OnResourcePickerSelectedIndexChanged" SelectedItem="{Binding Resource}" ItemsSource="{Binding Resources}"/>
                                 <StackLayout x:Name="FormLayout" IsVisible="False" Opacity="0">
                                     <StackLayout Spacing="15">
                                         <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
@@ -79,7 +79,7 @@
                                                     <Setter Property="BorderColor" Value="Red" />
                                                 </DataTrigger>
                                             </Frame.Triggers>
-                                            <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" SelectedIndexChanged="OnTimePickerSelectedIndexChanged" SelectedItem="{Binding TimeSlot}" />
+                                            <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" SelectedIndexChanged="OnTimePickerSelectedIndexChanged" SelectedItem="{Binding TimeSlot}" ItemsSource="{Binding TimeSlots}"/>
                                         </Frame>
                                         <Frame x:Name="CommentFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                                             <Frame.Triggers>
@@ -98,7 +98,7 @@
                     </tabView:SfTabItem>
                     <tabView:SfTabItem Header="Meine Termine">
                         <tabView:SfTabItem.Content>
-                            <CollectionView x:Name="AppointmentsCollection" Margin="0,10,0,0" ItemsSource="{Binding Appointments}">
+                            <CollectionView x:Name="AppointmentsCollection" Margin="0,10,0,0" ItemsSource="{Binding Appointments}" SelectionMode="None">
                             <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Padding="10" ColumnSpacing="10">

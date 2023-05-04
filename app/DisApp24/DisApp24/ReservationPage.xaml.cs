@@ -20,7 +20,7 @@ namespace DisApp24
         private readonly IFirebaseAuthService _firebaseAuthService;
         private bool isFirstTimeAppearing = true;
         private AppUser currentUser;
-        private ObservableCollection<Appointment> _appointments;
+
 
         private readonly ReservationViewModel _viewModel;
 
@@ -28,15 +28,13 @@ namespace DisApp24
         public ReservationPage()
         {
             InitializeComponent();
-            InitializePickers();
 
             _viewModel = ServiceHelper.GetService<ReservationViewModel>();
             BindingContext = _viewModel;
 
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
 
-            // Initialize the appointments collection
-            _appointments = new ObservableCollection<Appointment>();
+
 
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, (recipient, message) =>
             {
@@ -47,29 +45,6 @@ namespace DisApp24
 
         }
 
-        private void InitializePickers()
-        {
-            // Populate the ResourcePicker with sample data
-            ResourcePicker.ItemsSource = new string[]
-            {
-                "Ressource 1",
-                "Ressource 2",
-                "Ressource 3"
-            };
-
-            // Populate the TimePicker with time slots
-            TimePicker.ItemsSource = new string[]
-            {
-                "08:00-09:00",
-                "09:00-10:00",
-                "10:00-11:00",
-                "11:00-12:00",
-                "12:00-13:00",
-                "13:00-14:00",
-                "14:00-15:00",
-                "15:00-16:00"
-            };
-        }
 
         //Event-Handler
         private void OnUserChanged(object recipient, UserChangedMessage message)
@@ -135,38 +110,23 @@ namespace DisApp24
                 isFirstTimeAppearing = true;
             }
 
-
             if (currentUser != null)
             {
-
                 if (currentUser != null && isFirstTimeAppearing)
                 {
-                    // Eingabefelder mit Benutzerdaten ausfüllen
+                    // Fill input fields with user data
                     FirstNameEntry.Text = currentUser.FirstName;
                     LastNameEntry.Text = currentUser.LastName;
                     EmailEntry.Text = currentUser.Email;
                     PhoneNumberEntry.Text = currentUser.PhoneNumber;
                 }
 
-                // Fetch user's appointments from Firebase and add them to the appointments collection
-                var userAppointments = await _viewModel.GetUserAppointmentsAsync(currentUser.Uid);
-
-                _appointments.Clear();
-
-                foreach (var appointment in userAppointments.OrderBy(a => DateTime.ParseExact(a.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture)))
-                {
-                    _appointments.Add(appointment);
-                }
-
-                AppointmentsCollection.ItemsSource = _appointments;
-
-                await _viewModel.PrintAvailableTimeSlotsPerMonth();
+                await _viewModel.InitializeDataAsync(currentUser);
 
                 isFirstTimeAppearing = false;
-
             }
-
         }
+
 
 
 
