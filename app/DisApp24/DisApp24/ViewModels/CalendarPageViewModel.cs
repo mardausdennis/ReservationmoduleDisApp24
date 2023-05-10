@@ -8,8 +8,9 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using DisApp24.Services;
-
-
+using CommunityToolkit.Mvvm.Messaging;
+using DisApp24.Models;
+using MvvmHelpers.Commands;
 
 namespace DisApp24.ViewModels
 {
@@ -17,12 +18,21 @@ namespace DisApp24.ViewModels
     {
 
         private readonly IFirebaseAuthService _firebaseAuthService;
+        private readonly NavigationService _navigation;
+
 
         public ObservableCollection<DateTime> SelectedDates { get; set; } = new ObservableCollection<DateTime>();
         public CalendarDay OutsideCalendarDay { get; set; } = new CalendarDay();
         public ICommand NavigateCalendarCommand { get; set; }
 
         public ICommand ChangeDateSelectionCommand { get; set; }
+
+        public ICommand DateSelectedCommand { get; set; }
+        public ICommand DateConfirmedCommand { get; set; }
+        public ICommand DisplaySelectedDatesCommand { get; set; }
+
+
+
         public ObservableCollection<DateTime> FullyBookedDates { get; set; } = new ObservableCollection<DateTime>();
         public Calendar<CalendarDay> Calendar { get; set; } = new Calendar<CalendarDay>()
         {
@@ -35,11 +45,18 @@ namespace DisApp24.ViewModels
         public CalendarPageViewModel()
         {
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
-            ChangeDateSelectionCommand = new Command<DateTime>(ChangeDateSelection);
-            NavigateCalendarCommand = new Command<int>(NavigateCalendar);
+            _navigation = ServiceHelper.GetService<NavigationService>();
+
+            ChangeDateSelectionCommand = new Microsoft.Maui.Controls.Command<DateTime>(ChangeDateSelection);
+            NavigateCalendarCommand = new Microsoft.Maui.Controls.Command<int>(NavigateCalendar);
 
             Calendar.DaysUpdated += Calendar_DaysUpdated;
             Calendar.UpdateDay(OutsideCalendarDay, Calendar.NavigatedDate);
+
+            DateSelectedCommand = new Microsoft.Maui.Controls.Command<DateTime>(OnDateSelected);
+            DateConfirmedCommand = new AsyncCommand(OnDateConfirmed);
+
+
 
             Task.Run(async () => await LoadAppointmentsAsync());
         }
@@ -161,5 +178,32 @@ namespace DisApp24.ViewModels
 
         #endregion
 
+        private async Task OnDateConfirmed()
+        {
+            if (SelectedDates != null && SelectedDates.Any())
+            {
+                OnDateSelected(SelectedDates.First());
+                await _navigation.GetNavigation().PopAsync();
+
+            }
+            else
+            {
+                // Send a message to the view to show the alert
+                WeakReferenceMessenger.Default.Send(new ShowAlertMessage { Title = "Error", Message = "Please select a date before confirming.", ButtonText = "OK" });
+            }
+        }
+
+        private void OnDateSelected(DateTime date)
+        {
+            WeakReferenceMessenger.Default.Send(new SelectedDateMessage { Date = date });
+        }
+
+
+
+    }
+
+    public class SelectedDateMessage
+    {
+        public DateTime Date { get; set; }
     }
 }

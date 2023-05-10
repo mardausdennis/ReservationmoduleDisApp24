@@ -101,7 +101,7 @@
                 Text="{Binding SelectedDatesString}"
                 TextColor="{StaticResource PageTextColor}"/>
             <!-- Button to confirm the selected date -->
-            <Button x:Name="ConfirmDateButton" Text="Datum bestätigen" Clicked="OnDateConfirmed" BackgroundColor="#FF5733" TextColor="White" />
+            <Button x:Name="ConfirmDateButton" Text="Datum bestätigen" Command="{Binding DateConfirmedCommand}" BackgroundColor="#FF5733" TextColor="White" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

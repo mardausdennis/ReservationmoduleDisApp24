@@ -26,6 +26,9 @@ namespace DisApp24
             mauiAppBuilder.Services.AddSingleton<IRssService, DisApp24.Services.RssService>();
 
 
+            // Register NavigationService
+            mauiAppBuilder.Services.AddSingleton<NavigationService>();
+
             return mauiAppBuilder;
         }
 
@@ -80,11 +83,8 @@ namespace DisApp24
                 // Weitere Parameter können hier zugewiesen werden
             };
 
-
-
         // Register the config as a singleton
             builder.Services.AddSingleton<AppConfig>(config);
-
 
 #if DEBUG
             builder.Logging.AddDebug();

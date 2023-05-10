@@ -1,4 +1,5 @@
-﻿using DisApp24.Services;
+﻿using DisApp24.Models;
+using DisApp24.Services;
 using Microsoft.Maui.Controls;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -10,13 +11,14 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DisApp24.ViewModels
 {
     public class LoginPageViewModel : BaseViewModel
     {
         private readonly IFirebaseAuthService _firebaseAuthService;
         private readonly HttpClient _httpClient;
-        private INavigation _navigation;
+        private readonly NavigationService _navigation;
 
 
         public string Email { get; set; }
@@ -34,16 +36,13 @@ namespace DisApp24.ViewModels
         {
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
             _httpClient = ServiceHelper.GetService<HttpClient>();
+            _navigation = ServiceHelper.GetService<NavigationService>();
 
             LoginCommand = new Command(async () => await OnLoginAsync());
             GoogleLoginCommand = new Command(async () => await OnGoogleLoginAsync());
             RegisterCommand = new Command(async () => await OnRegisterAsync());
         }
 
-        public void Initialize(INavigation navigation)
-        {
-            _navigation = navigation;
-        }
 
         private async Task OnLoginAsync()
         {
@@ -51,7 +50,7 @@ namespace DisApp24.ViewModels
             {
                 var result = await _firebaseAuthService.SignInWithEmailPasswordAsync(Email, Password);
                 // Successful login, navigate to the main page or another page
-                await _navigation.PopAsync(); 
+                await _navigation.GetNavigation().PopAsync();
             }
             catch (Exception ex)
             {
@@ -82,7 +81,7 @@ namespace DisApp24.ViewModels
                         var userId = await _firebaseAuthService.SignInWithGoogleAsync(tokens.IdToken, tokens.AccessToken);
 
                         // Successful login, navigate to the appropriate page
-                        await _navigation.PopAsync();
+                        await _navigation.GetNavigation().PopAsync();
 
                     }
                     else

@@ -104,6 +104,10 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
+            "Refractored.MvvmHelpers": {
+              "target": "Package",
+              "version": "[1.6.2, )"
+            },
             "Syncfusion.Maui.Core": {
               "target": "Package",
               "version": "[21.1.41, )"
@@ -301,6 +305,10 @@
             "PropertyChanged.Fody": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "Refractored.MvvmHelpers": {
+              "target": "Package",
+              "version": "[1.6.2, )"
             },
             "Syncfusion.Maui.Core": {
               "target": "Package",

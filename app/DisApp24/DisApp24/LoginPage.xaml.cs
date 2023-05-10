@@ -11,6 +11,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using DisApp24.ViewModels;
+using DisApp24.Models;
 
 namespace DisApp24
 {
@@ -21,9 +22,10 @@ namespace DisApp24
         {
             InitializeComponent();
 
-            var viewModel = vm;
-            BindingContext = viewModel;
-            viewModel.Initialize(Navigation);
+            
+            BindingContext = vm;
+            var navigationService = ServiceHelper.GetService<NavigationService>();
+            navigationService.SetNavigation(Navigation);
         }
 
         protected override bool OnBackButtonPressed()

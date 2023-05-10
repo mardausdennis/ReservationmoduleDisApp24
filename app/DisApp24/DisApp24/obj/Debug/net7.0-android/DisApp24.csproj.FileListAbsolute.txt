@@ -178,6 +178,8 @@ C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\Mono.Android.Export.dll
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\Mono.Android.Export.pdb
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\Mono.Android.pdb
+C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\MvvmHelpers.dll
+C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\MvvmHelpers.pdb
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\netstandard.dll
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\Newtonsoft.Json.dll
 C:\Users\denni\Documents\GitHub\ReservationmoduleDisApp24\app\DisApp24\DisApp24\obj\Debug\net7.0-android\android\assets\PhoneNumbers.dll
