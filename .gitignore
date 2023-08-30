@@ -121,4 +121,12 @@ appsettings.json
 disapp24-reservation-module-dca3834b3cbd.json
 
 
+# Additional Visual Studio temp files
+*.dtbcache.v2
+*.futdcache.v2
+
+# Device cache
+devices.cache
+
+
 
