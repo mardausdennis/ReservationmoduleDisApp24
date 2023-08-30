@@ -45,7 +45,7 @@ namespace DisApp24
 
             var shellContent = new ShellContent
             {
-                Route = "reservationpage",
+                Route = "reservationPage",
                 Content = reservationPage
             };
 
