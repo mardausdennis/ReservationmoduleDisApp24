@@ -18,7 +18,8 @@ namespace DisApp24.ViewModels
     {
 
         private readonly IFirebaseAuthService _firebaseAuthService;
-        private readonly NavigationService _navigation;
+        private readonly IFirebaseReservationService _firebaseReservationService;
+        private readonly INavigationService _navigation;
 
 
         public ObservableCollection<DateTime> SelectedDates { get; set; } = new ObservableCollection<DateTime>();
@@ -45,7 +46,8 @@ namespace DisApp24.ViewModels
         public CalendarPageViewModel()
         {
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
-            _navigation = ServiceHelper.GetService<NavigationService>();
+            _firebaseReservationService = ServiceHelper.GetService<IFirebaseReservationService>();
+            _navigation = ServiceHelper.GetService<INavigationService>();
 
             ChangeDateSelectionCommand = new Microsoft.Maui.Controls.Command<DateTime>(ChangeDateSelection);
             NavigateCalendarCommand = new Microsoft.Maui.Controls.Command<int>(NavigateCalendar);
@@ -118,7 +120,7 @@ namespace DisApp24.ViewModels
         public async Task LoadAppointmentsAsync()
         {
             // Laden Sie hier die Termine (List<Appointment> appointments) aus Ihrer Datenquelle.
-            var appointments = await _firebaseAuthService.GetReservationsAsync();
+            var appointments = await _firebaseReservationService.GetReservationsAsync();
 
 
             System.Diagnostics.Debug.WriteLine($"Appointments: {string.Join(", ", appointments.Select(a => $"{a.Date} - {a.TimeSlot}"))}");

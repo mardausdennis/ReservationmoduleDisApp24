@@ -17,6 +17,7 @@ namespace DisApp24.ViewModels
         public ObservableCollection<RssItem> RssItems { get; set; }
 
         private IFirebaseAuthService _firebaseAuthService;
+        public bool IsLoginAvailable => _firebaseAuthService != null;
         private IRssService _rssService;
         private readonly AppConfig _config;
         public ICommand SignInCommand { get; set; }

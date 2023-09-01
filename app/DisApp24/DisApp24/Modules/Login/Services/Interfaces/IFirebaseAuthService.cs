@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DisApp24.Models;
 using Firebase.Auth;
 
@@ -15,11 +12,9 @@ namespace DisApp24.Services
         Task<string> SignInWithGoogleAsync(string idToken, string accessToken);
         Task<IDictionary<string, object>> GetUserProfileAsync(string userId);
         Task<AppUser> GetCurrentUserAsync();
-        Task<List<Appointment>> GetReservationsAsync();
         Task<bool> IsUserAccountValid(string userId);
-
-        void SignOutAsync();
+        Task SignOutAsync();
         bool IsSignedIn();
     }
-
 }
+

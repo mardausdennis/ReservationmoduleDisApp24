@@ -24,7 +24,7 @@ namespace DisApp24
 
             
             BindingContext = vm;
-            var navigationService = ServiceHelper.GetService<NavigationService>();
+            var navigationService = ServiceHelper.GetService<INavigationService>();
             navigationService.SetNavigation(Navigation);
         }
 

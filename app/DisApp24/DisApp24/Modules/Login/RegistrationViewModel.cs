@@ -97,6 +97,7 @@ namespace DisApp24.ViewModels
                 var result = await _firebaseAuthService.SignUpWithEmailPasswordAsync(Email, Password, FirstName, LastName, PhoneNumber);
                 // Handle successful registration and automatic login
                 WeakReferenceMessenger.Default.Send(new RegistrationMessage(true));
+                WeakReferenceMessenger.Default.Send(new UserSignedInMessage());
                 await Shell.Current.DisplayAlert("Erfolg", "Ihr Konto wurde erfolgreich erstellt und Sie wurden automatisch angemeldet.", "OK");
             }
             catch (Exception ex)

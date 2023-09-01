@@ -34,7 +34,7 @@ namespace DisApp24
 
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
 
-            var navigationService = ServiceHelper.GetService<NavigationService>();
+            var navigationService = ServiceHelper.GetService<INavigationService>();
             navigationService.SetNavigation(Navigation);
 
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, (recipient, message) =>

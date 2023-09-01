@@ -14,7 +14,7 @@ namespace DisApp24
             InitializeComponent();
             BindingContext = ServiceHelper.GetService<CalendarPageViewModel>();
 
-            var navigationService = ServiceHelper.GetService<NavigationService>();
+            var navigationService = ServiceHelper.GetService<INavigationService>();
             navigationService.SetNavigation(Navigation);
 
             // Subscribe to the ShowAlertMessage

@@ -1,0 +1,7 @@
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DisApp24.Modules.Login.SignInButton">
+
+    <Button x:Name="AuthButton" Text="{Binding AuthButtonText}" Command="{Binding AuthCommand}"/>
+
+</ContentView>

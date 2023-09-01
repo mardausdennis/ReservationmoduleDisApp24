@@ -20,6 +20,7 @@ namespace DisApp24.ViewModels
     {
 
         private readonly IFirebaseAuthService _firebaseAuthService;
+        private readonly IFirebaseReservationService _firebaseReservationService;
         private readonly FirebaseClient _firebaseClient = new FirebaseClient("https://disapp24-reservation-module-default-rtdb.europe-west1.firebasedatabase.app");
         private AppUser currentUser;
 
@@ -52,6 +53,7 @@ namespace DisApp24.ViewModels
         public ReservationViewModel()
         {
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
+            _firebaseReservationService = ServiceHelper.GetService<IFirebaseReservationService>();
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, OnSelectedDateMessageReceived);
 
             // Initialize the appointments collection
@@ -273,7 +275,7 @@ namespace DisApp24.ViewModels
 
         public async Task PrintAvailableTimeSlotsPerMonth()
         {
-            var reservations = await _firebaseAuthService.GetReservationsAsync();
+            var reservations = await _firebaseReservationService.GetReservationsAsync();
             var distinctDates = reservations.Select(r => DateTime.ParseExact(r.Date, "dd.MM.yyyy", CultureInfo.InvariantCulture)).Distinct().OrderBy(r => r);
             var groupedDatesByMonth = distinctDates.GroupBy(d => new { d.Year, d.Month });
 

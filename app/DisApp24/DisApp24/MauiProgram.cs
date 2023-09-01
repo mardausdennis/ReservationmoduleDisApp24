@@ -23,11 +23,11 @@ namespace DisApp24
             mauiAppBuilder.Services.AddSingleton<HttpClient>();
 
             mauiAppBuilder.Services.AddSingleton<IFirebaseAuthService, DisApp24.Services.FirebaseAuthService>();
+            mauiAppBuilder.Services.AddSingleton<IFirebaseReservationService, DisApp24.Services.FirebaseReservationService>();
             mauiAppBuilder.Services.AddSingleton<IRssService, DisApp24.Services.RssService>();
+            mauiAppBuilder.Services.AddSingleton<INavigationService, DisApp24.Services.NavigationService>();
 
 
-            // Register NavigationService
-            mauiAppBuilder.Services.AddSingleton<NavigationService>();
 
             return mauiAppBuilder;
         }

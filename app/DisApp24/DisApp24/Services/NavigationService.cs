@@ -1,12 +1,13 @@
-﻿using System;
+﻿using DisApp24.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DisApp24.Models
+namespace DisApp24.Services
 {
-    public class NavigationService
+    public class NavigationService : INavigationService
     {
         private INavigation _navigation;
 
@@ -24,5 +25,5 @@ namespace DisApp24.Models
             return _navigation;
         }
     }
-
 }
+

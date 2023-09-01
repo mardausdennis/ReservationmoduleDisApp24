@@ -1,4 +1,5 @@
-﻿using DisApp24.Models;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using DisApp24.Models;
 using DisApp24.Services;
 using Microsoft.Maui.Controls;
 using Newtonsoft.Json;
@@ -18,7 +19,7 @@ namespace DisApp24.ViewModels
     {
         private readonly IFirebaseAuthService _firebaseAuthService;
         private readonly HttpClient _httpClient;
-        private readonly NavigationService _navigation;
+        private readonly INavigationService _navigation;
 
 
         public string Email { get; set; }
@@ -36,7 +37,7 @@ namespace DisApp24.ViewModels
         {
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
             _httpClient = ServiceHelper.GetService<HttpClient>();
-            _navigation = ServiceHelper.GetService<NavigationService>();
+            _navigation = ServiceHelper.GetService<INavigationService>();
 
             LoginCommand = new Command(async () => await OnLoginAsync());
             GoogleLoginCommand = new Command(async () => await OnGoogleLoginAsync());
@@ -49,7 +50,11 @@ namespace DisApp24.ViewModels
             try
             {
                 var result = await _firebaseAuthService.SignInWithEmailPasswordAsync(Email, Password);
-                // Successful login, navigate to the main page or another page
+                // Successful login, notify others
+                WeakReferenceMessenger.Default.Send(new UserSignedInMessage());
+
+
+                // Navigate back
                 await _navigation.GetNavigation().PopAsync();
             }
             catch (Exception ex)
@@ -57,6 +62,7 @@ namespace DisApp24.ViewModels
                 await Shell.Current.DisplayAlert("Error", ex.Message, "OK");
             }
         }
+
 
         private async Task OnGoogleLoginAsync()
         {
@@ -80,9 +86,12 @@ namespace DisApp24.ViewModels
                     {
                         var userId = await _firebaseAuthService.SignInWithGoogleAsync(tokens.IdToken, tokens.AccessToken);
 
-                        // Successful login, navigate to the appropriate page
-                        await _navigation.GetNavigation().PopAsync();
 
+                        WeakReferenceMessenger.Default.Send(new UserSignedInMessage());
+
+
+                        // Navigate back
+                        await _navigation.GetNavigation().PopAsync();
                     }
                     else
                     {

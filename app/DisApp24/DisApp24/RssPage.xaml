@@ -1,8 +1,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:login="clr-namespace:DisApp24.Modules.Login;assembly=DisApp24"
              x:Class="DisApp24.RssPage">
 
-    <CollectionView x:Name="MyRssFeedView" ItemsSource="{Binding RssItems}" BackgroundColor="White"
+    <StackLayout>
+        <!-- Hier wird der SignInButton eingefgt -->
+        <login:SignInButton HorizontalOptions="End" VerticalOptions="Start" 
+                            Margin="0,10,10,5" WidthRequest="120" />
+        <CollectionView x:Name="MyRssFeedView" ItemsSource="{Binding RssItems}" BackgroundColor="White"
                     SelectionMode="Single"
                     SelectionChangedCommand="{Binding ItemSelectedCommand}"
                     SelectionChangedCommandParameter="{Binding Source={x:Reference MyRssFeedView}, Path=SelectedItem}">
@@ -26,4 +31,5 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+    </StackLayout>
 </ContentPage>
