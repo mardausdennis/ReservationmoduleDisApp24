@@ -89,7 +89,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="CalendarPage.xaml">
+	  <MauiXaml Update="Modules\Reservation\CalendarPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Modules\Login\LoginPage.xaml">
@@ -101,7 +101,7 @@
 	  <MauiXaml Update="Modules\Login\SignInButton.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ReservationPage.xaml">
+	  <MauiXaml Update="Modules\Reservation\ReservationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="RssPage.xaml">
