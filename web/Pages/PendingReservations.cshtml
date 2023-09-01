@@ -1,29 +1,52 @@
 ﻿@page
 @model PendingReservationsModel
 @{
-    ViewData["Title"] = "Ausstehende Reservierungen";
+    ViewData["Title"] = "Nicht Bestätigte Reservierungen";
 }
 
-<h1>Ausstehende Reservierungen</h1>
+<div class="container my-4">
+    <details open>
+        <summary>
+            <div class="p-2 mb-4 bg-dark text-white w-100 text-center rounded">
+                <h1 class="d-inline-block">Ausstehende Reservierungen</h1>
+            </div>
+        </summary>
+        @foreach (var reservation in Model.UpcomingPendingReservations)
+        {
+            @await Html.PartialAsync("_ReservationCard", reservation)
+        }
+    </details>
+</div>
 
-@foreach (var reservation in Model.PendingReservations)
-{
-        <div>
-            <h3>@reservation.Name - @reservation.Date - @reservation.TimeSlot</h3>
-            <table>
-                <tr>
-                    <td>@reservation.Name</td>
-                    <td>@reservation.Email</td>
-                    <td>@reservation.PhoneNumber</td>
-                    <td>@reservation.Resource</td>
-                    <td>@reservation.Date</td>
-                    <td>@reservation.TimeSlot</td>
-                </tr>
-            </table>
-            <form method="post" class="reservation-form">
-                <input type="hidden" name="id" value="@reservation.Id" />
-                <button type="submit" asp-page-handler="Confirm" name="handler" value="Confirm">Bestätigen</button>
-                <button type="submit" asp-page-handler="Reject" name="handler" value="Reject">Ablehnen</button>
-            </form>
-        </div>
+<div class="container my-4">
+    <details open>
+        <summary>
+            <div class="p-2 mb-4 bg-dark text-white w-100 text-center rounded">
+                <h1 class="d-inline-block">Nicht Bestätigte Vergangene Reservierungen</h1>
+            </div>
+        </summary>
+        @foreach (var reservation in Model.PastUnconfirmedReservations)
+        {
+            @await Html.PartialAsync("_ReservationCard", reservation)
+        }
+    </details>
+</div>
+
+@section Scripts {
+    <script>
+        function attachFormListeners() {
+            var forms = document.querySelectorAll(".reservation-form");
+            forms.forEach(function (form) {
+                form.addEventListener("submit", function (event) {
+                    console.log("Submitting form...");
+                });
+            });
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", attachFormListeners);
+        } else {
+            attachFormListeners();
+        }
+    </script>
 }

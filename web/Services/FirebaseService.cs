@@ -36,6 +36,7 @@ namespace web.Services
                     Date = item.Object.Date,
                     TimeSlot = item.Object.TimeSlot,
                     Resource = item.Object.Resource,
+                    Comment = item.Object.Comment,
                     Status = item.Object.Status
                 });
             }

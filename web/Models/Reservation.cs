@@ -10,6 +10,7 @@
         public string Date { get; set; }
         public string TimeSlot { get; set; }
         public string Resource { get; set; }
+        public string Comment { get; set; }
         public string Status { get; set; }
 
 

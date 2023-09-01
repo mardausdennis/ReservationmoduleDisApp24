@@ -1,14 +1,16 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
-<div style="display: flex; align-items: center; justify-content: center; height: 100vh; flex-direction: column;">
-    <a href="./PendingReservations">
-        <button style="font-size: 20px; padding: 10px 20px; margin: 5px; cursor: pointer;">Ausstehende Reservierungen</button>
+<div style="display: flex; align-items: center; justify-content: center; flex-grow: 1; flex-direction: column;">
+    <a href="./PendingReservations" class="mb-3" style="width: 220px;">
+        <button class="btn btn-outline-dark" style="width: 100%; text-align: center;">Ausstehende Reservierungen</button>
     </a>
-    <a href="./AllReservations">
-        <button style="font-size: 20px; padding: 10px 20px; margin: 5px; cursor: pointer;">Alle Reservierungen</button>
+    <a href="./AllReservations" style="width: 220px;">
+        <button class="btn btn-outline-dark" style="width: 100%; text-align: center;">Alle Reservierungen</button>
     </a>
 </div>
+
+
