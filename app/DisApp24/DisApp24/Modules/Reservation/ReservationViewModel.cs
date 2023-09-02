@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using DisApp24.Helpers;
+using DisApp24.Resources;
 using DisApp24.Services;
 using Firebase.Database;
 using Newtonsoft.Json;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using DisApp24.Models;
 
 namespace DisApp24.ViewModels
 {
@@ -21,7 +23,9 @@ namespace DisApp24.ViewModels
 
         private readonly IFirebaseAuthService _firebaseAuthService;
         private readonly IFirebaseReservationService _firebaseReservationService;
-        private readonly FirebaseClient _firebaseClient = new FirebaseClient("https://disapp24-reservation-module-default-rtdb.europe-west1.firebasedatabase.app");
+        private readonly FirebaseClient _firebaseClient;
+        private readonly AppConfig _config;
+
         private AppUser currentUser;
 
         public ICommand ReserveCommand => new AsyncRelayCommand(ReserveAsync);
@@ -52,6 +56,9 @@ namespace DisApp24.ViewModels
 
         public ReservationViewModel()
         {
+            _config = ServiceHelper.GetService<AppConfig>();
+            _firebaseClient = new FirebaseClient(_config.FirebaseUrl);
+
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
             _firebaseReservationService = ServiceHelper.GetService<IFirebaseReservationService>();
             WeakReferenceMessenger.Default.Register<SelectedDateMessage>(this, OnSelectedDateMessageReceived);
@@ -71,12 +78,10 @@ namespace DisApp24.ViewModels
         {
             if (ValidateInput())
             {
-
                 bool isUserAccountValid = await _firebaseAuthService.IsUserAccountValid(currentUser.Uid);
                 if (!isUserAccountValid)
                 {
-                    // Zeige eine Fehlermeldung an und kehre zur Anmeldeseite zurück
-                    await Shell.Current.DisplayAlert("Fehler", "Ihr Benutzerkonto ist nicht mehr gültig. Bitte melden Sie sich erneut an.", "OK");
+                    await Shell.Current.DisplayAlert(AppResources.AccountInvalidErrorTitle, AppResources.AccountInvalidErrorMessage, "OK");
                     await AppShell.Current.GoToAsync(nameof(LoginPage));
                     return;
                 }
@@ -100,11 +105,11 @@ namespace DisApp24.ViewModels
                 try
                 {
                     await _firebaseClient.Child("reservations").PostAsync(json);
-                    await Shell.Current.DisplayAlert("Erfolg", "Ihre Reservierungsanfrage wurde erfolgreich gesendet. Sie erhalten eine Bestätigung per E-Mail, sobald Ihre Reservierung bestätigt wurde.", "OK");
+                    await Shell.Current.DisplayAlert(AppResources.ReservationSuccessTitle, AppResources.ReservationSuccessMessage, "OK");
                 }
                 catch (Exception ex)
                 {
-                    await Shell.Current.DisplayAlert("Fehler", "Es gab einen Fehler beim Senden Ihrer Reservierungsanfrage. Bitte versuchen Sie es später erneut.", "OK");
+                    await Shell.Current.DisplayAlert(AppResources.ReservationFailedTitle, AppResources.ReservationFailedMessage, "OK");
                 }
             }
         }
@@ -159,7 +164,7 @@ namespace DisApp24.ViewModels
         public bool IsValidLastName => !string.IsNullOrWhiteSpace(LastName);
         public bool IsValidEmail => !string.IsNullOrWhiteSpace(Email) && InputValidationHelper.IsValidEmail(Email);
         public bool IsValidPhoneNumber => string.IsNullOrWhiteSpace(PhoneNumber) || InputValidationHelper.IsValidPhoneNumber(PhoneNumber);
-        public bool IsValidDate => !string.IsNullOrWhiteSpace(SelectedDate) && SelectedDate != "Datum auswählen";
+        public bool IsValidDate => !string.IsNullOrWhiteSpace(SelectedDate) && SelectedDate != AppResources.SelectDateLabel;
         public bool IsValidTime => TimeSlot != null;
 
         public bool IsValid => IsValidFirstName && IsValidLastName && IsValidEmail && IsValidPhoneNumber && IsValidResource && IsValidDate && IsValidTime;
@@ -176,7 +181,6 @@ namespace DisApp24.ViewModels
 
         private bool ValidateInput()
         {
-
             IsResourceFrameInvalid = !IsValidResource;
             IsFirstNameFrameInvalid = !IsValidFirstName;
             IsLastNameFrameInvalid = !IsValidLastName;
@@ -185,37 +189,35 @@ namespace DisApp24.ViewModels
             IsDateInvalid = !IsValidDate;
             IsTimeFrameInvalid = !IsValidTime;
 
-
             List<string> errorMessages = new List<string>();
 
             if (!IsValidResource)
             {
-                errorMessages.Add("Bitte wählen Sie eine Ressource aus.");
+                errorMessages.Add(AppResources.SelectResourceError);
             }
             if (!IsValidFirstName)
             {
-                errorMessages.Add("Bitte geben Sie Ihren Vornamen ein.");
-                
+                errorMessages.Add(AppResources.EnterFirstNameError);
             }
             if (!IsValidLastName)
             {
-                errorMessages.Add("Bitte geben Sie Ihren Nachnamen ein.");
+                errorMessages.Add(AppResources.EnterLastNameError);
             }
             if (!IsValidEmail)
             {
-                errorMessages.Add("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+                errorMessages.Add(AppResources.EnterValidEmailError);
             }
             if (!IsValidPhoneNumber)
             {
-                errorMessages.Add("Bitte geben Sie eine gültige Telefonnummer ein.");
+                errorMessages.Add(AppResources.EnterValidPhoneError);
             }
             if (!IsValidDate)
             {
-                errorMessages.Add("Bitte wählen Sie ein Datum aus.");
+                errorMessages.Add(AppResources.SelectDateError);
             }
             if (!IsValidTime)
             {
-                errorMessages.Add("Bitte wählen Sie eine Uhrzeit aus.");
+                errorMessages.Add(AppResources.SelectTimeError);
             }
 
             ValidationMessage = string.Join("\n", errorMessages);

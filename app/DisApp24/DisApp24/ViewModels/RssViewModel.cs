@@ -35,12 +35,12 @@ namespace DisApp24.ViewModels
         }
 
 
-        public RssViewModel(AppConfig config) 
+        public RssViewModel() 
         {
             _firebaseAuthService = ServiceHelper.GetService<IFirebaseAuthService>();
             _rssService = ServiceHelper.GetService<IRssService>();
             
-            _config = config;
+            _config = ServiceHelper.GetService<AppConfig>(); ;
 
             RssItems = new ObservableCollection<RssItem>();
             SignInCommand = new Command(async () => await ExecuteSignInCommand());

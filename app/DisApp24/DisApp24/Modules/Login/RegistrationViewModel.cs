@@ -7,6 +7,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using DisApp24.Helpers;
 using DisApp24.Services;
 using DisApp24.Models;
+using DisApp24.Resources;
 using Microsoft.Maui.Controls;
 
 
@@ -87,23 +88,20 @@ namespace DisApp24.ViewModels
 
             if (Password != ConfirmPassword)
             {
-                // Set the ValidationMessage property instead of using DisplayAlert
-                ValidationMessage = "Die eingegebenen Passwörter stimmen nicht überein.";
+                ValidationMessage = AppResources.PasswordsDoNotMatch;
                 return;
             }
 
             try
             {
                 var result = await _firebaseAuthService.SignUpWithEmailPasswordAsync(Email, Password, FirstName, LastName, PhoneNumber);
-                // Handle successful registration and automatic login
                 WeakReferenceMessenger.Default.Send(new RegistrationMessage(true));
                 WeakReferenceMessenger.Default.Send(new UserSignedInMessage());
-                await Shell.Current.DisplayAlert("Erfolg", "Ihr Konto wurde erfolgreich erstellt und Sie wurden automatisch angemeldet.", "OK");
+                await Shell.Current.DisplayAlert(AppResources.SuccessTitle, AppResources.RegistrationSuccessMessage, "OK");
             }
             catch (Exception ex)
             {
-                // Set the ValidationMessage property instead of using DisplayAlert
-                ValidationMessage = $"Fehler: {ex.Message}";
+                ValidationMessage = $"Error: {ex.Message}"; 
             }
         }
 
@@ -120,36 +118,37 @@ namespace DisApp24.ViewModels
 
             if (string.IsNullOrWhiteSpace(FirstName))
             {
-                errorMessages.Add("Bitte geben Sie Ihren Vornamen ein.");
+                errorMessages.Add(AppResources.EnterFirstName);
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(LastName))
             {
-                errorMessages.Add("Bitte geben Sie Ihren Nachnamen ein.");
+                errorMessages.Add(AppResources.EnterLastName);
                 isValid = false;
             }
+
             if (string.IsNullOrWhiteSpace(Email) || !InputValidationHelper.IsValidEmail(Email))
             {
-                errorMessages.Add("Bitte geben Sie eine gültige E-Mail-Adresse ein.");
+                errorMessages.Add(AppResources.EnterValidEmail);
                 isValid = false;
             }
 
             if (!string.IsNullOrWhiteSpace(PhoneNumber) && !InputValidationHelper.IsValidPhoneNumber(PhoneNumber))
             {
-                errorMessages.Add("Bitte geben Sie eine gültige Telefonnummer ein.");
+                errorMessages.Add(AppResources.EnterValidPhoneNumber);
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(Password))
             {
-                errorMessages.Add("Bitte geben Sie ein Passwort ein.");
+                errorMessages.Add(AppResources.EnterPassword);
                 isValid = false;
             }
 
             if (string.IsNullOrWhiteSpace(ConfirmPassword) || ConfirmPassword != Password)
             {
-                errorMessages.Add("Die eingegebenen Passwörter stimmen nicht überein.");
+                errorMessages.Add(AppResources.PasswordsDoNotMatch);
                 isValid = false;
             }
 
@@ -157,5 +156,6 @@ namespace DisApp24.ViewModels
 
             return isValid;
         }
+
     }
 }

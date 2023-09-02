@@ -1,6 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:DisApp24.ViewModels"
+             xmlns:resources="clr-namespace:DisApp24.Resources"
              x:Class="DisApp24.RegistrationPage">
     <ContentPage.BindingContext>
         <viewModels:RegistrationViewModel />
@@ -8,28 +9,28 @@
 
     <ContentPage.Content>
         <StackLayout Padding="20" Spacing="15" VerticalOptions="Center">
-            <Label Text="Registrierung" FontSize="Large" HorizontalOptions="Center" />
+            <Label Text="{x:Static resources:AppResources.RegistrationPage_Title}" FontSize="Large" HorizontalOptions="Center" />
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry Placeholder="Vorname" Text="{Binding FirstName}" />
+                <Entry Placeholder="{x:Static resources:AppResources.RegistrationPage_FirstNamePlaceholder}" Text="{Binding FirstName}" />
             </Frame>
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry Placeholder="Nachname" Text="{Binding LastName}" />
+                <Entry Placeholder="{x:Static resources:AppResources.RegistrationPage_LastNamePlaceholder}" Text="{Binding LastName}" />
             </Frame>
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry Placeholder="Telefonnummer (optional)" Text="{Binding PhoneNumber}" />
+                <Entry Placeholder="{x:Static resources:AppResources.RegistrationPage_PhoneNumberPlaceholder}" Text="{Binding PhoneNumber}" />
             </Frame>
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry Placeholder="E-Mail Adresse" Text="{Binding Email}" Keyboard="Email" />
+                <Entry Placeholder="{x:Static resources:AppResources.RegistrationPage_EmailPlaceholder}" Text="{Binding Email}" Keyboard="Email" />
             </Frame>
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry Placeholder="Passwort" IsPassword="True" Text="{Binding Password}" />
+                <Entry Placeholder="{x:Static resources:AppResources.RegistrationPage_PasswordPlaceholder}" IsPassword="True" Text="{Binding Password}" />
             </Frame>
             <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                <Entry Placeholder="Passwort bestätigen" IsPassword="True" Text="{Binding ConfirmPassword}" />
+                <Entry Placeholder="{x:Static resources:AppResources.RegistrationPage_ConfirmPasswordPlaceholder}" IsPassword="True" Text="{Binding ConfirmPassword}" />
             </Frame>
-            <Button Text="Registrieren" Command="{Binding RegisterCommand}" />
-            <Label Text="Bereits registriert?" HorizontalOptions="Center" />
-            <Label Text="Zurück zur Anmeldung" HorizontalOptions="Center" TextColor="Blue">
+            <Button Text="{x:Static resources:AppResources.RegistrationPage_RegisterButtonText}" Command="{Binding RegisterCommand}" />
+            <Label Text="{x:Static resources:AppResources.RegistrationPage_AlreadyRegisteredText}" HorizontalOptions="Center" />
+            <Label Text="{x:Static resources:AppResources.RegistrationPage_GoToLoginText}" HorizontalOptions="Center" TextColor="Blue">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding NavigateToLoginCommand}" />
                 </Label.GestureRecognizers>

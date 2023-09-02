@@ -4,6 +4,7 @@
              xmlns:xcInterfaces="clr-namespace:XCalendar.Core.Interfaces;assembly=XCalendar.Core"
              xmlns:xcModels="clr-namespace:XCalendar.Core.Models;assembly=XCalendar.Core"
              xmlns:local="clr-namespace:DisApp24.Helpers"
+             xmlns:resources="clr-namespace:DisApp24.Resources"
              x:Class="DisApp24.CalendarPage"
              x:Name="This"
              Style="{StaticResource DefaultPageStyle}">
@@ -88,11 +89,11 @@
 
             <BoxView BackgroundColor="{StaticResource SeparatorColor}" HeightRequest="1"/>
             <Label
-                Margin="0,10,0,0"
-                FontSize="{StaticResource MediumFontSize}"
-                HorizontalTextAlignment="Center"
-                Text="Ausgewähltes Datum"
-                TextColor="{StaticResource PageTextColor}"/>
+    Margin="0,10,0,0"
+    FontSize="{StaticResource MediumFontSize}"
+    HorizontalTextAlignment="Center"
+    Text="{x:Static resources:AppResources.CalendarPage_SelectedDateText}"
+    TextColor="{StaticResource PageTextColor}"/>
             <Label
                 x:Name="SelectedDateLabel"
                 Margin="0,5,0,5"
@@ -101,7 +102,7 @@
                 Text="{Binding SelectedDatesString}"
                 TextColor="{StaticResource PageTextColor}"/>
             <!-- Button to confirm the selected date -->
-            <Button x:Name="ConfirmDateButton" Text="Datum bestätigen" Command="{Binding DateConfirmedCommand}" BackgroundColor="#FF5733" TextColor="White" />
+            <Button x:Name="ConfirmDateButton" Text="{x:Static resources:AppResources.CalendarPage_ConfirmButtonText}" Command="{Binding DateConfirmedCommand}" BackgroundColor="#FF5733" TextColor="White" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

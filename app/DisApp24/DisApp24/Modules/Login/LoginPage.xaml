@@ -1,28 +1,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="DisApp24.LoginPage">
+             x:Class="DisApp24.LoginPage"
+             xmlns:resources="clr-namespace:DisApp24.Resources">
     
     <ContentPage.Content>
         <StackLayout Padding="20" >
             <StackLayout Padding="20" Spacing="15" VerticalOptions="CenterAndExpand">
-                <Label Text="Bitte anmelden" FontSize="Large" HorizontalOptions="Center" />
+                <Label Text="{x:Static resources:AppResources.LoginPage_PleaseSignIn}" FontSize="Large" HorizontalOptions="Center" />
                 <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                    <Entry x:Name="EmailEntry" Placeholder="E-Mail Adresse" Text="{Binding Email}" Keyboard="Email" />
+                    <Entry x:Name="EmailEntry" Placeholder="{x:Static resources:AppResources.LoginPage_EmailPlaceholder}" Text="{Binding Email}" Keyboard="Email" />
                 </Frame>
                 <Frame BorderColor="DimGray" CornerRadius="5" Padding="5">
-                    <Entry x:Name="PasswordEntry" Placeholder="Passwort" IsPassword="True" Text="{Binding Password}" />
+                    <Entry x:Name="PasswordEntry" Placeholder="{x:Static resources:AppResources.LoginPage_PasswordPlaceholder}" IsPassword="True" Text="{Binding Password}" />
                 </Frame>
-                <Button x:Name="LoginButton" Text="Anmelden" Command="{Binding LoginCommand}" />
-                <Button x:Name="GoogleLoginButton" Text="Mit Google anmelden" Command="{Binding GoogleLoginCommand}" />
+                <Button x:Name="LoginButton" Text="{x:Static resources:AppResources.LoginPage_LoginButtonText}" Command="{Binding LoginCommand}" />
+                <Button x:Name="GoogleLoginButton" Text="{x:Static resources:AppResources.LoginPage_LoginWithGoogle}" Command="{Binding GoogleLoginCommand}" />
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label Text="Noch keinen Account?" />
-                    <Label Text=" Hier registrieren" TextColor="Blue" FontAttributes="Bold">
+                    <Label Text="{x:Static resources:AppResources.LoginPage_NoAccount}" />
+                    <Label Text="{x:Static resources:AppResources.LoginPage_RegisterHere}" TextColor="Blue" FontAttributes="Bold">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding RegisterCommand}" />
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
-                <Button x:Name="GuestContinueButton" Text="Als Gast fortfahren" Command="{Binding GuestContinueCommand}" BackgroundColor="Transparent" BorderColor="Gray" />
+                <Button x:Name="GuestContinueButton" Text="{x:Static resources:AppResources.LoginPage_GuestContinue}" Command="{Binding GuestContinueCommand}" BackgroundColor="Transparent" BorderColor="Gray" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

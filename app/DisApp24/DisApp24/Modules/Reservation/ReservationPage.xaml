@@ -3,8 +3,11 @@
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
              xmlns:local="clr-namespace:DisApp24.Helpers"
              xmlns:viewModels="clr-namespace:DisApp24.ViewModels"
+             xmlns:resources="clr-namespace:DisApp24.Resources" 
              x:Class="DisApp24.ReservationPage"
-             x:Name="This">
+             x:Name="This"
+             >
+
     <ContentPage.BindingContext>
         <viewModels:ReservationViewModel />
     </ContentPage.BindingContext>
@@ -19,13 +22,13 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Label Text="Terminverwaltung" FontSize="24" HorizontalOptions="Center" />
+            <Label Text="{x:Static resources:AppResources.ReservationManagementTitle}" FontSize="24" HorizontalOptions="Center" />
             <tabView:SfTabView Grid.Row="1">
                 <tabView:SfTabView.Items>
-                    <tabView:SfTabItem Header="Reservieren">
+                    <tabView:SfTabItem Header="{x:Static resources:AppResources.ReserveTabText}">
                         <tabView:SfTabItem.Content>
                             <StackLayout Margin="20" Spacing="15">
-                                <Picker x:Name="ResourcePicker" Title="Ressource auswählen" SelectedIndexChanged="OnResourcePickerSelectedIndexChanged" SelectedItem="{Binding Resource}" ItemsSource="{Binding Resources}"/>
+                                <Picker x:Name="ResourcePicker" Title="{x:Static resources:AppResources.ResourcePickerTitle}" SelectedIndexChanged="OnResourcePickerSelectedIndexChanged" SelectedItem="{Binding Resource}" ItemsSource="{Binding Resources}"/>
                                 <StackLayout x:Name="FormLayout" IsVisible="False" Opacity="0">
                                     <StackLayout Spacing="15">
                                         <Frame x:Name="FirstNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
@@ -34,7 +37,7 @@
                                                     <Setter Property="BorderColor" Value="Red" />
                                                 </DataTrigger>
                                             </Frame.Triggers>
-                                            <Entry x:Name="FirstNameEntry" Placeholder="Vorname" Text="{Binding FirstName}" TextChanged="OnTextChanged"/>
+                                            <Entry x:Name="FirstNameEntry" Placeholder="{x:Static resources:AppResources.FirstNamePlaceholder}" Text="{Binding FirstName}" TextChanged="OnTextChanged"/>
                                         </Frame>
 
                                         <Frame x:Name="LastNameFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
@@ -43,7 +46,7 @@
                                                     <Setter Property="BorderColor" Value="Red" />
                                                 </DataTrigger>
                                             </Frame.Triggers>
-                                            <Entry x:Name="LastNameEntry" Placeholder="Nachname" Text="{Binding LastName}" TextChanged="OnTextChanged" />
+                                            <Entry x:Name="LastNameEntry" Placeholder="{x:Static resources:AppResources.LastNamePlaceholder}" Text="{Binding LastName}" TextChanged="OnTextChanged" />
                                         </Frame>
 
                                         <Frame x:Name="EmailFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
@@ -52,7 +55,7 @@
                                                     <Setter Property="BorderColor" Value="Red" />
                                                 </DataTrigger>
                                             </Frame.Triggers>
-                                            <Entry x:Name="EmailEntry" Placeholder="E-Mail-Adresse" Text="{Binding Email}" Keyboard="Email" TextChanged="OnTextChanged"/>
+                                            <Entry x:Name="EmailEntry" Placeholder="{x:Static resources:AppResources.EmailPlaceholder}" Text="{Binding Email}" Keyboard="Email" TextChanged="OnTextChanged"/>
                                         </Frame>
 
                                         <Frame x:Name="PhoneNumberFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
@@ -61,10 +64,10 @@
                                                     <Setter Property="BorderColor" Value="Red" />
                                                 </DataTrigger>
                                             </Frame.Triggers>
-                                            <Entry x:Name="PhoneNumberEntry" Placeholder="Telefonnummer (optional)" Text="{Binding PhoneNumber}" TextChanged="OnTextChanged"/>
+                                            <Entry x:Name="PhoneNumberEntry" Placeholder="{x:Static resources:AppResources.PhoneNumberPlaceholder}"  Text="{Binding PhoneNumber}" TextChanged="OnTextChanged"/>
                                         </Frame>
 
-                                        <Label x:Name="SelectedDateLabel" Text="Datum auswählen" TextColor="DimGray">
+                                        <Label x:Name="SelectedDateLabel" Text="{x:Static resources:AppResources.SelectDateLabel}" TextColor="DimGray">
                                             <Label.Triggers>
                                                 <DataTrigger TargetType="Label" Binding="{Binding IsDateInvalid}" Value="True">
                                                     <Setter Property="TextColor" Value="Red" />
@@ -72,14 +75,14 @@
                                             </Label.Triggers>
                                         </Label>
 
-                                        <Button x:Name="SelectDateButton" Text="Datum auswählen" Clicked="OnSelectDateButtonClicked" />
+                                        <Button x:Name="SelectDateButton" Text="{x:Static resources:AppResources.SelectDateLabel}" Clicked="OnSelectDateButtonClicked" />
                                         <Frame x:Name="TimeFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                                             <Frame.Triggers>
                                                 <DataTrigger TargetType="Frame" Binding="{Binding IsTimeFrameInvalid}" Value="True">
                                                     <Setter Property="BorderColor" Value="Red" />
                                                 </DataTrigger>
                                             </Frame.Triggers>
-                                            <Picker x:Name="TimePicker" Title="Uhrzeit auswählen" SelectedIndexChanged="OnTimePickerSelectedIndexChanged" SelectedItem="{Binding TimeSlot}" ItemsSource="{Binding TimeSlots}"/>
+                                            <Picker x:Name="TimePicker" Title="{x:Static resources:AppResources.SelectTimeTitle}" SelectedIndexChanged="OnTimePickerSelectedIndexChanged" SelectedItem="{Binding TimeSlot}" ItemsSource="{Binding TimeSlots}"/>
                                         </Frame>
                                         <Frame x:Name="CommentFrame" BorderColor="DimGray" CornerRadius="5" Padding="5">
                                             <Frame.Triggers>
@@ -87,16 +90,16 @@
                                                     <Setter Property="BorderColor" Value="Red" />
                                                 </DataTrigger>
                                             </Frame.Triggers>
-                                            <Editor x:Name="CommentEditor" Placeholder="Kommentar (optional)" Text="{Binding Comment}" TextChanged="OnTextChanged" />
+                                            <Editor x:Name="CommentEditor" Placeholder="{x:Static resources:AppResources.CommentPlaceholder}" Text="{Binding Comment}" TextChanged="OnTextChanged" />
                                         </Frame>
-                                        <Button x:Name="ReserveButton" Text="Reservieren" Command="{Binding ReserveCommand}" BackgroundColor="#FF5733" />
+                                        <Button x:Name="ReserveButton" Text="{x:Static resources:AppResources.ReserveButtonText}" Command="{Binding ReserveCommand}" BackgroundColor="#FF5733" />
                                         <Label x:Name="ValidationLabel" Text="{Binding ValidationMessage}" TextColor="Red"/>
                                     </StackLayout>
                                 </StackLayout>
                             </StackLayout>
                         </tabView:SfTabItem.Content>
                     </tabView:SfTabItem>
-                    <tabView:SfTabItem Header="Meine Termine">
+                    <tabView:SfTabItem Header="{x:Static resources:AppResources.MyAppointmentsHeader}">
                         <tabView:SfTabItem.Content>
                             <CollectionView x:Name="AppointmentsCollection" Margin="0,10,0,0" ItemsSource="{Binding Appointments}" SelectionMode="None">
                             <CollectionView.ItemTemplate>

@@ -24,10 +24,12 @@ namespace DisApp24.Services
     public class FirebaseAuthService : IFirebaseAuthService
     {
         private readonly FirebaseClient _firebaseClient;
+        private readonly AppConfig _config;
 
         public FirebaseAuthService()
         {
-            _firebaseClient = new FirebaseClient("https://disapp24-reservation-module-default-rtdb.europe-west1.firebasedatabase.app/");
+            _config = ServiceHelper.GetService<AppConfig>();
+            _firebaseClient = new FirebaseClient(_config.FirebaseUrl);
         }
 
 #if ANDROID

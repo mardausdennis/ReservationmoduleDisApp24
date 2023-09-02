@@ -11,6 +11,7 @@ using DisApp24.Services;
 using CommunityToolkit.Mvvm.Messaging;
 using DisApp24.Models;
 using MvvmHelpers.Commands;
+using DisApp24.Resources;
 
 namespace DisApp24.ViewModels
 {
@@ -173,7 +174,7 @@ namespace DisApp24.ViewModels
                 {
                     return SelectedDates.First().ToString("dd/MM/yyyy");
                 }
-                return "Kein Datum ausgewählt";
+                return AppResources.NoDateSelected;
             }
         }
 
@@ -186,12 +187,16 @@ namespace DisApp24.ViewModels
             {
                 OnDateSelected(SelectedDates.First());
                 await _navigation.GetNavigation().PopAsync();
-
             }
             else
             {
                 // Send a message to the view to show the alert
-                WeakReferenceMessenger.Default.Send(new ShowAlertMessage { Title = "Error", Message = "Please select a date before confirming.", ButtonText = "OK" });
+                WeakReferenceMessenger.Default.Send(new ShowAlertMessage
+                {
+                    Title = AppResources.ErrorTitle,
+                    Message = AppResources.SelectDateBeforeConfirming,
+                    ButtonText = AppResources.OkButton
+                });
             }
         }
 

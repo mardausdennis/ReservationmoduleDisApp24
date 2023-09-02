@@ -1,35 +1,55 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:login="clr-namespace:DisApp24.Modules.Login;assembly=DisApp24"
+             xmlns:local="clr-namespace:DisApp24;assembly=DisApp24"
              x:Class="DisApp24.RssPage">
 
-    <StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Top row for buttons -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Language Switch Button on the left -->
+            <local:LanguageSwitchButton Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center" 
+                                        Margin="10,10,5,5"/>
+
+            <!-- SignInButton on the right -->
+            <login:SignInButton Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" 
+                                Margin="5,10,10,5" WidthRequest="120"/>
+        </Grid>
         <!-- Hier wird der SignInButton eingefgt -->
         <login:SignInButton HorizontalOptions="End" VerticalOptions="Start" 
                             Margin="0,10,10,5" WidthRequest="120" />
-        <CollectionView x:Name="MyRssFeedView" ItemsSource="{Binding RssItems}" BackgroundColor="White"
-                    SelectionMode="Single"
-                    SelectionChangedCommand="{Binding ItemSelectedCommand}"
-                    SelectionChangedCommandParameter="{Binding Source={x:Reference MyRssFeedView}, Path=SelectedItem}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <ContentView InputTransparent="True">
-                    <Frame Padding="10" Margin="5" BackgroundColor="White" CornerRadius="5" HasShadow="True">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Row="0" Text="{Binding Title}" FontSize="16" TextColor="Black" />
-                            <Label Grid.Row="1" Text="{Binding Summary}" FontSize="14" TextColor="Gray" MaxLines="3" LineBreakMode="TailTruncation" />
-                        </Grid>
-                    </Frame>
-                </ContentView>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-    </StackLayout>
+        <CollectionView Grid.Row="1" x:Name="MyRssFeedView" ItemsSource="{Binding RssItems}" BackgroundColor="White"
+                        SelectionMode="Single"
+                        SelectionChangedCommand="{Binding ItemSelectedCommand}"
+                        SelectionChangedCommandParameter="{Binding Source={x:Reference MyRssFeedView}, Path=SelectedItem}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView InputTransparent="True">
+                        <Frame Padding="10" Margin="5" BackgroundColor="White" CornerRadius="5" HasShadow="True">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0" Text="{Binding Title}" FontSize="16" TextColor="Black" />
+                                <Label Grid.Row="1" Text="{Binding Summary}" FontSize="14" TextColor="Gray" MaxLines="3" LineBreakMode="TailTruncation" />
+                            </Grid>
+                        </Frame>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

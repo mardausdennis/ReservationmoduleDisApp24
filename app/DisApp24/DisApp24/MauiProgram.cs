@@ -59,6 +59,7 @@ namespace DisApp24
         public static MauiApp CreateMauiApp()
         {
 
+            System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = new System.Globalization.CultureInfo("en-US");
 
             var builder = MauiApp.CreateBuilder();
             builder
@@ -80,10 +81,10 @@ namespace DisApp24
             var config = new AppConfig
             {
                 RssUrl = appSettings["RssUrl"].ToString(),
-                // Weitere Parameter können hier zugewiesen werden
+                FirebaseUrl = appSettings["FirebaseUrl"].ToString(),
             };
 
-        // Register the config as a singleton
+            // Register the config as a singleton
             builder.Services.AddSingleton<AppConfig>(config);
 
 #if DEBUG

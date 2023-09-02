@@ -2,6 +2,7 @@ using System;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using DisApp24.Models;
+using DisApp24.Resources;
 using DisApp24.Services;
 using Microsoft.Maui.Controls;
 
@@ -32,17 +33,22 @@ namespace DisApp24.Modules.Login
                 recipient.UpdateButton();
                 recipient.SignInStatusChanged?.Invoke(this, EventArgs.Empty);
             });
+
+            WeakReferenceMessenger.Default.Register<SignInButton, LanguageChangedMessage>(this, (recipient, message) =>
+            {
+                recipient.UpdateButton();
+            });
         }
 
         public void UpdateButton()
         {
             if (_firebaseAuthService.IsSignedIn())
             {
-                AuthButton.Text = "Abmelden";
+                AuthButton.Text = AppResources.SignInButtonText_SignedIn;
             }
             else
             {
-                AuthButton.Text = "Anmelden";
+                AuthButton.Text = AppResources.SignInButtonText_SignedOut;
             }
 
             SignInStatusChanged?.Invoke(this, EventArgs.Empty);

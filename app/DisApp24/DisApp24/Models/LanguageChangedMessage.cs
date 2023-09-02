@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DisApp24.Models
 {
-    public class AppConfig
+    public class LanguageChangedMessage
     {
-        public string RssUrl { get; set; }
-        public string FirebaseUrl { get; set; }
+        
     }
 
 }

@@ -14,6 +14,16 @@ namespace DisApp24
         {
             InitializeComponent();
             BindingContext = vm;
+
+            WeakReferenceMessenger.Default.Register<RssPage, LanguageChangedMessage>(this, (recipient, message) =>
+            {
+                recipient.RefreshViewModel();
+            });
+        }
+
+        private async void RefreshViewModel()
+        {
+            await (BindingContext as RssViewModel).Initialize();
         }
 
         protected override async void OnAppearing()

@@ -8,10 +8,12 @@ namespace DisApp24.Services
     public class FirebaseReservationService : IFirebaseReservationService
     {
         private readonly FirebaseClient _firebaseClient;
+        private readonly AppConfig _config;
 
         public FirebaseReservationService()
         {
-            _firebaseClient = new FirebaseClient("https://disapp24-reservation-module-default-rtdb.europe-west1.firebasedatabase.app/");
+            _config = ServiceHelper.GetService<AppConfig>();
+            _firebaseClient = new FirebaseClient(_config.FirebaseUrl);
         }
 
         public async Task<List<Appointment>> GetReservationsAsync()
