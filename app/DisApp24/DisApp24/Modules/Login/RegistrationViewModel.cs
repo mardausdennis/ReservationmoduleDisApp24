@@ -35,7 +35,6 @@ namespace DisApp24.ViewModels
         public ICommand RegisterCommand { get; }
         public ICommand NavigateToLoginCommand { get; }
 
-        // Add properties for FirstName, LastName, Email, PhoneNumber, Password, ConfirmPassword, and ValidationMessage with OnPropertyChanged
         public string FirstName
         {
             get => _firstName;
@@ -107,8 +106,8 @@ namespace DisApp24.ViewModels
 
         private async Task OnCancelButtonClicked()
         {
-            // Use the messaging center to notify the view about canceling the registration
             WeakReferenceMessenger.Default.Send(new RegistrationMessage(false));
+            await AppShell.Current.GoToAsync(nameof(LoginPage));
         }
 
         private bool ValidateInput()
