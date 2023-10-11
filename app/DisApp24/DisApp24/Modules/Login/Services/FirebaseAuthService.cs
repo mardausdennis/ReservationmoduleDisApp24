@@ -105,27 +105,47 @@ namespace DisApp24.Services
         {
             var authProvider = FirebaseAuth.Instance;
             var user = authProvider.CurrentUser;
-            if (user != null)
+            if (user == null)
             {
-                // Benutzerprofil aus der Firebase Realtime Database abrufen
-                var userProfile = await GetUserProfileAsync(user.Uid);
-
-                // Verwende TryGetValue, um Werte aus dem Benutzerprofil abzurufen
-                userProfile.TryGetValue("FirstName", out object firstName);
-                userProfile.TryGetValue("LastName", out object lastName);
-
-                // Erstelle ein AppUser-Objekt mit den Informationen aus dem Benutzerprofil
-                return new AppUser
-                {
-                    Uid = user.Uid,
-                    FirstName = firstName as string,
-                    LastName = lastName as string,
-                    Email = user.Email,
-                    PhoneNumber = user.PhoneNumber
-                };
+                // Wenn kein Benutzer angemeldet ist, geben Sie null zurück oder behandeln Sie dies entsprechend.
+                return null;
             }
-            return null;
+
+            // Benutzerprofil aus der Firebase Realtime Database abrufen
+            var userProfile = await GetUserProfileAsync(user.Uid);
+
+            string firstName = null;
+            string lastName = null;
+
+            // Verwende TryGetValue, um Werte aus dem Benutzerprofil abzurufen
+            if (userProfile != null)
+            {
+                userProfile.TryGetValue("FirstName", out object firstNameObject);
+                userProfile.TryGetValue("LastName", out object lastNameObject);
+
+                // Konvertieren Sie die Objekte sicher in Strings, falls sie vorhanden sind
+                if (firstNameObject is string)
+                {
+                    firstName = (string)firstNameObject;
+                }
+
+                if (lastNameObject is string)
+                {
+                    lastName = (string)lastNameObject;
+                }
+            }
+
+            // Erstelle ein AppUser-Objekt mit den Informationen aus dem Benutzerprofil
+            return new AppUser
+            {
+                Uid = user.Uid,
+                FirstName = firstName,
+                LastName = lastName,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber
+            };
         }
+
 
         public bool IsSignedIn()
         {
