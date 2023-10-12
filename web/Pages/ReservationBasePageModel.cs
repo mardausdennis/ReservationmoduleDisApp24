@@ -87,6 +87,7 @@ public abstract class ReservationBasePageModel : PageModel
             return Page();
         }
 
+        await FetchReservationsAsync();
         var reservation = Reservations.FirstOrDefault(r => r.Id == id);
 
         if (reservation == null)
@@ -120,6 +121,7 @@ public abstract class ReservationBasePageModel : PageModel
             return Page();
         }
 
+        await FetchReservationsAsync();
         var reservation = Reservations.FirstOrDefault(r => r.Id == id);
 
         if (reservation == null)
